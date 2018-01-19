@@ -1,8 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-    printf("Hello world!\n");
+    float current, resistance;
+
+    printf("Enter the current:");
+    scanf("%f", &current);
+    printf("Enter the resistance:");
+    scanf("%f", &resistance);
+
+    float power = current * current * resistance;
+    printf("The power loss: %.2f", power);
+
     return 0;
 }
