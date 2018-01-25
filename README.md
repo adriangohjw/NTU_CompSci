@@ -8,3 +8,5 @@ Lab 02 - Control Flow
 Lab 03 - Functions and Pointers
 
 Lab 04 - Arrays
+
+Lab 05 - Strings
