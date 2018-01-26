@@ -1,22 +1,15 @@
 #include <stdio.h>
-#include <stdlib.h>
-
-int main(void)
+int main()
 {
-    int repeat = 1;
+   /* insert variable declarations here */
+    int studentNumber, mark;
+    char grade;
 
-    while (repeat == 1){
-        int id, mark;
-        char grade;
-
-        printf("Enter Student ID: ");
-        scanf("%d", &id);
-        if (id == -1) {
-            repeat = 0;
-            break;
-        }
-
-        printf("Enter Mark: ");
+    printf("Enter Student ID: \n");
+    scanf("%d", &studentNumber);
+    while (studentNumber != -1) {
+    /* Write your program code here */
+        printf("Enter Mark: \n");
         scanf("%d", &mark);
 
         if (mark >= 75)
@@ -29,7 +22,10 @@ int main(void)
             grade = 'D';
         else
             grade = 'F';
-        printf("Grade = %c", grade);
+
+        printf("Grade = %c\n", grade);
+        printf("Enter Student ID: \n");
+        scanf("%d", &studentNumber);
     }
 
     return 0;
