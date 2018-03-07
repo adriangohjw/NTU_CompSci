@@ -29,9 +29,8 @@ int rNumDigits1(int num)
 void rNumDigits2(int num, int *result)
 {
     /* Write your program code here */
-    if (num/10 == 0){
-        *result = 1;
-    } else {
-        *result = 1 + rNumDigits1(num/10);
+    (*result)++;
+    if (num/10 != 0){
+        rNumDigits2(num/10, result);
     }
 }

@@ -39,15 +39,13 @@ int rDigitPos1(int num, int digit)
 void rDigitPos2(int num, int digit, int *pos)
 {
     /* Write your program code here */
-    if (num == 0){  // terminating case
-        *pos = 0;
-    } else if (num % 10 == digit){  // if match with digit
-        *pos = 1;
-    }
-
-    if (rDigitPos1(num/10, digit) == 0){
+    if (num % 10 == digit){
+        (*pos)++;
+    } else if (num/10 == 0) {
+        // no match found
         *pos = 0;
     } else {
-        *pos = 1 + rDigitPos1(num/10, digit);
+        (*pos)++;
+        rDigitPos2(num/10, digit, pos);
     }
 }
