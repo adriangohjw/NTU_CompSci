@@ -13,4 +13,4 @@ Lab 05 - Strings
 
 Lab 06 - Structure
 
-Lab 07 - Recussion
+Lab 07 - Recusion
