@@ -1,0 +1,8 @@
+This is in file A only
+Adrian says Hello.
+
+This is in file B only
+Master of Puppets is pulling your strings
+
+Number of different line(s) in file A: 1
+Number of different line(s) in file B: 1
