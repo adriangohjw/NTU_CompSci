@@ -10,3 +10,7 @@ Lab 03 - Functions and Pointers
 Lab 04 - Arrays
 
 Lab 05 - Strings
+
+Lab 06 - Structure
+
+Lab 07 - Recussion
