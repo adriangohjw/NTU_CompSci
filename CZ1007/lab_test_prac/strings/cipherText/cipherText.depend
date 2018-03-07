@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1520414246 source:c:\users\adriangohjw\desktop\tech\cz1007\lab_test_prac\strings\ciphertext\main.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+
