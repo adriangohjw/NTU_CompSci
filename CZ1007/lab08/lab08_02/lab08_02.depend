@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1520945651 source:c:\users\adriangohjw\desktop\tech\ntu_compsci\cz1007\lab08\lab08_02\main.c
+	<stdio.h>
+	<stdlib.h>
+
