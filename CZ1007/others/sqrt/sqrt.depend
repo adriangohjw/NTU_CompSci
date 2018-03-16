@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1521202961 source:c:\users\adriangohjw\desktop\tech\ntu_compsci\cz1007\others\sqrt\main.c
+	<stdio.h>
+	<stdlib.h>
+
