@@ -23,17 +23,14 @@ int palindrome(char *str){
     /* palindrome is a sequence of characters that reads the same forwards and backwards */
     /* return 1 if positive, else 0 */
     /* Write your code here */
-    int length = 0, i = 0;
-    while (str[i] != '\0'){
+    int length = 0;
+    while (*(str+length) != '\0')
         length++;
-        i++;
+
+    int pos;
+    for(pos=0; pos<length/2; pos++){
+        if (*(str+pos) != *(str+length-1-pos))
+            return 0;
     }
-    int to_return = 1;
-    for (int j=0; j < length/2; j++){
-        if (str[j] != str[(length-1)-j]){
-            to_return = 0;
-            break;
-        }
-    }
-    return to_return;
+    return 1;
 }
