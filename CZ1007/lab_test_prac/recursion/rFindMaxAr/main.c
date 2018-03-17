@@ -20,12 +20,10 @@ void rFindMaxAr(int *ar, int size, int i, int *index)
 {
     /* Write your code here */
     // not sure what is i, assumed to be value of largest number
-    if (size == 1){
-        if (*(ar) > i)
-            i = *(ar);
-    } else if (*(ar) > i){
-        (*index)++;
-        rFindMaxAr(ar+1, size-1, *ar, index);
-    } else
-        rFindMaxAr(ar+1, size-1, i, index);
+    i++;
+    if (size >= 2){
+        if (ar[i] > ar[*index])
+            (*index) = i;
+        rFindMaxAr(ar, size-1, i, index);
+    }
 }
