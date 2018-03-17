@@ -41,16 +41,11 @@ void reduceMatrix2D(int ar[][SIZE], int rowSize, int colSize)
     /* to reduce a matrix with dimensions of rowSize and colSize */
     /* setting each diagonal element to the sum of the original elements in that column
     and setting to 0s all the elements below the diagonal */
-    for (int i=0; i < rowSize; i++){
-        for (int j=0; j < colSize-1; j++){
-            if (i == j){
-                int total = 0;
-                for (int k=i; k < rowSize; k++){
-                    total += ar[k][j];
-                    ar[k][j] = 0;
-                }
-                ar[i][j] = total;
-            }
+    int row, col;
+    for (col=0; col<colSize; col++){
+        for (row=col+1; row<rowSize; row++){
+            ar[col][col] += ar[row][col];
+            ar[row][col] = 0;
         }
     }
 }
