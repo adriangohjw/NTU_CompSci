@@ -80,10 +80,7 @@ int duplicateReverse(ListNode *head, ListNode **ptrNewHead){
 	ListNode *currentNode = head;
 	while (currentNode != NULL){
         insertNode(ptrNewHead, 0, currentNode->num);
-        if (currentNode->next == NULL)
-            break;
-        else
-            currentNode = currentNode->next;
+        currentNode = currentNode->next;
 	}
     return 0;
 }

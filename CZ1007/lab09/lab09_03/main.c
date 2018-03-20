@@ -101,10 +101,7 @@ int split(ListNode *head, ListNode **ptrEvenList, ListNode **ptrOddList)
             sizeOdd++;
         }
 
-        if (currentNode->next == NULL)
-            break;
-        else
-            currentNode = currentNode->next;
+        currentNode = currentNode->next;
 	}
     return 1;
 }
