@@ -15,16 +15,13 @@ typedef struct _dbllistnode{
 	struct _dbllistnode *next;
 } DblListNode;
 
-void printList(ListNode *head);
-ListNode * findNode(ListNode *head, int index);
-int insertNode(ListNode **ptrHead, int index, int value);
+DblListNode * findNode(DblListNode *head, int index);
 int insertDbl(DblListNode **ptrHead, int index, int value);
 void printDblList(DblListNode *head);
 
 int main()
 {
 	DblListNode *dblHead = NULL;
-	int size = 0;
 
 	printf("insertDbl()\nDoubly-linked list: ");
 	insertDbl(&dblHead, 0, 10);
@@ -33,20 +30,6 @@ int main()
 	insertDbl(&dblHead, 2, 40);
 	printDblList(dblHead);
 	return 0;
-}
-
-void printList(ListNode *head){
-	ListNode *cur = head;
-
-	if (cur == NULL)
-		return;
-
-	printf("the current linked list is:\n");
-	while (cur != NULL){
-		printf("%d ", cur->num);
-		cur = cur->next;
-	}
-	printf("\n");
 }
 
 void printDblList(DblListNode *head){
@@ -58,7 +41,7 @@ void printDblList(DblListNode *head){
 	printf("\n");
 }
 
-ListNode * findNode(ListNode *head, int index){
+DblListNode * findNode(DblListNode *head, int index){
 	if (head == NULL || index < 0) return NULL;
 	while (index > 0){
 		head = head->next;
@@ -69,28 +52,40 @@ ListNode * findNode(ListNode *head, int index){
 	return head;
 }
 
-int insertNode(ListNode **ptrHead, int index, int value){
-	ListNode *pre, *cur;
-	// If empty list or inserting first node, need to update head pointer
-	if (*ptrHead == NULL || index == 0){
-		cur = *ptrHead;
-		*ptrHead = malloc(sizeof(ListNode));
-		(*ptrHead)->num = value;
-		(*ptrHead)->next = cur;
-		return 0;
-	}
-	// Find the nodes before and at the target position
-	// Create a new node and reconnect the links
-	if ((pre = findNode(*ptrHead, index - 1)) != NULL){
-		cur = pre->next;
-		pre->next = malloc(sizeof(ListNode));
-		pre->next->num = value;
-		pre->next->next = cur;
-		return 0;
-	}
-	return -1;
-}
-
 int insertDbl(DblListNode **ptrHead, int index, int value){
 	// write your code here
+    DblListNode *newNode = malloc(sizeof(ListNode)), *preNode, *curNode;
+    if (newNode == NULL || index < 0)  // failed malloc or invalid index
+        return -1;
+    newNode->num = value;
+
+    if (*ptrHead == NULL){  // no nodes
+        *ptrHead = newNode;
+        newNode->pre = NULL;
+        newNode->next = NULL;
+    } else {
+        // at least one node(s) in list
+        if (index == 0){
+            // to insert as the first node
+            newNode->pre = NULL;
+            newNode->next = *ptrHead;
+            (*ptrHead)->pre = newNode;
+            *ptrHead = newNode;
+        } else {
+            preNode = findNode(*ptrHead, index-1);
+            if (preNode == NULL)
+                return -1;
+            else {
+                curNode = preNode->next;
+                preNode->next = newNode;
+                newNode->pre = preNode;
+                if (curNode == NULL)  // adding node to the end
+                    newNode->next = NULL;
+                else  // node added in between two nodes
+                    newNode->next = curNode;
+            }
+        }
+    }
+    printDblList(*ptrHead);
+    return 0;
 }
