@@ -66,7 +66,6 @@ int insertDbl(DblListNode **ptrHead, int index, int value){
     } else {
         // at least one node(s) in list
         if (index == 0){
-            // to insert as the first node
             newNode->pre = NULL;
             newNode->next = *ptrHead;
             (*ptrHead)->pre = newNode;
@@ -86,6 +85,5 @@ int insertDbl(DblListNode **ptrHead, int index, int value){
             }
         }
     }
-    printDblList(*ptrHead);
     return 0;
 }
