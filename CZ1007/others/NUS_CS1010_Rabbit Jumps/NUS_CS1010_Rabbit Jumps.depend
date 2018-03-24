@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1521882507 source:c:\users\adriangohjw\desktop\tech\ntu_compsci\cz1007\others\nus_cs1010_rabbit jumps\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int countJumps(int ar[], int size);
+
+int main()
+{
+    int rocks[20], count, size, num;
+    printf("Enter number of rocks: ");
+    scanf("%d", &size);
+    for (count=0; count<size; count++)
+        scanf("%d", &rocks[count]);
+    printf("%d", countJumps(rocks, size));
+    return 0;
+}
+
+int countJumps(int rocks[], int size){
+    int pos=0, count, lastDist = 0, numJumps = 0;
+    while (pos < size-1){
+        printf("check: %d \n", rocks[pos]);
+        if (rocks[pos] + 50 < rocks[pos+1])
+            return -1;
+        count = 1;
+        while (rocks[pos+count] + 50 <= lastDist)
+            count++;
+        pos += count;
+        lastDist = rocks[pos];
+        numJumps++;
+    }
+    return numJumps;
+}
