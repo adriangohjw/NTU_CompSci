@@ -31,7 +31,7 @@ int main()
     printf("\n");
 
 	concatenate(&ptrHead1, ptrHead2);
-	printf("concatenate(current list, duplicate reverse list)\n  ");
+	printf("concatenate(current list, duplicate reverse list)\n");
 	printList(ptrHead1);
 
 	return 0;
@@ -94,16 +94,13 @@ int concatenate(ListNode **ptrHead1, ListNode *ptrHead2){
         if (ptrHead2 == NULL)
             return -1;
         *ptrHead1 = ptrHead2;
-        return 0;
     } else {
-        if (ptrHead2 == NULL)
-            return 0;
         while (current != NULL){
             if (current->next == NULL)
                 break;
             current = current->next;
         }
         current->next = ptrHead2;
-        return 0;
     }
+    return 0;
 }

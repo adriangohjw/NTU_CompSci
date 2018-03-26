@@ -100,7 +100,6 @@ int split(ListNode *head, ListNode **ptrEvenList, ListNode **ptrOddList)
                 insertNode(ptrOddList, sizeOdd, currentNode->num);
             sizeOdd++;
         }
-
         currentNode = currentNode->next;
 	}
     return 1;

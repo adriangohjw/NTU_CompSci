@@ -86,22 +86,18 @@ ListNode * findNode(ListNode *head, int index){
 int removeNode(ListNode **ptrHead, int index){
     // **ptrHead is the address of the first node
     //  *ptrHead is the first node
-    if (index < 0)  // error if negative index chosen
+    if (index < 0 || *ptrHead == NULL)  // error if negative index chosen // no node
         return -1;
-    else if (index == 0){  // if first node chosen to be removed
-        if ((*ptrHead)->next == NULL)  // first node is only node
-            (*ptrHead) = NULL;
-        else
-            (*ptrHead) = (*ptrHead)->next;  // move address of first node to second node
-        return 0;
-    } else {
+    else if (index == 0)  // if first node chosen to be removed
+        (*ptrHead) = (*ptrHead)->next;
+    else {
         ListNode *pre = findNode(*ptrHead, index-1), *cur;
         if (pre == NULL || pre->next == NULL)
             return -1;  // current is the currentNode
         else {
             cur = pre->next->next;
             pre->next = cur;
-            return 0;
         }
     }
+    return 0;
 }

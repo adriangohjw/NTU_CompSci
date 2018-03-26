@@ -43,16 +43,14 @@ void insert(char *str, int size){
     scanf(" %c", &char_to_insert);
 
     int count;
-    for(count=size-1; count!=0; count--){
+    for(count=size-1; count!=0; count--)
         *(str+count) = *(str+count-1);
-    }
     *(str+0) = char_to_insert;
 }
 
 void removes(char *str, int size){
     int count;
-    for(count=0; count<(size-1); count++){
+    for(count=0; count<(size-1); count++)
         *(str+count) = *(str+count+1);
-    }
     *(str+(size-1)) = '\0';
 }
