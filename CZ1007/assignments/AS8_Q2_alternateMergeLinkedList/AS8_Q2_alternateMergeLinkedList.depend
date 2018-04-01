@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1521578292 source:c:\users\adriangohjw\desktop\tech\ntu_compsci\cz1007\assignments\as8_q2_alternatemergelinkedlist\main.c
+	<stdio.h>
+	<stdlib.h>
+
