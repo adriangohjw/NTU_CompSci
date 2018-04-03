@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]){
 
 	int i;
 	BTNode *root, *root2;
-	BTNode btn[31];
+	BTNode btn[15];
 
 	// Create the tree in Q1
 	// Using manual dynamic allocation of memory for BTNodes
@@ -87,13 +87,13 @@ int main(int argc, const char * argv[]){
 	//question 4
 	// Create a tree for Q4: Tall enough so some nodes have great-grandchildren
 	// Use array of BTNodes, create tree by linking nodes together
-	for (i = 0; i <= 14; i++){
+	for (i = 0; i <= 7; i++){
 		btn[i].item = i;
 		btn[i].left = &(btn[i * 2 + 1]);
 		btn[i].right = &(btn[i * 2 + 2]);
 	}
 
-	for (i = 15; i <= 30; i++){
+	for (i = 7; i <= 14; i++){
 		btn[i].item = i;
 		btn[i].left = NULL;
 		btn[i].right = NULL;
@@ -111,12 +111,21 @@ int main(int argc, const char * argv[]){
 void mirrorTree(BTNode *node){
 
 	// write your code here
-	if (node == NULL) return ;
-	if ((node->left != NULL) && (node->right != NULL)){
+	if (node == NULL) return ;  // node has no child
+	if ((node->left != NULL) && (node->right != NULL)){  // node has 2 children
         mirrorTree(node->right);
         BTNode *node_temp = node->left;
         node->left = node->right;
         node->right = node_temp;
+        mirrorTree(node->right);
+	} else if (node->left == NULL && node->right != NULL){  // node only has right child
+        node->left = node->right;
+        node->right = NULL;
+        mirrorTree(node->left);
+	} else if (node->left != NULL && node->right == NULL){  // node only has right child
+	    node->right = node->left;
+        node->left = NULL;
+        mirrorTree(node->right);
 	}
 }
 
