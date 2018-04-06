@@ -13,4 +13,14 @@ Lab 05 - Strings
 
 Lab 06 - Structure
 
-Lab 07 - Recusion
+Lab 07 - Recursion
+
+Lab 08 - Linked List (Basics)
+
+Lab 09 - Linked List
+
+Lab 10 - Stacks and Queues
+
+Lab 11 - Binary Tree
+
+Lab 12 - Binary Search Tree
