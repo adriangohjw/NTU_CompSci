@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1522655985 source:c:\users\adriangohjw\desktop\tech\ntu_compsci\cz1007\assignments\as9_q4_reversequeue\main.c
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+

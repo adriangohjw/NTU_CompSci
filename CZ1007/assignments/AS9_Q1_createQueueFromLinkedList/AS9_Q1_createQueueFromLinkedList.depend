@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1522647638 source:c:\users\adriangohjw\desktop\tech\ntu_compsci\cz1007\assignments\as9_q1_createqueuefromlinkedlist\main.c
+	<stdio.h>
+	<stdlib.h>
+
