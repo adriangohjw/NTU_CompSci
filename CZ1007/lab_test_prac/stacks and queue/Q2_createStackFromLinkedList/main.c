@@ -127,7 +127,7 @@ void removeEvenValues(Stack *s)
 	if (isEmptyStack(s) == 0){  // if stack not empty
         int temp = pop(s);
         removeEvenValues(s);
-        if (temp % 2 == 1)
+        if (abs(temp % 2) == 1)
             push(s, temp);
 	}
 }
