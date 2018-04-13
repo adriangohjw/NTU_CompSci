@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1523597293 source:c:\users\adriangohjw\desktop\tech\ntu_compsci\cz1007\lab_test_prac\binary search tree\q3_preorderiterative\main.c
+	<stdio.h>
+	<stdlib.h>
+

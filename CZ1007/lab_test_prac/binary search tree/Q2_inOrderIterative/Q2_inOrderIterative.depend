@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1523267145 source:c:\users\adriangohjw\desktop\tech\ntu_compsci\cz1007\lab_test_prac\binary search tree\q2_inorderiterative\main.c
+	<stdio.h>
+	<stdlib.h>
+
