@@ -87,27 +87,20 @@ int main()
 
 void RecursiveReverse(ListNode **ptrHead)
 {
-	/* add your code here */
-	if (*ptrHead == NULL) return ;  // no node
+    /* add your code here */
+    // refer to https://www.geeksforgeeks.org/wp-content/uploads/2009/07/Linked-List-Rverse.gif
+    ListNode *start = *ptrHead;
+    if (start == NULL) return ;  // if no node
 
-	LinkedList *ll = malloc(sizeof(ListNode));
-	if (ll == NULL) return ;
-	ll->head = *ptrHead;
-	ll->size = 0;
+    ListNode *rest = start->next;
+    if (rest == NULL) return;  // if only node (e.g. middle node)
 
-    ListNode *cur = ll->head;
-    while (cur != NULL){
-        (ll->size)++;
-        cur = cur->next;
-    }
+    RecursiveReverse(&rest);
 
-    // switching nodes
-    int pos;
-    for (pos=0; pos<(ll->size)/2; pos++){
-        int temp = findNode(ll, (ll->size)-1-pos)->item;
-        findNode(ll, (ll->size)-1-pos)->item = findNode(ll, pos)->item;
-        findNode(ll, pos)->item = temp;
-    }
+    start->next->next = start;
+    start->next = NULL;
+
+    *ptrHead = rest;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
