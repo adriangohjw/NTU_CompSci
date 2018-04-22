@@ -104,14 +104,11 @@ int main()
 int isStackPairwiseConsecutive(Stack *s)
 {
     /* add your code here */
-    // return 1 if pairwise consecutive, else 0
-    if (s->ll.size % 2 == 1) return 0;  // cannot be pairwise if odd nodes
-    if (isEmptyStack(s) == 0){
-        int t1 = pop(s), t2 = pop(s);
-        if (abs(t1 - t2) != 1) return 0;
-        if (isStackPairwiseConsecutive(s) == 0) return 0;
-        push(s, t2);
-        push(s, t1);
+    if (abs(s->ll.size % 2)==1)
+        return 0;
+    while (isEmptyStack(s)==0){
+        if (abs(pop(s)-pop(s))!=1)
+            return 0;
     }
     return 1;
 }
