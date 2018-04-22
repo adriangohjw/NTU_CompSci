@@ -87,11 +87,11 @@ int main()
 void moveOddItemsToBack(LinkedList *ll)
 {
 	/* add your code here */
-    int pos = 0, count;
-    for (count=0; count<ll->size; count++){
-        ListNode *cur = findNode(ll, pos);
-        if (cur->item % 2 == 1){  // if odd
-            insertNode(ll, ll->size, cur->item);
+    int i, pos = 0;
+    for (i=0; i<ll->size; i++){
+        ListNode *temp = findNode(ll, pos);
+        if (abs(temp->item % 2) == 1){
+            insertNode(ll, ll->size, temp->item);
             removeNode(ll, pos);
         } else
             pos++;
