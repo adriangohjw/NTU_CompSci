@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1524391041 source:c:\users\adriangohjw\desktop\tech\ntu_compsci\cz1007\lab_test_prac\binary trees\q2_maxheight\main.c
+	<stdio.h>
+	<stdlib.h>
+

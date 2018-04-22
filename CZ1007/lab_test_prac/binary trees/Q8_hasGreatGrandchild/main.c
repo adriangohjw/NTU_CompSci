@@ -102,21 +102,18 @@ int main()
 
 int hasGreatGrandchild(BTNode *node)
 {
-	/* add your code here */
+    // defining function
     int max(int a, int b){
-        return (a > b) ? a : b;
-    }
-    int hasGCC(BTNode *mynode, int level){
-        if (mynode == NULL) return 0;
-        if (level == 3)     return 1;
-        return max(hasGCC(mynode->left, level+1), hasGCC(mynode->right, level+1));
+        return a > b ? a : b;
     }
 
-    if (node == NULL) return;
-    if (hasGCC(node, 0) == 1)
-        printf("%d ", node->item);
-    hasGreatGrandchild(node->left);
-    hasGreatGrandchild(node->right);
+    if (node == NULL) return 0;
+
+	int l = max(hasGreatGrandchild(node->left), hasGreatGrandchild(node->right));
+	if (l >= 3)
+		printf("%d ", node->item);
+
+	return (l + 1);
 }
 
 //////////////////////////////////////////////////////////////////////////////////

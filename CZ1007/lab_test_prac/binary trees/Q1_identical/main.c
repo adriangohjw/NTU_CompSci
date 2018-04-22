@@ -118,21 +118,30 @@ int identical(BTNode *tree1, BTNode *tree2)
 {
     /* add your code here */
     int min(int a, int b){
-        return (a < b) ? a : b;
-    }
-    int hasChild(BTNode *a){
-        return (a->left != NULL || a->right != NULL) ? 1 : 0;
+        return a < b ? a : b;
     }
 
+    // function: return 1 if node is leaf else 0
+    int isLeaf(BTNode *mynode){
+        return (mynode->left == NULL && mynode->right == NULL) ? 1 : 0;
+    }
+
+    // NULL checks
     if (tree1 == NULL && tree2 == NULL) return 1;
+    if (tree1 == NULL && tree2 != NULL) return 0;
+    if (tree1 != NULL && tree2 == NULL) return 0;
 
-    if (hasChild(tree1) + hasChild(tree2) == 1)  // one node is leaf
-        return 0;
-    else if (hasChild(tree1) + hasChild(tree2) == 0) // both leaf
+    // both are leaf and have same value -> identical
+    if (isLeaf(tree1) + isLeaf(tree2) == 2)
         return (tree1->item == tree2->item) ? 1 : 0;
-    else {
-        return min(identical(tree1->left, tree2->left), identical(tree1->right, tree2->right));
-    }
+
+    // only one node is a leaf -> not identical
+    if (isLeaf(tree1) + isLeaf(tree2) == 1) return 0;
+
+    // both nodes are parents but their values are different
+    if (isLeaf(tree1) + isLeaf(tree2) == 0 && tree1->item != tree2->item) return 0;
+
+    return min(identical(tree1->left, tree2->left), identical(tree1->right, tree2->right));
 }
 
 /////////////////////////////////////////////////////////////////////////////////

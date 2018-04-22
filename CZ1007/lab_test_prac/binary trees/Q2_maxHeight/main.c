@@ -95,28 +95,21 @@ int main()
 //////////////////////////////////////////////////////////////////////////////////
 
 int maxHeight(BTNode *node)
+
 {
     /* add your code here */
     int max(int a, int b){
-        return (a > b) ? a : b;
+        return a < b ? b : a;
     }
-    int nodeHeight(BTNode *mynode, int curHeight){
-        if (curHeight == 0){
-            if (mynode == NULL)
-                return -1;
-            else
-                return max(nodeHeight(mynode->left, curHeight+1), nodeHeight(mynode->right, curHeight+1));
-        }
-        else {
-            if (mynode == NULL)
-                return 0;
-            else if (mynode->left == NULL && mynode->right == NULL)
-                return 1;
-            else
-                return 1 + max(nodeHeight(mynode->left, curHeight+1), nodeHeight(mynode->right, curHeight+1));
-        }
+
+    int findHeight(BTNode *a, int curHeight){
+        if (a == NULL)
+            return curHeight == 0 ? -1 : -1;
+        else
+            return 1 + max(findHeight(a->left, curHeight+1), findHeight(a->right, curHeight+1));
     }
-    return nodeHeight(node, 0);
+
+    return findHeight(node, 0);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
