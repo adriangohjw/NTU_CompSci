@@ -91,20 +91,19 @@ int main()
 
 void postOrderIterativeS1(BSTNode *root)
 {
-    /* add your code here */
     Stack s;
     s.top = NULL;
 
-    BSTNode *addToStack(BSTNode *mynode){
-        if (mynode == NULL) return ;
-        push(&s, mynode->item);
-        addToStack(mynode->right);
-        addToStack(mynode->left);
+    void addToStack(BSTNode *base){
+        if (base == NULL) return ;
+        push(&s, base);
+        addToStack(base->right);
+        addToStack(base->left);
     }
 
     addToStack(root);
-    while (isEmpty(&s) == 0)
-        printf("%d, ", pop(&s));
+    while (!isEmpty(&s))
+        printf("%d ", pop(&s)->item);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
