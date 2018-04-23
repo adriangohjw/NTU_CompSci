@@ -103,10 +103,8 @@ int maxHeight(BTNode *node)
     }
 
     int findHeight(BTNode *a, int curHeight){
-        if (a == NULL)
-            return curHeight == 0 ? -1 : -1;
-        else
-            return 1 + max(findHeight(a->left, curHeight+1), findHeight(a->right, curHeight+1));
+        if (a == NULL) return -1;
+        else return 1 + max(findHeight(a->left, curHeight+1), findHeight(a->right, curHeight+1));
     }
 
     return findHeight(node, 0);
