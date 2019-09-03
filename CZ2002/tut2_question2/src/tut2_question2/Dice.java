@@ -2,7 +2,7 @@ package tut2_question2;
 import java.lang.Math;
 
 public class Dice {
-	int valueOfDice;
+	private int valueOfDice;
 	
 	public Dice() {
 		this.valueOfDice = 1;
