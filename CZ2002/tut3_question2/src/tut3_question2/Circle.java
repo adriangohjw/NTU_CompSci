@@ -4,19 +4,19 @@ import java.lang.Math;
 
 public class Circle extends Point {
 
-	protected int radius;
-	protected double area;
+	private double radius;
 	
-	public Circle(int x, int y) {
+	public Circle(int x, int y, double radius) {
 		super(x, y);
+		this.radius = radius;
 		this.area();
 	}
 
-	public void setRadius(int r) {
+	public void setRadius(double radius) {
 		this.radius = r;
 	}
 	
-	public int getRadius(int r) {
+	public double getRadius() {
 		return this.radius;
 	}
 	
