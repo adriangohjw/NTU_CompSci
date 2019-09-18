@@ -4,7 +4,7 @@ import java.lang.Math;
 
 public class Circle extends Point {
 
-	private double radius;
+	protected double radius;
 	
 	public Circle(int x, int y, double radius) {
 		super(x, y);
@@ -13,7 +13,7 @@ public class Circle extends Point {
 	}
 
 	public void setRadius(double radius) {
-		this.radius = r;
+		this.radius = radius;
 	}
 	
 	public double getRadius() {
@@ -24,8 +24,8 @@ public class Circle extends Point {
 		return super.toString();
 	}
 	
-	public void area() {
-		this.area = Math.PI * this.radius * this.radius;
+	public double area() {
+		return Math.PI * Math.pow(this.radius, 2);
 	}
 	
 }

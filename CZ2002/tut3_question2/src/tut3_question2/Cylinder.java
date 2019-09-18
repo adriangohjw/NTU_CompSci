@@ -2,7 +2,7 @@ package tut3_question2;
 
 public class Cylinder extends Circle {
 	
-	private double height;
+	protected double height;
 
 	public Cylinder(int x, int y, double radius, double height) {
 		super(x, y, radius);
@@ -22,7 +22,7 @@ public class Cylinder extends Circle {
 	}
 	
 	public double area() {
-		2 * (super.area() + (Math.PI * super.getRadius() * height));
+		return 2 * (super.area() + (Math.PI * super.getRadius() * this.height));
 	}
 	
 	public double volume() {
