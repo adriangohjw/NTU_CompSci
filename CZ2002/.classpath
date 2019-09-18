@@ -12,5 +12,6 @@
 	<classpathentry kind="src" path="tut3_question1/src"/>
 	<classpathentry kind="src" path="tut3_question2/src"/>
 	<classpathentry kind="src" path="lab2"/>
+	<classpathentry kind="src" path="lab3"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
