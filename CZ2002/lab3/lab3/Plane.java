@@ -13,13 +13,13 @@ public class Plane {
 	}
 	
 	public void showNumEmptySeats() {
-		int numEmptySeats = 0;
+		this.numEmptySeat = 0;
 		for (int i=0; i<seat.length; i++) {
 			if (seat[i].isOccupied() == false) {
-				numEmptySeats++;
+				this.numEmptySeat++;
 			} 
 		}
-		System.out.println("There are " + numEmptySeats + " empty seats");
+		System.out.println("There are " + this.numEmptySeat + " empty seats");
 	}
 	
 	public void showEmptySeats() {
@@ -45,7 +45,12 @@ public class Plane {
 	}
 	
 	public void assignSeat(int seatId, int cust_id) {
-		seat[seatId-1].assign(cust_id);
+		if (seat[seatId-1].isOccupied()) {
+			System.out.println("Seat already assigned to a customer.");
+		} else {
+			seat[seatId-1].assign(cust_id);
+			System.out.println("Seat Assigned!");
+		}
 	}
 	
 	public void unAssignSeat(int seatId) {
