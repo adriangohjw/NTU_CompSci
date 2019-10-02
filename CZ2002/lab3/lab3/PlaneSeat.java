@@ -3,7 +3,7 @@ package lab3;
 public class PlaneSeat {
 
 	private int seatId;
-	private boolean assigned;
+	private boolean assigned = false;
 	private int customerId;
 	
 	public PlaneSeat(int seat_id) {
