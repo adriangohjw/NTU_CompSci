@@ -8,6 +8,7 @@ public class PlaneSeat {
 	
 	public PlaneSeat(int seat_id) {
 		this.seatId = seat_id;
+		this.customerId = -1;
 	}
 	
 	public int getSeatID() {
