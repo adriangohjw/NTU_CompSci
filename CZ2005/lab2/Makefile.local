@@ -1,0 +1,32 @@
+ifndef MAKEFILE_THREADS_LOCAL
+define MAKEFILE_THREADS_LOCAL
+yes
+endef
+
+
+SFILES = switch$(HOST_LINUX).s
+
+
+# If you add new files, you need to add them to CCFILES,
+# you can define CFILES if you choose to make .c files instead.
+
+CCFILES = main.cc\
+	list.cc\
+	scheduler.cc\
+	synch.cc\
+	synchlist.cc\
+	system.cc\
+	thread.cc\
+	threadtest.cc\
+	utility.cc\
+	interrupt.cc\
+	sysdep.cc\
+	stats.cc\
+	timer.cc\
+	ipt.cc
+
+INCPATH += -I../threads -I../machine -I ../userprog -I../filesys -I../vm
+
+DEFINES += -DTHREADS
+
+endif # MAKEFILE_THREADS_LOCAL
