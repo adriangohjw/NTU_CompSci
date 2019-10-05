@@ -215,14 +215,22 @@ void TestConsistency()
 	printf("enter TestConsistency, value=%d...\n", value);
 
 	//fill your code
+
+	// creating a new thread with Inc_Consistent_1 and giving it arg value of 1
 	Thread *t1 = new Thread("Inc_Consistent_1");
-    	t1->Fork(Inc_Consistent, 1, 1);
+    	t1 -> Fork(Inc_Consistent, 1, 1);
+
+	// creating a new thread with Inc_Consistent_1 and giving it arg value of 2
 	Thread *t2 = new Thread("Inc_Consistent_2");
-    	t2->Fork(Inc_Consistent, 2, 1);
+    	t2 -> Fork(Inc_Consistent, 2, 1);
+	
+	// creating a new thread with Dec_Consistent_1 and giving it arg value of 3
 	Thread *t3 = new Thread("Dec_Consistent_1");
-    	t3->Fork(Dec_Consistent, 3, 1);
-	Thread *t4 = new Thread("Dec_Consistent_2");	//1 to indicate it will be used for joining
-    	t4->Fork(Dec_Consistent, 4, 1);
+    	t3 -> Fork(Dec_Consistent, 3, 1);
+
+	// creating a new thread with Dec_Consistent_1 and giving it arg value of 4
+	Thread *t4 = new Thread("Dec_Consistent_2");
+    	t4 -> Fork(Dec_Consistent, 4, 1);
 
 	// using Join() to wait for that specific thread
 	// when using Join(), current thread will sleep and let the next thread in the READY queue to run
