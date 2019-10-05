@@ -73,22 +73,30 @@ void TestValueOne()
 	printf("enter TestValueOne, value=%d...\n", value);
 	
 	//1. fill your code here.
-	Thread *t1 = new Thread("t1");
-	Thread *t2 = new Thread("t2");
-	Thread *t3 = new Thread("t3");
-	Thread *t4 = new Thread("t4");
 
-	//t1->Fork(Inc_v1,1,1);
-	//t2->Fork(Inc_v1,2,1);
-	t3->Fork(Dec_v1,3,1);
-	t4->Fork(Dec_v1,4,1);
-	t1->Fork(Inc_v1,1,1);
-	t2->Fork(Inc_v1,2,1);
-	//dec inc dec inc
-	currentThread->Join(t1);
-	currentThread->Join(t2);
-	currentThread->Join(t3);
-	currentThread->Join(t4);
+	// creating a new thread with Inc_v1 and giving it arg value of 1
+	Thread *t1 = new Thread("Inc_v1_1");
+		t1 -> Fork (Inc_v1, 1, 0); 
+
+	// creating a new thread with Dec_v1 and giving it arg value of 2
+	Thread *t2 = new Thread("Dec_v1_1");
+		t2 -> Fork (Dec_v1, 2, 0);
+
+	// creating a new thread with Dec_v1 and giving it arg value of 3
+	Thread *t3 = new Thread("Dec_v1_2");
+		t3 -> Fork (Dec_v1, 3, 0);
+
+	// creating a new thread with Inc_v1 and giving it arg value of 4
+	// 1 to indicate that it will be used for joining
+	Thread *t4 = new Thread("Inc_v1_2");
+		t4 -> Fork (Inc_v1, 4, 1); 	
+
+	// using Join() to wait for that specific thread
+	// when using Join(), current thread will sleep and let the next thread in the READY queue to run
+	// Join(t4) indicate that after t4, this current thread TestValueOne() will wake up to continue running the rest
+	// this allow value to take in the final value set in t4 and stop running the rest of the code in TestValueOne() before running Inc_v1() / Dec_v1()
+	currentThread -> Join(t4);
+
 	//2. checking the value. you should not modify the code or add any code lines behind
 	//this section.
 	if(value==1)
