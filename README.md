@@ -9,5 +9,5 @@ CZ1007 - Data Structure <b>(C)</b><br>
 CZ1012 - Engineering Mathematics 2 <b>(Python)</b>
 
 <b>Year 2</b><br>
-CZ2002 - Object Oriented Design and Programming (OODP) <b>(Java)</b>
+CZ2002 - Object Oriented Design and Programming (OODP) <b>(Java)</b><br>
 CZ2005 - Operating Systems (OS) <b>(C++)</b>
