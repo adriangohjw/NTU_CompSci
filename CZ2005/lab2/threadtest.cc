@@ -49,9 +49,10 @@ void Inc_v1(_int which)
 	//fill your code
 	int a = value;
 	a++;
+	printf("**** (Before CS) Inc thread %d new value %d\n", (int) which, value);
 	currentThread -> Yield(); // context switch
 	value = a;
-	printf("**** Inc_v1 thread %d new value %d\n", (int)which, value);
+	printf("**** (After CS) Inc thread %d new value %d\n", (int) which, value);
 }
 
 //2. implement the new version of Dec: Dec_v1
@@ -60,9 +61,10 @@ void Dec_v1(_int which)
 	//fill your code
 	int a = value;
 	a--;
+	printf("**** (Before CS) Inc thread %d new value %d\n", (int) which, value);
 	currentThread -> Yield(); // context switch
 	value = a;
-	printf("**** Dec_v1 thread %d new value %d\n", (int)which, value);
+	printf("**** (After CS) Inc thread %d new value %d\n", (int) which, value);
 }
 
 //3. implement TestValueOne by create two threads with Inc_v1 and two threads with Dec_v1
@@ -76,25 +78,42 @@ void TestValueOne()
 
 	// creating a new thread with Inc_v1 and giving it arg value of 1
 	Thread *t1 = new Thread("Inc_v1_1");
+	printf("**** Creating new thread Inc_v1_1");
+	
+		printf("**** Forking Inc_v1_1");
 		t1 -> Fork (Inc_v1, 1, 0); 
+		printf("**** Forked Inc_v1_1");
 
 	// creating a new thread with Dec_v1 and giving it arg value of 2
 	Thread *t2 = new Thread("Dec_v1_1");
+	printf("**** Creating new thread Dec_v1_1");
+
+		printf("**** Forking Dec_v1_1");
 		t2 -> Fork (Dec_v1, 2, 0);
+		printf("**** Forked Dec_v1_1");
 
 	// creating a new thread with Dec_v1 and giving it arg value of 3
 	Thread *t3 = new Thread("Dec_v1_2");
+	printf("**** Creating new thread Dec_v1_2");
+
+		printf("**** Forking Dec_v1_2");
 		t3 -> Fork (Dec_v1, 3, 0);
+		printf("**** Forked Dec_v1_2");
 
 	// creating a new thread with Inc_v1 and giving it arg value of 4
 	// 1 to indicate that it will be used for joining
 	Thread *t4 = new Thread("Inc_v1_2");
+	printf("**** Creating new thread Inc_v1_2");
+
+		printf("**** Forking Inc_v1_2");
 		t4 -> Fork (Inc_v1, 4, 1); 	
+		printf("**** Forked Inc_v1_2");
 
 	// using Join() to wait for that specific thread
 	// when using Join(), current thread will sleep and let the next thread in the READY queue to run
 	// Join(t4) indicate that after t4, this current thread TestValueOne() will wake up to continue running the rest
 	// this allow value to take in the final value set in t4 and stop running the rest of the code in TestValueOne() before running Inc_v1() / Dec_v1()
+	printf("**** Executing 'Join(t4)'");
 	currentThread -> Join(t4);
 
 	//2. checking the value. you should not modify the code or add any code lines behind
@@ -178,69 +197,70 @@ void TestValueMinusOne()
 
 //1. Declare any paramters here.
 
+//1. Declare any paramters here.
+
 //fill your code
-Lock *lock = new Lock("lock"); 
+Lock *isLock = new Lock("Lock1");
 
 //2. implement the new version of Inc: Inc_Consistent
 void Inc_Consistent(_int which)
 {
 	//fill your code
-	isLock -> Acquire();
-	int a = value;
+	isLock->Acquire();
+	int a=value;
 	a++;
-	value = a;
+	value=a;
 	printf("**** Inc thread %d new value %d\n", (int) which, value);
-	currentThread -> Yield(); //context switch
-	isLock -> Release();
+	//context switch
+	currentThread->Yield();
+	isLock->Release();
 }
 
 //3. implement the new version of Dec: Dec_Consistent
 void Dec_Consistent(_int which)
 {
 	//fill your code
-	isLock -> Acquire();
-	int a = value;
+	isLock->Acquire();
+	int a=value;
 	a--;
-	currentThread -> Yield(); //context switch
-	value = a;
+	//context switch
+	currentThread->Yield();
+	value=a;
 	printf("**** Dec thread %d new value %d\n", (int) which, value);
-	isLock -> Release();
+	isLock->Release();
 }
 
 //4. implement TestValueMinusOne by create two threads with Inc_Consistent and two threads with Dec_Consistent
-// you should pass the cheacking at the end, printing "congratulations! passed."
+// you should pass the checking at the end, printing "congratulations! passed."
 void TestConsistency()
 {
 	value=0;
 	printf("enter TestConsistency, value=%d...\n", value);
 
 	//fill your code
-
-	// creating a new thread with Inc_Consistent_1 and giving it arg value of 1
+	//create threads
+	//changed the position of the threads created as compared to the TestValueOne()
 	Thread *t1 = new Thread("Inc_Consistent_1");
-    	t1 -> Fork(Inc_Consistent, 1, 1);
-
-	// creating a new thread with Inc_Consistent_1 and giving it arg value of 2
+    	t1->Fork(Inc_Consistent, 1, 1);
 	Thread *t2 = new Thread("Inc_Consistent_2");
-    	t2 -> Fork(Inc_Consistent, 2, 1);
-	
-	// creating a new thread with Dec_Consistent_1 and giving it arg value of 3
+    	t2->Fork(Inc_Consistent, 2, 1);
 	Thread *t3 = new Thread("Dec_Consistent_1");
-    	t3 -> Fork(Dec_Consistent, 3, 1);
+    	t3->Fork(Dec_Consistent, 3, 1);
+	Thread *t4 = new Thread("Dec_Consistent_2");	//1 to indicate it will be used for joining
+    	t4->Fork(Dec_Consistent, 4, 1);
+	//using Join() to wait for that specific thread
+	//when use Join(), current thread will sleep and let the next thread in the ready queue to run
+	//Join(t4) indicating that after t4 thread, this current thread TestConsistency() will wake up to continue running the rest on its code
+	//Join() also helps to prevent running the rest of the code in TestConsistency() for running Inc_Consistent() or Dec_Consistent() so that
+	//test will not happen
+	//having Join() t1 to t4 to make sure all threads have finished running before main thread (thread 0) continue the rest of its code
+	//this prevents random content switches causing some threads to Finish() earlier
+	currentThread->Join(t1);
+	currentThread->Join(t2);
+	currentThread->Join(t3);
+	currentThread->Join(t4);
+	//end of my added in code
 
-	// creating a new thread with Dec_Consistent_1 and giving it arg value of 4
-	Thread *t4 = new Thread("Dec_Consistent_2");
-    	t4 -> Fork(Dec_Consistent, 4, 1);
-
-	// using Join() to wait for that specific thread
-	// when using Join(), current thread will sleep and let the next thread in the READY queue to run
-	// Join() also helps to prevent running the rest of the code in TestConsistency() for running Inc_Consistent() or Dec_Consistent() so that test will not happen
-	// having Join() t1 to t4 to make sure all threads have finished running before main thread (thread 0) continue the rest of its code
-	// this prevents random content switches causing some threads to Finish() earlier
-	currentThread -> Join(t1);
-	currentThread -> Join(t2);
-	currentThread -> Join(t3);
-	currentThread -> Join(t4);
 
 	//2. checking the value. you should not modify the code or add any code lines behind
 	//this section.
@@ -257,8 +277,8 @@ ThreadTest()
 	int loopTimes=0;
     DEBUG('t', "Entering SimpleTest");
 	//for exercise 1.
-    //TestValueOne();
-    //TestValueMinusOne();
+    TestValueOne();
+    TestValueMinusOne();
     //for exercise 2.
-    //TestConsistency();
+    TestConsistency();
 }
