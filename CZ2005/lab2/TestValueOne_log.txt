@@ -1,0 +1,252 @@
+[JGOH070@sceuvm-123 ~]$ 
+Remote broadcast message (Tue Oct  8 02:55:01 2019):
+
+Warning: This VM is going to reboot at 3 am. Please save data and logout now.
+cd nachos-3.4
+[JGOH070@sceuvm-123 nachos-3.4]$ cd lab2
+[JGOH070@sceuvm-123 lab2]$ ./nachos -d
+	interrupts: off -> on
+
+== Tick 10 ==
+	interrupts: on -> off
+Time: 10, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+Entering SimpleTestenter TestValueOne, value=0...
+**** Creating new thread Inc_v1_1
+**** Forking Inc_v1_1
+Forking thread Inc_v1_1 #0 with func=0x804a67c, arg=1, join=NO
+	interrupts: on -> off
+Putting thread Inc_v1_1 #0 on ready list.
+	interrupts: off -> on
+
+== Tick 20 ==
+	interrupts: on -> off
+Time: 20, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Forked Inc_v1_1
+**** Creating new thread Dec_v1_1
+**** Forking Dec_v1_1
+Forking thread Dec_v1_1 #0 with func=0x804a6dd, arg=2, join=NO
+	interrupts: on -> off
+Putting thread Dec_v1_1 #0 on ready list.
+	interrupts: off -> on
+
+== Tick 30 ==
+	interrupts: on -> off
+Time: 30, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Forked Dec_v1_1
+**** Creating new thread Dec_v1_2
+**** Forking Dec_v1_2
+Forking thread Dec_v1_2 #0 with func=0x804a6dd, arg=3, join=NO
+	interrupts: on -> off
+Putting thread Dec_v1_2 #0 on ready list.
+	interrupts: off -> on
+
+== Tick 40 ==
+	interrupts: on -> off
+Time: 40, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Forked Dec_v1_2
+**** Creating new thread Inc_v1_2
+**** Forking Inc_v1_2
+Forking thread Inc_v1_2 #0 with func=0x804a67c, arg=4, join=YES
+	interrupts: on -> off
+Putting thread Inc_v1_2 #0 on ready list.
+	interrupts: off -> on
+
+== Tick 50 ==
+	interrupts: on -> off
+Time: 50, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Forked Inc_v1_2
+**** Executing 'Join(t4)'Thread main #0 is calling join on thread Inc_v1_2 #0
+In JoinHit for Thread Inc_v1_2 #0.
+	interrupts: on -> off
+thread main releases semaphore Join?
+	interrupts: off -> on
+
+== Tick 60 ==
+	interrupts: on -> off
+Time: 60, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Sleeping thread main #0
+Switching from thread main #0 to thread Inc_v1_1 #0
+	interrupts: off -> on
+
+== Tick 70 ==
+	interrupts: on -> off
+Time: 70, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (Before CS) Inc thread 1 new value 0
+	interrupts: on -> off
+Yielding thread Inc_v1_1 #0
+Putting thread Inc_v1_1 #0 on ready list.
+Switching from thread Inc_v1_1 #0 to thread Dec_v1_1 #0
+	interrupts: off -> on
+
+== Tick 80 ==
+	interrupts: on -> off
+Time: 80, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (Before CS) Inc thread 2 new value 0
+	interrupts: on -> off
+Yielding thread Dec_v1_1 #0
+Putting thread Dec_v1_1 #0 on ready list.
+Switching from thread Dec_v1_1 #0 to thread Dec_v1_2 #0
+	interrupts: off -> on
+
+== Tick 90 ==
+	interrupts: on -> off
+Time: 90, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (Before CS) Inc thread 3 new value 0
+	interrupts: on -> off
+Yielding thread Dec_v1_2 #0
+Putting thread Dec_v1_2 #0 on ready list.
+Switching from thread Dec_v1_2 #0 to thread Inc_v1_2 #0
+	interrupts: off -> on
+
+== Tick 100 ==
+	interrupts: on -> off
+Time: 100, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (Before CS) Inc thread 4 new value 0
+	interrupts: on -> off
+Yielding thread Inc_v1_2 #0
+Putting thread Inc_v1_2 #0 on ready list.
+Switching from thread Inc_v1_2 #0 to thread Inc_v1_1 #0
+Now in thread Inc_v1_1 #0
+	interrupts: off -> on
+
+== Tick 110 ==
+	interrupts: on -> off
+Time: 110, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (After CS) Inc thread 1 new value 1
+	interrupts: on -> off
+Finishing thread Inc_v1_1 #0
+Sleeping thread Inc_v1_1 #0
+Switching from thread Inc_v1_1 #0 to thread Dec_v1_1 #0
+Now in thread Dec_v1_1 #0
+Deleting thread Inc_v1_1 #0
+	interrupts: off -> on
+
+== Tick 120 ==
+	interrupts: on -> off
+Time: 120, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (After CS) Dec thread 2 new value -1
+	interrupts: on -> off
+Finishing thread Dec_v1_1 #0
+Sleeping thread Dec_v1_1 #0
+Switching from thread Dec_v1_1 #0 to thread Dec_v1_2 #0
+Now in thread Dec_v1_2 #0
+Deleting thread Dec_v1_1 #0
+	interrupts: off -> on
+
+== Tick 130 ==
+	interrupts: on -> off
+Time: 130, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (After CS) Dec thread 3 new value -1
+	interrupts: on -> off
+Finishing thread Dec_v1_2 #0
+Sleeping thread Dec_v1_2 #0
+Switching from thread Dec_v1_2 #0 to thread Inc_v1_2 #0
+Now in thread Inc_v1_2 #0
+Deleting thread Dec_v1_2 #0
+	interrupts: off -> on
+
+== Tick 140 ==
+	interrupts: on -> off
+Time: 140, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (After CS) Inc thread 4 new value 1
+Thread Inc_v1_2 #0 is here to revive the thread that called it
+	interrupts: on -> off
+thread Inc_v1_2 acquires semaphore Join?
+	interrupts: off -> on
+
+== Tick 150 ==
+	interrupts: on -> off
+Time: 150, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Putting thread main #0 on ready list.
+thread Inc_v1_2 releases semaphore in_join
+	interrupts: off -> on
+
+== Tick 160 ==
+	interrupts: on -> off
+Time: 160, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Finishing thread Inc_v1_2 #0
+Sleeping thread Inc_v1_2 #0
+Switching from thread Inc_v1_2 #0 to thread main #0
+Now in thread main #0
+Deleting thread Inc_v1_2 #0
+thread main acquires semaphore in_join
+	interrupts: off -> on
+
+== Tick 170 ==
+	interrupts: on -> off
+Time: 170, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+congratulations! passed.
+	interrupts: on -> off
+Finishing thread main #0
+Sleeping thread main #0
+Machine idling; checking for interrupts.
+Time: 170, interrupts off
+Pending interrupts:
+End of pending interrupts
+Machine idle.  No interrupts to do.
+No threads ready or runnable, and no pending interrupts.
+Assuming the program completed.
+Machine halting!
+
+Ticks: total 170, idle 0, system 170, user 0
+Disk I/O: reads 0, writes 0
+Console I/O: reads 0, writes 0
+Paging: faults 0, outs 0, tlb miss: 0
+Network I/O: packets received 0, sent 0
+
+Cleaning up...
+[JGOH070@sceuvm-123 lab2]$ 
