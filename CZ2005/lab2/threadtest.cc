@@ -220,7 +220,6 @@ void TestValueMinusOne()
 
 //fill your code
 Lock *isLock = new Lock("Lock1");
-printf("**** added new Lock1\n";
 
 //2. implement the new version of Inc: Inc_Consistent
 void Inc_Consistent(_int which)
@@ -229,10 +228,10 @@ void Inc_Consistent(_int which)
 	isLock->Acquire();
 	int a=value;
 	a++;
+	printf("**** (Before CS) Inc_Consistent thread %d new value %d\n", (int) which, value);
+	currentThread->Yield();  //context switch
 	value=a;
-	printf("**** Inc thread %d new value %d\n", (int) which, value);
-	//context switch
-	currentThread->Yield();
+	printf("**** (After CS) Inc_Consistent thread %d new value %d\n", (int) which, value);
 	isLock->Release();
 }
 
@@ -243,10 +242,10 @@ void Dec_Consistent(_int which)
 	isLock->Acquire();
 	int a=value;
 	a--;
-	//context switch
-	currentThread->Yield();
+	printf("**** (Before CS) Dec_Consistent thread %d new value %d\n", (int) which, value);
+	currentThread->Yield();  //context switch
 	value=a;
-	printf("**** Dec thread %d new value %d\n", (int) which, value);
+	printf("**** (After CS) Dec_Consistent thread %d new value %d\n", (int) which, value);
 	isLock->Release();
 }
 
@@ -281,7 +280,7 @@ void TestConsistency()
 		t3->Fork(Dec_Consistent, 3, 1);
 		printf("**** Forked Inc_Consistent_1\n");
 	
-	Thread *t4 = new Thread("Dec_Consistent_2");	//1 to indicate it will be used for joining
+	Thread *t4 = new Thread("Dec_Consistent_2");
 	printf("**** Created new thread Dec_Consistent_2\n");
     	
 		printf("**** Forking Dec_Consistent_2\n");
