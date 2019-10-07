@@ -1,0 +1,509 @@
+[JGOH070@sceuvm-123 ~]$ cd nachos-3.4
+[JGOH070@sceuvm-123 nachos-3.4]$ cd lab2
+[JGOH070@sceuvm-123 lab2]$ ./nachos -d
+	interrupts: off -> on
+
+== Tick 10 ==
+	interrupts: on -> off
+Time: 10, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+Entering SimpleTestenter TestConsistency, value=0...
+**** Created new thread Inc_Consistent_1
+**** Forking Inc_Consistent_1
+Forking thread Inc_Consistent_1 #0 with func=0x804ad1a, arg=1, join=YES
+	interrupts: on -> off
+Putting thread Inc_Consistent_1 #0 on ready list.
+	interrupts: off -> on
+
+== Tick 20 ==
+	interrupts: on -> off
+Time: 20, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Forked Inc_Consistent_1
+**** Created new thread Inc_Consistent_2
+**** Forking Inc_Consistent_2
+Forking thread Inc_Consistent_2 #0 with func=0x804ad1a, arg=2, join=YES
+	interrupts: on -> off
+Putting thread Inc_Consistent_2 #0 on ready list.
+	interrupts: off -> on
+
+== Tick 30 ==
+	interrupts: on -> off
+Time: 30, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Forked Inc_Consistent_1
+**** Created new thread Dec_Consistent_1
+**** Forking Inc_vDec_Consistent_12_2
+Forking thread Dec_Consistent_1 #0 with func=0x804ad95, arg=3, join=YES
+	interrupts: on -> off
+Putting thread Dec_Consistent_1 #0 on ready list.
+	interrupts: off -> on
+
+== Tick 40 ==
+	interrupts: on -> off
+Time: 40, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Forked Inc_Consistent_1
+**** Created new thread Dec_Consistent_2
+**** Forking Dec_Consistent_2
+Forking thread Dec_Consistent_2 #0 with func=0x804ad95, arg=4, join=YES
+	interrupts: on -> off
+Putting thread Dec_Consistent_2 #0 on ready list.
+	interrupts: off -> on
+
+== Tick 50 ==
+	interrupts: on -> off
+Time: 50, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Forked Inc_Consistent_1
+**** Executing 'Join(t1)'
+Thread main #0 is calling join on thread Inc_Consistent_1 #0
+In JoinHit for Thread Inc_Consistent_1 #0.
+	interrupts: on -> off
+thread main releases semaphore Join?
+	interrupts: off -> on
+
+== Tick 60 ==
+	interrupts: on -> off
+Time: 60, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Sleeping thread main #0
+Switching from thread main #0 to thread Inc_Consistent_1 #0
+	interrupts: off -> on
+
+== Tick 70 ==
+	interrupts: on -> off
+Time: 70, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+thread Inc_Consistent_1 acquire lock Lock1
+	interrupts: off -> off
+thread Inc_Consistent_1 acquires semaphore locksem
+	interrupts: off -> off
+thread Inc_Consistent_1 succeeds in acquiring lock Lock1 
+	interrupts: off -> on
+
+== Tick 80 ==
+	interrupts: on -> off
+Time: 80, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (Before CS) Inc_Consistent thread 1 new value 0
+	interrupts: on -> off
+Yielding thread Inc_Consistent_1 #0
+Putting thread Inc_Consistent_1 #0 on ready list.
+Switching from thread Inc_Consistent_1 #0 to thread Inc_Consistent_2 #0
+	interrupts: off -> on
+
+== Tick 90 ==
+	interrupts: on -> off
+Time: 90, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+thread Inc_Consistent_2 acquire lock Lock1
+	interrupts: off -> off
+Sleeping thread Inc_Consistent_2 #0
+Switching from thread Inc_Consistent_2 #0 to thread Dec_Consistent_1 #0
+	interrupts: off -> on
+
+== Tick 100 ==
+	interrupts: on -> off
+Time: 100, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+thread Dec_Consistent_1 acquire lock Lock1
+	interrupts: off -> off
+Sleeping thread Dec_Consistent_1 #0
+Switching from thread Dec_Consistent_1 #0 to thread Dec_Consistent_2 #0
+	interrupts: off -> on
+
+== Tick 110 ==
+	interrupts: on -> off
+Time: 110, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+thread Dec_Consistent_2 acquire lock Lock1
+	interrupts: off -> off
+Sleeping thread Dec_Consistent_2 #0
+Switching from thread Dec_Consistent_2 #0 to thread Inc_Consistent_1 #0
+Now in thread Inc_Consistent_1 #0
+	interrupts: off -> on
+
+== Tick 120 ==
+	interrupts: on -> off
+Time: 120, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (After CS) Inc_Consistent thread 1 new value 1
+	interrupts: on -> off
+	interrupts: off -> off
+Putting thread Inc_Consistent_2 #0 on ready list.
+thread Inc_Consistent_1 releases semaphore locksem
+	interrupts: off -> off
+	interrupts: off -> on
+
+== Tick 130 ==
+	interrupts: on -> off
+Time: 130, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+Thread Inc_Consistent_1 #0 is here to revive the thread that called it
+	interrupts: on -> off
+thread Inc_Consistent_1 acquires semaphore Join?
+	interrupts: off -> on
+
+== Tick 140 ==
+	interrupts: on -> off
+Time: 140, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Putting thread main #0 on ready list.
+thread Inc_Consistent_1 releases semaphore in_join
+	interrupts: off -> on
+
+== Tick 150 ==
+	interrupts: on -> off
+Time: 150, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Finishing thread Inc_Consistent_1 #0
+Sleeping thread Inc_Consistent_1 #0
+Switching from thread Inc_Consistent_1 #0 to thread Inc_Consistent_2 #0
+Now in thread Inc_Consistent_2 #0
+Deleting thread Inc_Consistent_1 #0
+thread Inc_Consistent_2 acquires semaphore locksem
+	interrupts: off -> off
+thread Inc_Consistent_2 succeeds in acquiring lock Lock1 
+	interrupts: off -> on
+
+== Tick 160 ==
+	interrupts: on -> off
+Time: 160, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (Before CS) Inc_Consistent thread 2 new value 1
+	interrupts: on -> off
+Yielding thread Inc_Consistent_2 #0
+Putting thread Inc_Consistent_2 #0 on ready list.
+Switching from thread Inc_Consistent_2 #0 to thread main #0
+Now in thread main #0
+thread main acquires semaphore in_join
+	interrupts: off -> on
+
+== Tick 170 ==
+	interrupts: on -> off
+Time: 170, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Executing 'Join(t2)'
+Thread main #0 is calling join on thread Inc_Consistent_2 #0
+In JoinHit for Thread Inc_Consistent_2 #0.
+	interrupts: on -> off
+thread main releases semaphore Join?
+	interrupts: off -> on
+
+== Tick 180 ==
+	interrupts: on -> off
+Time: 180, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Sleeping thread main #0
+Switching from thread main #0 to thread Inc_Consistent_2 #0
+Now in thread Inc_Consistent_2 #0
+	interrupts: off -> on
+
+== Tick 190 ==
+	interrupts: on -> off
+Time: 190, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (After CS) Inc_Consistent thread 2 new value 2
+	interrupts: on -> off
+	interrupts: off -> off
+Putting thread Dec_Consistent_1 #0 on ready list.
+thread Inc_Consistent_2 releases semaphore locksem
+	interrupts: off -> off
+	interrupts: off -> on
+
+== Tick 200 ==
+	interrupts: on -> off
+Time: 200, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+Thread Inc_Consistent_2 #0 is here to revive the thread that called it
+	interrupts: on -> off
+thread Inc_Consistent_2 acquires semaphore Join?
+	interrupts: off -> on
+
+== Tick 210 ==
+	interrupts: on -> off
+Time: 210, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Putting thread main #0 on ready list.
+thread Inc_Consistent_2 releases semaphore in_join
+	interrupts: off -> on
+
+== Tick 220 ==
+	interrupts: on -> off
+Time: 220, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Finishing thread Inc_Consistent_2 #0
+Sleeping thread Inc_Consistent_2 #0
+Switching from thread Inc_Consistent_2 #0 to thread Dec_Consistent_1 #0
+Now in thread Dec_Consistent_1 #0
+Deleting thread Inc_Consistent_2 #0
+thread Dec_Consistent_1 acquires semaphore locksem
+	interrupts: off -> off
+thread Dec_Consistent_1 succeeds in acquiring lock Lock1 
+	interrupts: off -> on
+
+== Tick 230 ==
+	interrupts: on -> off
+Time: 230, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (Before CS) Dec_Consistent thread 3 new value 2
+	interrupts: on -> off
+Yielding thread Dec_Consistent_1 #0
+Putting thread Dec_Consistent_1 #0 on ready list.
+Switching from thread Dec_Consistent_1 #0 to thread main #0
+Now in thread main #0
+thread main acquires semaphore in_join
+	interrupts: off -> on
+
+== Tick 240 ==
+	interrupts: on -> off
+Time: 240, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Executing 'Join(t3)'
+Thread main #0 is calling join on thread Dec_Consistent_1 #0
+In JoinHit for Thread Dec_Consistent_1 #0.
+	interrupts: on -> off
+thread main releases semaphore Join?
+	interrupts: off -> on
+
+== Tick 250 ==
+	interrupts: on -> off
+Time: 250, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Sleeping thread main #0
+Switching from thread main #0 to thread Dec_Consistent_1 #0
+Now in thread Dec_Consistent_1 #0
+	interrupts: off -> on
+
+== Tick 260 ==
+	interrupts: on -> off
+Time: 260, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (After CS) Dec_Consistent thread 3 new value 1
+	interrupts: on -> off
+	interrupts: off -> off
+Putting thread Dec_Consistent_2 #0 on ready list.
+thread Dec_Consistent_1 releases semaphore locksem
+	interrupts: off -> off
+	interrupts: off -> on
+
+== Tick 270 ==
+	interrupts: on -> off
+Time: 270, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+Thread Dec_Consistent_1 #0 is here to revive the thread that called it
+	interrupts: on -> off
+thread Dec_Consistent_1 acquires semaphore Join?
+	interrupts: off -> on
+
+== Tick 280 ==
+	interrupts: on -> off
+Time: 280, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Putting thread main #0 on ready list.
+thread Dec_Consistent_1 releases semaphore in_join
+	interrupts: off -> on
+
+== Tick 290 ==
+	interrupts: on -> off
+Time: 290, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Finishing thread Dec_Consistent_1 #0
+Sleeping thread Dec_Consistent_1 #0
+Switching from thread Dec_Consistent_1 #0 to thread Dec_Consistent_2 #0
+Now in thread Dec_Consistent_2 #0
+Deleting thread Dec_Consistent_1 #0
+thread Dec_Consistent_2 acquires semaphore locksem
+	interrupts: off -> off
+thread Dec_Consistent_2 succeeds in acquiring lock Lock1 
+	interrupts: off -> on
+
+== Tick 300 ==
+	interrupts: on -> off
+Time: 300, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (Before CS) Dec_Consistent thread 4 new value 1
+	interrupts: on -> off
+Yielding thread Dec_Consistent_2 #0
+Putting thread Dec_Consistent_2 #0 on ready list.
+Switching from thread Dec_Consistent_2 #0 to thread main #0
+Now in thread main #0
+thread main acquires semaphore in_join
+	interrupts: off -> on
+
+== Tick 310 ==
+	interrupts: on -> off
+Time: 310, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** Executing 'Join(t4)'
+Thread main #0 is calling join on thread Dec_Consistent_2 #0
+In JoinHit for Thread Dec_Consistent_2 #0.
+	interrupts: on -> off
+thread main releases semaphore Join?
+	interrupts: off -> on
+
+== Tick 320 ==
+	interrupts: on -> off
+Time: 320, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Sleeping thread main #0
+Switching from thread main #0 to thread Dec_Consistent_2 #0
+Now in thread Dec_Consistent_2 #0
+	interrupts: off -> on
+
+== Tick 330 ==
+	interrupts: on -> off
+Time: 330, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+**** (After CS) Dec_Consistent thread 4 new value 0
+	interrupts: on -> off
+	interrupts: off -> off
+thread Dec_Consistent_2 releases semaphore locksem
+	interrupts: off -> off
+	interrupts: off -> on
+
+== Tick 340 ==
+	interrupts: on -> off
+Time: 340, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+Thread Dec_Consistent_2 #0 is here to revive the thread that called it
+	interrupts: on -> off
+thread Dec_Consistent_2 acquires semaphore Join?
+	interrupts: off -> on
+
+== Tick 350 ==
+	interrupts: on -> off
+Time: 350, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Putting thread main #0 on ready list.
+thread Dec_Consistent_2 releases semaphore in_join
+	interrupts: off -> on
+
+== Tick 360 ==
+	interrupts: on -> off
+Time: 360, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+	interrupts: on -> off
+Finishing thread Dec_Consistent_2 #0
+Sleeping thread Dec_Consistent_2 #0
+Switching from thread Dec_Consistent_2 #0 to thread main #0
+Now in thread main #0
+Deleting thread Dec_Consistent_2 #0
+thread main acquires semaphore in_join
+	interrupts: off -> on
+
+== Tick 370 ==
+	interrupts: on -> off
+Time: 370, interrupts off
+Pending interrupts:
+End of pending interrupts
+	interrupts: off -> on
+congratulations! passed.
+	interrupts: on -> off
+Finishing thread main #0
+Sleeping thread main #0
+Machine idling; checking for interrupts.
+Time: 370, interrupts off
+Pending interrupts:
+End of pending interrupts
+Machine idle.  No interrupts to do.
+No threads ready or runnable, and no pending interrupts.
+Assuming the program completed.
+Machine halting!
+
+Ticks: total 370, idle 0, system 370, user 0
+Disk I/O: reads 0, writes 0
+Console I/O: reads 0, writes 0
+Paging: faults 0, outs 0, tlb miss: 0
+Network I/O: packets received 0, sent 0
+
+Cleaning up...
+[JGOH070@sceuvm-123 lab2]$ 
