@@ -49,10 +49,10 @@ void Inc_v1(_int which)
 	//fill your code
 	int a = value;
 	a++;
-	printf("**** (Before CS) Inc thread %d new value %d\n", (int) which, value);
+	printf("**** (Before CS) Inc_v1 thread %d new value %d\n", (int) which, value);
 	currentThread -> Yield(); // context switch
 	value = a;
-	printf("**** (After CS) Inc thread %d new value %d\n", (int) which, value);
+	printf("**** (After CS) Inc_v1 thread %d new value %d\n", (int) which, value);
 }
 
 //2. implement the new version of Dec: Dec_v1
@@ -61,10 +61,10 @@ void Dec_v1(_int which)
 	//fill your code
 	int a = value;
 	a--;
-	printf("**** (Before CS) Inc thread %d new value %d\n", (int) which, value);
+	printf("**** (Before CS) Dec_v1 thread %d new value %d\n", (int) which, value);
 	currentThread -> Yield(); // context switch
 	value = a;
-	printf("**** (After CS) Inc thread %d new value %d\n", (int) which, value);
+	printf("**** (After CS) Dec_v1 thread %d new value %d\n", (int) which, value);
 }
 
 //3. implement TestValueOne by create two threads with Inc_v1 and two threads with Dec_v1
@@ -78,42 +78,42 @@ void TestValueOne()
 
 	// creating a new thread with Inc_v1 and giving it arg value of 1
 	Thread *t1 = new Thread("Inc_v1_1");
-	printf("**** Creating new thread Inc_v1_1");
+	printf("**** Created new thread Inc_v1_1\n");
 	
-		printf("**** Forking Inc_v1_1");
+		printf("**** Forking Inc_v1_1\n");
 		t1 -> Fork (Inc_v1, 1, 0); 
-		printf("**** Forked Inc_v1_1");
+		printf("**** Forked Inc_v1_1\n");
 
 	// creating a new thread with Dec_v1 and giving it arg value of 2
 	Thread *t2 = new Thread("Dec_v1_1");
-	printf("**** Creating new thread Dec_v1_1");
+	printf("**** Created new thread Dec_v1_1\n");
 
-		printf("**** Forking Dec_v1_1");
+		printf("**** Forking Dec_v1_1\n");
 		t2 -> Fork (Dec_v1, 2, 0);
-		printf("**** Forked Dec_v1_1");
+		printf("**** Forked Dec_v1_1\n");
 
 	// creating a new thread with Dec_v1 and giving it arg value of 3
 	Thread *t3 = new Thread("Dec_v1_2");
-	printf("**** Creating new thread Dec_v1_2");
+	printf("**** Created new thread Dec_v1_2\n");
 
-		printf("**** Forking Dec_v1_2");
+		printf("**** Forking Dec_v1_2\n");
 		t3 -> Fork (Dec_v1, 3, 0);
-		printf("**** Forked Dec_v1_2");
+		printf("**** Forked Dec_v1_2\n");
 
 	// creating a new thread with Inc_v1 and giving it arg value of 4
 	// 1 to indicate that it will be used for joining
 	Thread *t4 = new Thread("Inc_v1_2");
-	printf("**** Creating new thread Inc_v1_2");
+	printf("**** Created new thread Inc_v1_2\n");
 
-		printf("**** Forking Inc_v1_2");
+		printf("**** Forking Inc_v1_2\n");
 		t4 -> Fork (Inc_v1, 4, 1); 	
-		printf("**** Forked Inc_v1_2");
+		printf("**** Forked Inc_v1_2\n");
 
 	// using Join() to wait for that specific thread
 	// when using Join(), current thread will sleep and let the next thread in the READY queue to run
 	// Join(t4) indicate that after t4, this current thread TestValueOne() will wake up to continue running the rest
 	// this allow value to take in the final value set in t4 and stop running the rest of the code in TestValueOne() before running Inc_v1() / Dec_v1()
-	printf("**** Executing 'Join(t4)'");
+	printf("**** Executing 'Join(t4)'\n");
 	currentThread -> Join(t4);
 
 	//2. checking the value. you should not modify the code or add any code lines behind
@@ -133,9 +133,10 @@ void Inc_v2(_int which)
 	//fill your code
 	int a = value;
 	a++;
+	printf("**** (Before CS) Inc_v2 thread %d new value %d\n", (int) which, value);
 	currentThread -> Yield(); // context switch
 	value = a;
-	printf("**** Inc_v2 thread %d new value %d\n", (int)which, value);
+	printf("**** (After CS) Inc_v2 thread %d new value %d\n", (int)which, value);
 }
 
 //2. implement the new version of Dec: Dec_v2
@@ -144,9 +145,10 @@ void Dec_v2(_int which)
 	//fill your code
 	int a = value;
 	a--;
+	printf("**** (Before CS) Dec_v2 thread %d new value %d\n", (int) which, value);
 	currentThread -> Yield(); // context switch
 	value = a;
-	printf("**** Dec_v2 thread %d new value %d\n", (int)which, value);
+	printf("**** (After CS) Dec_v2 thread %d new value %d\n", (int)which, value);
 }
 
 //3. implement TestValueMinusOne by create two threads with Inc_v2 and two threads with Dec_v2
@@ -161,26 +163,43 @@ void TestValueMinusOne()
 	// main difference from TestValueOne()is the order of the threads created
 
 	// creating a new thread with Inc_v1 and giving it arg value of 1
-	Thread *t1 = new Thread("Inc_v1_1");
+	Thread *t1 = new Thread("Inc_v2_1");
+	printf("**** Created new thread Inc_v2_2\n");
+
+		printf("**** Forking Inc_v2_1\n");
 		t1 -> Fork (Inc_v1, 1, 0); 
+		printf("**** Forked Inc_v2_1\n");
 
 	// creating a new thread with Dec_v1 and giving it arg value of 2
-	Thread *t2 = new Thread("Inc_v1_2");
+	Thread *t2 = new Thread("Inc_v2_2");
+	printf("**** Created new thread Inc_v2_2\n");
+
+		printf("**** Forking Inc_v2_2\n");
 		t2 -> Fork (Inc_v1, 2, 0);
+		printf("**** Forked Inc_v2_2\n");
 
 	// creating a new thread with Dec_v1 and giving it arg value of 3
-	Thread *t3 = new Thread("Dec_v1_1");
+	Thread *t3 = new Thread("Dec_v2_1");
+	printf("**** Created new thread Dec_v2_2\n");
+
+		printf("**** Forking Dec_v2_1\n");
 		t3 -> Fork (Dec_v1, 3, 0);
+		printf("**** Forked Dec_v2_1\n");
 
 	// creating a new thread with Inc_v1 and giving it arg value of 4
 	// 1 to indicate that it will be used for joining
-	Thread *t4 = new Thread("Dec_v1_2");
+	Thread *t4 = new Thread("Dec_v2_2");
+	printf("**** Created new thread Dec_v2_2\n");
+
+		printf("**** Forking Dec_v2_2\n");
 		t4 -> Fork (Dec_v1, 4, 1); 	
+		printf("**** Forked Dec_v2_2\n");
 
 	// using Join() to wait for that specific thread
 	// when using Join(), current thread will sleep and let the next thread in the READY queue to run
 	// Join(t4) indicate that after t4, this current thread TestMinusValueOne() will wake up to continue running the rest
 	// this allow value to take in the final value set in t4 and stop running the rest of the code in TestMinusValueOne() before running Inc_v2() / Dec_v2()
+	printf("**** Executing 'Join(t4)'\n");
 	currentThread -> Join(t4);
 
 	//2. checking the value. you should not modify the code or add any code lines behind
