@@ -180,7 +180,7 @@ void TestValueMinusOne()
 
 	// creating a new thread with Dec_v1 and giving it arg value of 3
 	Thread *t3 = new Thread("Dec_v2_1");
-	printf("**** Created new thread Dec_v2_2\n");
+	printf("**** Created new thread Dec_v2_1\n");
 
 		printf("**** Forking Dec_v2_1\n");
 		t3 -> Fork (Dec_v1, 3, 0);
@@ -220,6 +220,7 @@ void TestValueMinusOne()
 
 //fill your code
 Lock *isLock = new Lock("Lock1");
+printf("**** added new Lock1\n";
 
 //2. implement the new version of Inc: Inc_Consistent
 void Inc_Consistent(_int which)
@@ -260,13 +261,33 @@ void TestConsistency()
 	//create threads
 	//changed the position of the threads created as compared to the TestValueOne()
 	Thread *t1 = new Thread("Inc_Consistent_1");
-    	t1->Fork(Inc_Consistent, 1, 1);
+	printf("**** Created new thread Inc_Consistent_1\n");
+    	
+		printf("**** Forking Inc_Consistent_1\n");
+		t1->Fork(Inc_Consistent, 1, 1);
+		printf("**** Forked Inc_Consistent_1\n");
+	
 	Thread *t2 = new Thread("Inc_Consistent_2");
-    	t2->Fork(Inc_Consistent, 2, 1);
+	printf("**** Created new thread Inc_Consistent_2\n");
+    	
+		printf("**** Forking Inc_Consistent_2\n");
+		t2->Fork(Inc_Consistent, 2, 1);
+		printf("**** Forked Inc_Consistent_1\n");
+	
 	Thread *t3 = new Thread("Dec_Consistent_1");
-    	t3->Fork(Dec_Consistent, 3, 1);
+	printf("**** Created new thread Dec_Consistent_1\n");
+    	
+		printf("**** Forking Inc_vDec_Consistent_12_2\n");
+		t3->Fork(Dec_Consistent, 3, 1);
+		printf("**** Forked Inc_Consistent_1\n");
+	
 	Thread *t4 = new Thread("Dec_Consistent_2");	//1 to indicate it will be used for joining
-    	t4->Fork(Dec_Consistent, 4, 1);
+	printf("**** Created new thread Dec_Consistent_2\n");
+    	
+		printf("**** Forking Dec_Consistent_2\n");
+		t4->Fork(Dec_Consistent, 4, 1);
+		printf("**** Forked Inc_Consistent_1\n");
+
 	//using Join() to wait for that specific thread
 	//when use Join(), current thread will sleep and let the next thread in the ready queue to run
 	//Join(t4) indicating that after t4 thread, this current thread TestConsistency() will wake up to continue running the rest on its code
@@ -274,9 +295,13 @@ void TestConsistency()
 	//test will not happen
 	//having Join() t1 to t4 to make sure all threads have finished running before main thread (thread 0) continue the rest of its code
 	//this prevents random content switches causing some threads to Finish() earlier
+	printf("**** Executing 'Join(t1)'\n");
 	currentThread->Join(t1);
+	printf("**** Executing 'Join(t2)'\n");
 	currentThread->Join(t2);
+	printf("**** Executing 'Join(t3)'\n");
 	currentThread->Join(t3);
+	printf("**** Executing 'Join(t4)'\n");
 	currentThread->Join(t4);
 	//end of my added in code
 
