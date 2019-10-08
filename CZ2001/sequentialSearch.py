@@ -11,4 +11,4 @@ testList = [45, 29, 6, 64, 12, 16]  # test data set
 
 print("Original list is " + str(testList))
 print("12 is found in index " + str(sequentialsearch(testList, 12)))
-print("13 is found in index " + str(sequentialsearch(testList, 13))) 
+print("13 is found in index " + str(sequentialsearch(testList, 13)))
