@@ -38,7 +38,7 @@ private static void mergesort(int[] input, int start, int end) {
     }
 }
   
-	public static int[] generateRandomArray(int state,int n){
+	public static int[] generateRandData(int state,int n){
 		   
 		 //state -1 descending 0 random 1 ascending
 		 int[] list = new int[n];
@@ -46,10 +46,12 @@ private static void mergesort(int[] input, int start, int end) {
 		 if (state==1) {
 			 for (int i = 0; i < n; i++)
 			 	list[i]=i;
-		 } else if (state==-1) {
+		 } 
+		 else if (state==-1) {
 			 for (int i = 0; i < n; i++)
 				 list[i]=n-i;
-		 } else {
+		 } 
+		 else {
 			 Random random = new Random();
 			 for (int i = 0; i < n; i++)
 				 list[i]=random.nextInt(1000);		  
@@ -58,7 +60,7 @@ private static void mergesort(int[] input, int start, int end) {
 	 } 
 	 
 	public static double func(int state,int n) {
-		int[] input= generateRandomArray(state,n);
+		int[] input= generateRandData(state,n);
 		double start=System.currentTimeMillis();
 		mergesort(input,0,input.length-1);
 		double end=System.currentTimeMillis();

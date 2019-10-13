@@ -14,8 +14,8 @@ public class InsertSort {
 	public static void insertionSort(int[] input, int n) {
 		int[] dataList = input;
 		ArrayList<Long> list;
-		for (int i = 1; i < n; i++) {
-			for (int j = i; j > 0; j--) {
+		for (int i = 1; i < n; i++) {  // outer loop
+			for (int j = i; j > 0; j--) {  // inner loop
 				counter++;
 				if (dataList[j] < dataList[j - 1]) { // check if the two elements are out of order
 					swap(dataList, j, j - 1);
