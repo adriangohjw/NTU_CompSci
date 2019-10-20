@@ -4,7 +4,7 @@
 To walk through a maze containing walls or obstacles from a given entrance to exit, i.e. to find a path, which is a sequence of positions (none blocked) such that each position is N/S/E/W of the previous position.
 
 ### Example of Maze used
-![alt text](https://github.com/adriangohjw/selfpractice/edit/master/mazeNavigation/image.png)
+![Example of maze used](/CZ2001/selfpractice/mazeNavigation/image.PNG)
 
 ### Pseudo code
 
