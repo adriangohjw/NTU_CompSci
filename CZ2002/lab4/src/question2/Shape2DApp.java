@@ -59,10 +59,10 @@ public class Shape2DApp {
 					default:
 						shapeChoice = 0;
 				}
-			} while (shapeChoice == 0);	
-					
+			} while (shapeChoice == 0);		
 		}
 		
+		System.out.println("### Program ended ###");
+		System.exit(0);
 	}
-
 }
