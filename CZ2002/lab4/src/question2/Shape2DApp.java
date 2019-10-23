@@ -9,6 +9,7 @@ public class Shape2DApp {
 		Scanner sc = new Scanner(System.in);
 		int numShapes = 0;
 		int shapeChoice = 0;
+		int tempLength, tempWidth, tempHeight, tempBase;
 		
 		System.out.println("Enter number of shapes to produce:");
 		numShapes = sc.nextInt();
@@ -31,9 +32,9 @@ public class Shape2DApp {
 					case 2:
 						System.out.println("Rectangle chosen");
 						System.out.println("...Enter length");
-						int tempLength = sc.nextInt();
+							tempLength = sc.nextInt();
 						System.out.println("...Enter width");
-						int tempWidth = sc.nextInt();
+							tempWidth = sc.nextInt();
 						Rectangle rectangle = new Rectangle(tempLength, tempWidth);
 						System.out.println("Area is " + rectangle.getArea());
 						break;
@@ -48,9 +49,9 @@ public class Shape2DApp {
 					case 4:
 						System.out.println("Triangle chosen");
 						System.out.println("...Enter height");
-						int tempHeight = sc.nextInt();
+							tempHeight = sc.nextInt();
 						System.out.println("...Enter base");
-						int tempBase = sc.nextInt();
+							tempBase = sc.nextInt();
 						Triangle triangle = new Triangle(tempHeight, tempBase);
 						System.out.println("Area is " + triangle.getArea());
 						break;
