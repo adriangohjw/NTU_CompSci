@@ -11,4 +11,10 @@ public class Pyramid extends Triangle implements _3d {
 	public double getVolume() {
 		return (1.0 / 3.0) * Math.pow(super.getBase(), 2) * super.getHeight();
 	}
+
+	@Override
+	public double getSurfaceArea() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

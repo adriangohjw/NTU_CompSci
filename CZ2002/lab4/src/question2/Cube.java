@@ -9,4 +9,10 @@ public class Cube extends Square implements _3d {
 	public double getVolume() {
 		return Math.pow(super.getSide(), 3);
 	}
+
+	@Override
+	public double getSurfaceArea() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

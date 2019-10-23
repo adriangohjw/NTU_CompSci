@@ -12,4 +12,10 @@ public class Cuboid extends Rectangle implements _3d {
 	public double getVolume() {
 		return super.getLength() * super.getWidth() * this.height;
 	}
+
+	@Override
+	public double getSurfaceArea() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
