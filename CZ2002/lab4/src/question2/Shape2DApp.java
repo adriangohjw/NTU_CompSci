@@ -22,7 +22,7 @@ public class Shape2DApp {
 				shapeChoice = sc.nextInt();
 				switch(shapeChoice) {
 					case 1:
-						System.out.println("Circle chosenenter");
+						System.out.println("Circle chosen");
 						System.out.println("...Enter radius");
 						Circle circle = new Circle(sc.nextInt());
 						System.out.println("Area is " + circle.getArea());
