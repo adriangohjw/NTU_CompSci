@@ -10,6 +10,7 @@ public class Shape3DApp {
 		int shapeChoice = 0;
 		int tempLength, tempWidth, tempHeight, tempBase;
 		
+		
 		System.out.println("Enter number of figures to produce:");
 		numShapes = sc.nextInt();
 		

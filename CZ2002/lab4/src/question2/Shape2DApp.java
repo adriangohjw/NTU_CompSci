@@ -10,6 +10,7 @@ public class Shape2DApp {
 		int numShapes = 0;
 		int shapeChoice = 0;
 		int tempLength, tempWidth, tempHeight, tempBase;
+		double totalArea = 0;
 		
 		System.out.println("Enter number of shapes to produce:");
 		numShapes = sc.nextInt();
@@ -27,6 +28,7 @@ public class Shape2DApp {
 						System.out.println("...Enter radius");
 						Circle circle = new Circle(sc.nextInt());
 						System.out.println("Area is " + circle.getArea());
+						totalArea += circle.getArea();
 						break;
 						
 					case 2:
@@ -37,6 +39,7 @@ public class Shape2DApp {
 							tempWidth = sc.nextInt();
 						Rectangle rectangle = new Rectangle(tempLength, tempWidth);
 						System.out.println("Area is " + rectangle.getArea());
+						totalArea += rectangle.getArea();
 						break;
 						
 					case 3:
@@ -44,6 +47,7 @@ public class Shape2DApp {
 						System.out.println("...Enter side");
 						Square square = new Square(sc.nextInt());
 						System.out.println("Area is " + square.getArea());
+						totalArea += square.getArea();
 						break;
 						
 					case 4:
@@ -54,6 +58,7 @@ public class Shape2DApp {
 							tempBase = sc.nextInt();
 						Triangle triangle = new Triangle(tempHeight, tempBase);
 						System.out.println("Area is " + triangle.getArea());
+						totalArea += triangle.getArea();
 						break;
 						
 					default:
@@ -62,6 +67,7 @@ public class Shape2DApp {
 			} while (shapeChoice == 0);		
 		}
 		
+		System.out.println(String.format("Total area of all the shape is %f", totalArea));
 		System.out.println("### Program ended ###");
 		System.exit(0);
 	}
