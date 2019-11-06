@@ -10,7 +10,7 @@ CZ1012 - Engineering Mathematics 2 <b>(Python)</b>
 
 <b>Year 2</b><br>
 CZ2001 - Algorithms <b>(Python)</b><br>
-CZ2002 - Object Oriented Design and Programming (OODP) <b>(Java)</b><br>
+CZ2002 - Object Oriented Design and Programming (OODP) <b>(Java, C++)</b><br>
 CZ2004 - Human Computer Interaction (HCI) <br>
 CZ2005 - Operating Systems (OS) <b>(C++)</b><br>
 CZ2007 - Introduction to Databases <b>(SQL)</b>
