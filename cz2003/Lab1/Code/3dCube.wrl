@@ -1,0 +1,47 @@
+#VRML V2.0 utf8
+#polygon mesh example: 3D Cube
+
+Background {skyColor 0 0 1}
+
+
+Shape {
+	appearance Appearance{
+		material Material { 
+			diffuseColor     0.125 0.781 0.418
+			specularColor    1 1 1
+			transparency 0 
+			shininess 1
+			}
+		}
+	geometry IndexedFaceSet {
+		coord Coordinate {
+                    point [
+				# bottom vertices
+				 1.0  -1.0   1.0,	#vertex 0
+				 1.0  -1.0  -1.0,	#vertex 1
+				-1.0  -1.0  -1.0,	#vertex 2
+				-1.0  -1.0   1.0,	#vertex 3	
+				# top vertices
+				 1.0  1.0   1.0,	#vertex 4
+				 1.0  1.0  -1.0,	#vertex 5
+				-1.0  1.0  -1.0,	#vertex 6
+				-1.0  1.0   1.0,	#vertex 7	
+                    ]
+                }
+		coordIndex [
+			#bottom square
+			 0,  3,  2,  1, -1,
+			#top square
+			 4,  5,  6,  7, -1,
+			#side1
+			 0,  1,  5,  4, -1,
+			#side2
+			 1,  2,  6,  5, -1,
+			#side3
+			 2,  3,  7,  6, -1,
+			#side4
+			 3,  0,  4,  7, -1,
+			]
+			
+	}
+}
