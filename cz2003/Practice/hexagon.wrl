@@ -7,7 +7,7 @@ Background {skyColor 0 0 1}
 Shape {
 	appearance Appearance{
 		material Material { 
-			diffuseColor     1 0 0   #red=1, green=0, blue=0
+			diffuseColor     0.125 0.781 0.418   #red=1, green=0, blue=0
 			specularColor    1 1 1	 #red=1, green=1, blue=1
 			transparency 0   # try values between 0 and 1
 			shininess 1      # shiny surface, try values between 0 and 1
@@ -18,18 +18,18 @@ Shape {
                     point [
 				# bottom vertices
 				 1.0  -1.0   0.0,	#vertex 0
-				 0.5  -1.0   0.875,	#vertex 1
-				-0.5  -1.0   0.875,	#vertex 2
+				 0.5  -1.0  -0.875,	#vertex 1
+				-0.5  -1.0  -0.875,	#vertex 2
 				-1.0  -1.0   0.0,	#vertex 3
-				-0.5  -1.0  -0.875,	#vertex 4
-				 0.5  -1.0  -0.875,	#vertex 5
+				-0.5  -1.0   0.875,	#vertex 4
+				 0.5  -1.0   0.875,	#vertex 1		
 				# top vertex
 				0.0    1.0   0.0	#vertex 6
                     ]
                 }
 		coordIndex [
 			#hexgon square
-			 0,  1,  2,  3,  4,  5, -1,
+			 0,  5,  4,  3,  2,  1, -1,
 			#side1
 			 0,  1,  6, -1,
 			#side2
