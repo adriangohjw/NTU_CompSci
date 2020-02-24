@@ -1,0 +1,390 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO FGeometry [
+	exposedField SFString definition
+	exposedField MFFloat parameters
+	exposedField MFInt32 resolution
+	exposedField SFVec3f bboxCenter
+	exposedField SFVec3f bboxSize
+	exposedField SFString type
+	exposedField MFNode	parents
+	exposedField SFVec2f timeSpan
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FGeometry"
+EXTERNPROTO FMaterial [
+	exposedField SFString diffuseColor
+	exposedField SFString type
+	exposedField MFColor patternColor
+	exposedField MFFloat patternKey
+	exposedField SFString ambientIntensity
+	exposedField SFString emissiveColor
+	exposedField SFString shininess
+	exposedField SFString specularColor
+	exposedField SFString transparency
+	exposedField MFFloat parameters
+	exposedField MFNode	parents
+	exposedField SFVec2f timeSpan
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FMaterial"
+EXTERNPROTO FTexture3D [
+	exposedField SFString definition
+	exposedField SFString type
+	exposedField MFFloat parameters
+	exposedField MFNode	parents
+	exposedField SFVec2f timeSpan
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTexture3D"
+EXTERNPROTO FAppearance [
+	exposedField SFNode	material
+	exposedField SFNode	texture
+	exposedField SFNode	textureTransform
+	exposedField SFNode	texture3D
+	exposedField MFNode	parents
+	eventIn	SFBool refresh
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FAppearance"
+EXTERNPROTO FShape [
+	exposedField SFNode	geometry
+	exposedField SFNode	appearance
+	exposedField SFString polygonizer
+	exposedField MFNode	parents
+	exposedField SFTime	startTime
+	exposedField SFTime stopTime
+    exposedField SFTime cycleInterval
+    exposedField SFBool	loop
+	exposedField SFBool	enabled
+	eventOut SFTime	cycleTime
+	eventIn SFFloat set_fraction
+	field SFInt32 frames
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FShape"
+EXTERNPROTO FTransform [
+	exposedField SFString operation
+	exposedField SFString type
+	exposedField SFString polygonizer
+	exposedField MFFloat parameters
+	exposedField SFString center
+	exposedField SFString rotation
+	exposedField SFString scale
+	exposedField SFString scaleOrientation
+	exposedField SFString translation
+	exposedField MFNode children
+	exposedField MFNode	parents
+	eventIn	SFBool refresh
+    exposedField SFVec2f timeSpan
+	exposedField SFTime	startTime
+	exposedField SFTime stopTime
+    exposedField SFTime cycleInterval
+    exposedField SFBool	loop
+	exposedField SFBool	enabled
+	eventOut SFTime	cycleTime
+	eventIn SFFloat set_fraction
+	field SFInt32 frames
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTransform"
+
+
+
+Viewpoint {position 7.7 2.2 2.8
+orientation -0.18 0.97 0.12 0.89 
+description "1"}
+
+Viewpoint {position 0 0 7.5
+description "2"}
+
+Viewpoint {position 0 0 -7.5
+description "3"}
+
+Viewpoint {position 0 0 -15
+	orientation	0 1 0 3.141
+description "4"}
+
+Viewpoint {position 0 0 -2
+	orientation	0 1 0 3.141
+description "5"}
+
+
+Viewpoint {position 0 0 -2
+	orientation	0 1 0 0
+description "6"}
+
+
+Viewpoint {position 7.7 2.2 2.8
+orientation -0.18 0.97 0.12 0.89 
+description "7"}
+
+Background {skyColor 0.8 0.8 0.8}
+
+ Transform
+  {translation -1.5 0 0
+	  children [
+FShape {
+cycleInterval 10
+loop TRUE
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=1; g=0; b=0;"
+   }   
+}
+geometry DEF geo FGeometry {
+resolution [600]
+parameters [-1 1]
+definition "
+		x=sin(u*7*pi*sin(t*pi));
+		y=sin(u*4*pi*sin(t*pi));
+		z=0;"
+  }     }
+
+  Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+]}
+
+
+ Transform
+  {translation -1.5 0 -6
+	  children [
+FShape {
+cycleInterval 10
+loop TRUE
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=1; g=0; b=0;"
+   }   
+}
+geometry DEF geo FGeometry {
+resolution [100]
+parameters [0 1]
+definition "
+		x=-1+u*2*t;
+		y=sin(u*4*pi*t);
+		z=0;"
+  }     }
+
+  Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+]}
+
+
+ Transform
+  {translation 1.5 0 -6
+	  children [
+FShape {
+cycleInterval 10
+loop TRUE
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=1; g=0; b=0;"
+   }   
+}
+geometry DEF geo FGeometry {
+resolution [100]
+parameters [0 1]
+definition "
+		x=-1+u*2;
+		y=u*sin(u*12*pi);
+		z=0;"
+  }     }
+
+  Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+]}
+
+
+
+  Transform
+  {translation 1.5 0 0
+	  children [
+FShape {
+#cycleInterval 10
+#loop TRUE
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=0; g=1; b=1;"
+   }   
+}
+geometry DEF geo FGeometry {
+resolution [47]
+parameters [0 1]
+definition "
+		x=cos(u*36*pi);
+		y=sin(u*36*pi);
+		z=0;"
+  }     }
+
+  Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+]}
+
+ Transform
+  {translation 0 1.5 -6
+	  children [
+FShape {
+cycleInterval 10
+loop TRUE
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=1; g=0; b=0;"
+   }   
+}
+geometry DEF geo FGeometry {
+resolution [4]
+parameters [0 1]
+definition "
+		x=0.9*cos(u*2*pi+pi/4);
+		y=0.9*sin(u*2*pi+pi/4);
+		z=0;"
+  }     }
+
+  Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+]}
+
+
+ Transform
+  {translation 0 0 -12
+	  children [
+FShape {
+
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=1; g=0; b=0;"
+   }   
+}
+geometry DEF geo FGeometry {
+resolution [32]
+parameters [0 1]
+definition "
+		x=0.9*cos(u*16*pi+pi/4);
+		y=0.9*sin(u*16*pi+pi/4);
+		z=2*u;"
+  }     }
+
+  Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+]}
+
+ Transform
+  {translation 0 0 -16
+	  children [
+FShape {
+cycleInterval 10
+loop TRUE
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=1; g=0; b=0;"
+   }   
+}
+geometry DEF geo FGeometry {
+resolution [32]
+parameters [0 1]
+definition "
+		x=0.9*cos(u*16*pi+pi/4+t*2*pi);
+		y=0.9*sin(u*16*pi+pi/4+t*2*pi);
+		z=2*u;"
+  }     }
+
+  Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+]}
+
+
+ Transform
+  {translation 0 -1.5 -6
+	  children [
+FShape {
+cycleInterval 10
+loop TRUE
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=1; g=0; b=0;"
+   }   
+}
+geometry DEF geo FGeometry {
+resolution [5]
+parameters [0 2]
+definition "
+		x=0.9*cos(u*2*pi+pi/10);
+		y=0.9*sin(u*2*pi+pi/10);
+		z=0;"
+  }     }
+
+  Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+]}
+
+
+ Transform
+  {translation 0 1.5 0
+	  children [
+FShape {
+cycleInterval 4
+loop TRUE
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=1; g=0; b=0;"
+
+   }   
+}
+geometry FGeometry {
+resolution [47]
+parameters [0 1]
+definition "
+		x=u;
+		y=sin(t*pi)*u;
+		z=0;"
+  }     }
+
+  Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+]}
+
+
+ Transform
+  {translation 0 -1.5 0
+	  children [
+FShape {
+cycleInterval 2
+loop TRUE
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=1; g=1; b=0;"
+
+   }   
+}
+geometry FGeometry {
+resolution [36]
+parameters [0 1]
+definition "
+		x=cos(u*2*pi*t);
+		y=sin(u*2*pi*t);
+		z=0;"
+  }     }
+
+
+FShape {
+cycleInterval 12
+loop TRUE
+polygonizer	"analytical_curve"
+appearance FAppearance {
+material FMaterial { 
+diffuseColor "r=0; g=1; b=1;"
+
+   }   
+}
+geometry FGeometry {
+resolution [136]
+parameters [0 1]
+definition "
+		z=cos(u*16*pi*t+pi/2);
+		x=sin(u*16*pi*t+pi/2);
+		y=-1+2*u*t;"
+  }     }
+
+
+  Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+]}
