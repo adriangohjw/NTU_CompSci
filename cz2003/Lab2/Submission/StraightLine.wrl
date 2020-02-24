@@ -101,7 +101,7 @@ definition "x=u;
 
 # Domain for the parameter u. 
 # Explore how the curve changes when you change the domain values.
-parameters [0 1]
+parameters [-1 1]
 
 # Sampling resolution along the curve. This is how the parameter domain is sampled to calculate the
 # geometry function. 
