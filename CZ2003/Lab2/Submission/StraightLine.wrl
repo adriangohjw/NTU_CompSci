@@ -103,6 +103,13 @@ definition "x=u;
 # Explore how the curve changes when you change the domain values.
 parameters [-1 1]
 
+# Sampling resolution along the curve. This is how the parameter domain is sampled to calculate the
+# geometry function. 
+# Explore how the shape and the rendering speed change when you reduce or increase the resolution.
+resolution [100]
+
+ }  
+
 appearance FAppearance {
 material FMaterial { 
 # Fixed red color is defined for the curve. 
