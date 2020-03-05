@@ -15,3 +15,6 @@ CZ2003 - Computer Graphis And Visualisation <b>(VRML)</b><br>
 CZ2004 - Human Computer Interaction (HCI) <br>
 CZ2005 - Operating Systems (OS) <b>(C++)</b><br>
 CZ2007 - Introduction to Databases <b>(SQL)</b>
+
+<b>Year 3</b><br>
+CZ3006 - Net Centric Computing <b>(Java)</b><br>
