@@ -11,10 +11,12 @@ CZ1012 - Engineering Mathematics 2 <b>(Python)</b>
 <b>Year 2</b><br>
 CZ2001 - Algorithms <b>(Python)</b><br>
 CZ2002 - Object Oriented Design and Programming (OODP) <b>(Java, C++)</b><br>
-CZ2003 - Computer Graphis And Visualisation <b>(VRML)</b><br>
+CZ2003 - Computer Graphics And Visualisation <b>(VRML)</b><br>
 CZ2004 - Human Computer Interaction (HCI) <br>
 CZ2005 - Operating Systems (OS) <b>(C++)</b><br>
+CZ2006 - Software Engineering<br>
 CZ2007 - Introduction to Databases <b>(SQL)</b>
 
 <b>Year 3</b><br>
+CZ3006 - Software Systems Analysis and Design (SSAD) <br>
 CZ3006 - Net Centric Computing <b>(Java)</b><br>
