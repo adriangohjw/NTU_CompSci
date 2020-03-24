@@ -28,3 +28,13 @@ listeners_grouped = df.groupby('dst_IP').size().reset_index(name='Count')
 listeners_grouped = listeners_grouped.sort_values(['Count'], ascending=False)
 top5_listeners = listeners_grouped.head(5)
 print(top5_listeners)
+
+# EXERCISE 4B: TRANSPORT PROTOCOL 
+print("Transport Protocol Percentage breakdown")
+count_row = df.shape[0]
+df_grouped = df.groupby('IP_protocol').size().reset_index(name='Count')
+df_grouped = df_grouped.sort_values(['Count'], ascending=False)
+df_grouped = df_grouped.loc[df_grouped['IP_protocol'].isin([6, 17])]
+df_grouped['Percentage'] = df_grouped['Count'] / count_row * 100
+top5 = df_grouped.head(5)
+print(top5)
