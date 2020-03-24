@@ -45,3 +45,11 @@ df_grouped = df.groupby('udp_dst_port/tcp_dst_port/icmp_code').size().reset_inde
 df_grouped = df_grouped.sort_values(['Count'], ascending=False)
 top5 = df_grouped.head(5)
 print(top5)
+
+# EXERCISE 4D: TRAFFIC INTENSITY
+print("Finding traffic intensity of the network")
+count_row = df.shape[0]
+df_packets = df
+df_packets['Total_packet_size'] = df_packets['packet_size'] * df_packets['sampling_rate']
+total_traffic = df_packets['Total_packet_size'].sum()
+print("Total traffic: {}". format(total_traffic))
