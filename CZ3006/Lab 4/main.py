@@ -53,3 +53,23 @@ df_packets = df
 df_packets['Total_packet_size'] = df_packets['packet_size'] * df_packets['sampling_rate']
 total_traffic = df_packets['Total_packet_size'].sum()
 print("Total traffic: {}". format(total_traffic))
+
+
+# Most communicated pairs
+print("Finding most communicated pairs in the network")
+df_new = df
+df_new['IP_pair'] = None
+
+for index, row in df_new.iterrows():
+    IP_pair_list = []
+    IP_pair_list.append(row['src_IP'])
+    IP_pair_list.append(row['dst_IP'])
+    IP_pair_list.sort()
+    IP_pair_tuple = tuple(IP_pair_list)
+    df_new.at[index, 'IP_pair'] = IP_pair_tuple
+
+df_grouped = df.groupby('IP_pair').size().reset_index(name='Count')
+df_grouped = df_grouped.sort_values(['Count'], ascending=False)
+top5 = df_grouped.head(5)
+
+print(top5)
