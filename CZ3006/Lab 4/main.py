@@ -38,3 +38,10 @@ df_grouped = df_grouped.loc[df_grouped['IP_protocol'].isin([6, 17])]
 df_grouped['Percentage'] = df_grouped['Count'] / count_row * 100
 top5 = df_grouped.head(5)
 print(top5)
+
+# EXERCISE 4C: APPLICATIONS PROTOCOL
+print("Top 5 frequently used application protocol")
+df_grouped = df.groupby('udp_dst_port/tcp_dst_port/icmp_code').size().reset_index(name='Count')
+df_grouped = df_grouped.sort_values(['Count'], ascending=False)
+top5 = df_grouped.head(5)
+print(top5)
