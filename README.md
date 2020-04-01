@@ -18,5 +18,5 @@ CZ2006 - Software Engineering<br>
 CZ2007 - Introduction to Databases <b>(SQL)</b>
 
 <b>Year 3</b><br>
-CZ3006 - Software Systems Analysis and Design (SSAD) <br>
+CZ3003 - Software Systems Analysis and Design (SSAD) <br>
 CZ3006 - Net Centric Computing <b>(Java)</b><br>
