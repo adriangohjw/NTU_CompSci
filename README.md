@@ -14,7 +14,7 @@ CZ2002 - Object Oriented Design and Programming (OODP) <b>(Java, C++)</b><br>
 CZ2003 - Computer Graphics And Visualisation <b>(VRML)</b><br>
 CZ2004 - Human Computer Interaction (HCI) <br>
 CZ2005 - Operating Systems (OS) <b>(C++)</b><br>
-CZ2006 - Software Engineering<br>
+CZ2006 - Software Engineering <b>Python (Flask), Dart (Flutter)</b> - [Link to repo](https://github.com/adriangohjw/cz2006-software-engineering)<br>
 CZ2007 - Introduction to Databases <b>(SQL)</b>
 
 <b>Year 3</b><br>
