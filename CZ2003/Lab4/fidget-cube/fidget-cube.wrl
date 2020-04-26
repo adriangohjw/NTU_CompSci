@@ -1,0 +1,203 @@
+#VRML V2.0 utf8
+
+# The following EXTERNPROTO definitins remain the same for all FVRML scenes.
+
+EXTERNPROTO FGeometry [
+	exposedField SFString definition
+	exposedField MFFloat parameters
+	exposedField MFInt32 resolution
+	exposedField SFVec3f bboxCenter
+	exposedField SFVec3f bboxSize
+	exposedField SFString type
+	exposedField MFNode	parents
+	exposedField SFVec2f timeSpan
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FGeometry"
+EXTERNPROTO FMaterial [
+	exposedField SFString diffuseColor
+	exposedField SFString type
+	exposedField MFColor patternColor
+	exposedField MFFloat patternKey
+	exposedField SFString ambientIntensity
+	exposedField SFString emissiveColor
+	exposedField SFString shininess
+	exposedField SFString specularColor
+	exposedField SFString transparency
+	exposedField MFFloat parameters
+	exposedField MFNode	parents
+	exposedField SFVec2f timeSpan
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FMaterial"
+EXTERNPROTO FTexture3D [
+	exposedField SFString definition
+	exposedField SFString type
+	exposedField MFFloat parameters
+	exposedField MFNode	parents
+	exposedField SFVec2f timeSpan
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTexture3D"
+EXTERNPROTO FAppearance [
+	exposedField SFNode	material
+	exposedField SFNode	texture
+	exposedField SFNode	textureTransform
+	exposedField SFNode	texture3D
+	exposedField MFNode	parents
+	eventIn	SFBool refresh
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FAppearance"
+EXTERNPROTO FShape [
+	exposedField SFNode	geometry
+	exposedField SFNode	appearance
+	exposedField SFString polygonizer
+	exposedField MFNode	parents
+	exposedField SFTime	startTime
+	exposedField SFTime stopTime
+    exposedField SFTime cycleInterval
+    exposedField SFBool	loop
+	exposedField SFBool	enabled
+	eventOut SFTime	cycleTime
+	eventIn SFFloat set_fraction
+	field SFInt32 frames
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FShape"
+EXTERNPROTO FTransform [
+	exposedField SFString operation
+	exposedField SFString type
+	exposedField SFString polygonizer
+	exposedField MFFloat parameters
+	exposedField SFString center
+	exposedField SFString rotation
+	exposedField SFString scale
+	exposedField SFString scaleOrientation
+	exposedField SFString translation
+	exposedField MFNode children
+	exposedField MFNode	parents
+	eventIn	SFBool refresh
+    exposedField SFVec2f timeSpan
+	exposedField SFTime	startTime
+	exposedField SFTime stopTime
+    exposedField SFTime cycleInterval
+    exposedField SFBool	loop
+	exposedField SFBool	enabled
+	eventOut SFTime	cycleTime
+	eventIn SFFloat set_fraction
+	field SFInt32 frames
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTransform"
+
+Background {skyColor 0 0 0}
+
+# External VRML object "coordinate system" is included in the scene
+Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+
+FShape {
+geometry FGeometry {
+
+# Function script defining the CSG solid. 
+# Change to some other formulae to see how the solid geometry changes 
+# based on the parameters domain and the sampling resolution defined below
+	definition 
+	"function frep(x,y,z,t){
+
+		base_shape = 0.8^8-x^8-y^8-z^8;
+
+
+		s1_boundary = z + 0.8;
+		s1_circle_bot = z + 0.87;
+		s1_circle = 0.3-(x^2)-(y^2);
+		s1_circle_top = z + 0.92;
+		s1_stem = min(min(0.005-(x^2)-(y^2), s1_circle_top), -s1_boundary);
+		s1 = max(min(min(s1_circle, s1_circle_top), -s1_circle_bot), s1_stem);
+
+
+		s2_boundary = y + 0.8;
+		s2_circle_top = y + 0.9;
+
+		s2_1_circle = 0.015-(x^2)-(z^2);
+		s2_1 = min(min(s2_1_circle, s2_circle_top), -s2_boundary);
+
+		s2_2_circle = 0.015-((x-0.4)^2)-((z-0.4)^2);
+		s2_2 = min(min(s2_2_circle, s2_circle_top), -s2_boundary);
+
+		s2_3_circle = 0.015-((x-0.4)^2)-((z+0.4)^2);
+		s2_3 = min(min(s2_3_circle, s2_circle_top), -s2_boundary);
+
+		s2_4_circle = 0.015-((x+0.4)^2)-((z-0.4)^2);
+		s2_4 = min(min(s2_4_circle, s2_circle_top), -s2_boundary);
+
+		s2_5_circle = 0.015-((x+0.4)^2)-((z+0.4)^2);
+		s2_5 = min(min(s2_5_circle, s2_circle_top), -s2_boundary);
+
+
+		s3_boundary = x + 0.8;
+		s3_circle = 0.22-(y^2)-(z^2);
+		s3_circle_top = x + 0.85;
+		s3_small_circle = 0.005-((y-0.2)^2)-((z-0.2)^2);
+		s3_small_circle_top = x + 0.9;
+		s3_bot = min(min(s3_circle, s3_circle_top), -s3_boundary);
+		s3_top = min(min(s3_small_circle, s3_small_circle_top), -s3_circle_top);
+		s3 = max(s3_bot, s3_top);
+
+
+		s4_boundary = y - 0.7;
+
+		s4_hemisphere = 0.08 - (x^2) - ((y-0.65)^2) - ((z-0.3)^2); 
+		s4_h = min(s4_hemisphere, s4_boundary);
+
+		s4_gear = 0.02-((y-0.74)^2)-((z+0.35)^2);
+
+		s4_gear_1_upperbound = x+0.05;
+		s4_gear_1_lowerbound = x-0.05;
+		s4_g1 = min(min(min(s4_gear, s4_boundary), s4_gear_1_upperbound), -s4_gear_1_lowerbound);
+
+		s4_gear_2_upperbound = x+0.4;
+		s4_gear_2_lowerbound = x+0.3;
+		s4_g2 = min(min(min(s4_gear, s4_boundary), s4_gear_2_upperbound), -s4_gear_2_lowerbound);
+
+		s4_gear_3_upperbound = x-0.3;
+		s4_gear_3_lowerbound = x-0.4;
+		s4_g3 = min(min(min(s4_gear, s4_boundary), s4_gear_3_upperbound), -s4_gear_3_lowerbound);
+
+
+		s5_boundary = x - 0.8;
+		s5_top = y+(3*x-2.7);
+		s5_height = y + 0.25;
+		s5_side_left = z + 0.1;
+		s5_side_right = z - 0.1;
+		s5 = min(min(min(min(s5_boundary, -s5_top), s5_height), s5_side_left), -s5_side_right);
+
+
+		s6_boundary = z - 0.7;
+		s6_ellipse = 0.3-((x/1.1)^2)-((y/0.7)^2);
+		s6_ellipse_top = z - 0.8;
+		s6 = min(min(s6_ellipse, -s6_ellipse_top), s6_boundary);
+
+
+		return 
+			max(
+				max(max(max(max(
+					max(
+						max(max(max(max(max(
+							max(
+								min(base_shape, -s6), s1
+							), 
+							s2_1), s2_2), s2_3), s2_4), s2_5
+						),
+						s3
+					),
+					s4_h), s4_g1), s4_g2), s4_g3
+				),
+				s5
+			)
+		;
+
+	}"
+
+# Adjust the tight bounding box and an optimal resolution
+bboxCenter 0 0 0
+bboxSize 2 2 2
+resolution [80 60 60]
+
+ }     
+
+appearance FAppearance {
+material FMaterial { 
+# Variable color is defined for the CGS solid
+diffuseColor "r=(u+1)/2; g=(v+1)/2; b=(w+1)/2;"
+   }    }
+}
