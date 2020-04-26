@@ -1,0 +1,80 @@
+#VRML V2.0 utf8
+#polygon mesh example: a revised polygon
+
+Background {skyColor 0 0 1}
+
+
+Shape {
+	appearance Appearance{
+		material Material { 
+			diffuseColor     0.125 100 0.418
+			specularColor    1 1 1	 #red=1, green=1, blue=1
+			transparency 0.05   # try values between 0 and 1
+			shininess 1     # shiny surface, try values between 0 and 1
+			}
+		}
+	geometry IndexedFaceSet {
+		coord Coordinate {
+                    point [
+
+				# bottom vertices
+				 1.0  -1.0   0.0,	#vertex 0
+				 0.5  -1.0  -0.875,	#vertex 1
+				-0.5  -1.0  -0.875,	#vertex 2
+				-1.0  -1.0   0.0,	#vertex 3
+				-0.5  -1.0   0.875,	#vertex 4
+				 0.5  -1.0   0.875,	#vertex 5	
+				
+				# middle vertices
+				 1.5  	0.0   0.0,		#vertex 6
+				 0.75  	0.0  -1.3125,	#vertex 7
+				-0.75  	0.0  -1.3125,	#vertex 8
+				-1.5  	0.0   0.0,		#vertex 9
+				-0.75  	0.0   1.3125,	#vertex 10
+				 0.75  	0.0   1.3125,	#vertex 11		
+				
+				# top vertices
+				 1.0  1.0   0.0,	#vertex 12
+				 0.5  1.0  -0.875,	#vertex 13
+				-0.5  1.0  -0.875,	#vertex 14
+				-1.0  1.0   0.0,	#vertex 15
+				-0.5  1.0   0.875,	#vertex 16
+				 0.5  1.0   0.875,	#vertex 17
+                    ]
+                }
+		coordIndex [
+			#hexgon bottom
+			 0,  5,  4,  3,  2,  1, -1,
+
+			#side bottom-1
+			 0,  1,   7,  6, -1,
+			#side bottom-2
+			 1,  2,   8,  7, -1,
+			#side bottom-3
+			 2,  3,   9,  8, -1,
+			#side bottom-4
+			 3,  4,  10,  9, -1,
+			#side bottom-5
+			 4,  5,  11, 10, -1,
+			#side bottom-6
+			 5,  0,   6, 11, -1,
+			 
+			#side top-1
+			 6,  7,  13, 12, -1,
+			#side top-2
+			 7,  8,  14, 13, -1,
+			#side top-3
+			 8,  9,  15, 14, -1,
+			#side top-4
+			 9, 10,  16, 15, -1,
+			#side top-5
+			 10, 11, 17, 16, -1,
+			#side top-6
+			 11,  6, 12, 17, -1,
+
+			#hexgon top
+			 12,  13,  14,  15,  16,  17, -1,
+			]
+			
+	}
+}

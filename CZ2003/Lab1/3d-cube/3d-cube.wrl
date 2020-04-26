@@ -7,7 +7,7 @@ Background {skyColor 0 0 1}
 Shape {
 	appearance Appearance{
 		material Material { 
-			diffuseColor     0.125 0.781 0.418
+			diffuseColor     0 0.781 0.418
 			specularColor    1 1 1
 			transparency 0 
 			shininess 1
