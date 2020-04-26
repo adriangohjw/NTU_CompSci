@@ -79,7 +79,7 @@ EXTERNPROTO FTransform [
 	field SFInt32 frames
 ] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTransform"
 
-Background {skyColor 0 0 1}
+Background {skyColor 0 0 0}
 
 # External VRML object "coordinate system" is included in the scene
 Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
@@ -95,24 +95,24 @@ geometry FGeometry {
 # The parametric formulae defing the curve. 
 # Change them to other fomulae to see how geometry changes within the parameter domain and 
 # based on the sampling resolution defined below
-definition "x=1*(cos(2*pi*u))^3;
-			y=1*(sin(2*pi*u))^3;
-			z=0;"
+definition "x=u*(cos(6*pi*u));
+			y=u*(sin(6*pi*u));
+			z=u;"
 
 # Domain for the parameter u. 
 # Explore how the curve changes when you change the domain values.
-parameters [0 1]
+parameters [-1 1]
 
 # Sampling resolution along the curve. This is how the parameter domain is sampled to calculate the
 # geometry function. 
 # Explore how the shape and the rendering speed change when you reduce or increase the resolution.
-resolution [100]
+resolution [300]
 
  }     
 
 appearance FAppearance {
 material FMaterial { 
 # Fixed red color is defined for the curve. 
-diffuseColor "r=1; g=0; b=0;"
+diffuseColor "r=1; g=1; b=1;"
    }    }
 }
