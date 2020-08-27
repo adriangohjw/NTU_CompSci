@@ -1,0 +1,37 @@
+ADDER
+
+DSIZE: 8
+LUT slices: 8
+delay: 5.725ns
+
+DSIZE: 16
+LUT slices: 16
+delay: 5.877ns
+
+DSIZE: 32
+LUT slices: 32
+delay: 6.181ns
+
+DSIZE: 64
+LUT slices: 64
+delay: 6.789ns
+
+======
+
+MULTIPLIER
+
+DSIZE: 8
+LUT slices: 41
+delay: 8.350ns
+
+DSIZE: 16
+LUT slices: 177
+delay: 9.955ns
+
+DSIZE: 32
+LUT slices: 737
+delay: 11.780ns
+
+DSIZE: 64
+LUT slices: 3009
+delay: 13.845ns

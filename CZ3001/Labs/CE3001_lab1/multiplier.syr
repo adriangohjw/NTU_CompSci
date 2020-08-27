@@ -1,0 +1,362 @@
+Release 14.4 - xst P.49d (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.61 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.61 secs
+ 
+--> Reading design: multiplier.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "multiplier.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "multiplier"
+Output Format                      : NGC
+Target Device                      : xc6slx4-3-csg225
+
+---- Source Options
+Top Module Name                    : multiplier
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : No
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\multiplier.v" into library work
+Parsing module <multiplier>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <multiplier>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <multiplier>.
+    Related source file is "C:\Users\jgoh070\Desktop\multiplier.v".
+        DSIZE = 64
+    Found 64x64-bit multiplier for signal <n0003> created at line 13.
+    Summary:
+	inferred   1 Multiplier(s).
+Unit <multiplier> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 1
+ 64x64-bit multiplier                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 1
+ 64x64-bit multiplier                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <multiplier> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block multiplier, actual ratio is 147.
+Optimizing block <multiplier> to meet ratio 100 (+ 5) of 600 slices :
+WARNING:Xst:2254 - Area constraint could not be met for block <multiplier>, final ratio is 146.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : multiplier.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 6979
+#      GND                         : 1
+#      LUT2                        : 1954
+#      LUT3                        : 31
+#      LUT4                        : 1024
+#      MUXCY                       : 1953
+#      XORCY                       : 2016
+# IO Buffers                       : 192
+#      IBUF                        : 128
+#      OBUF                        : 64
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx4csg225-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice LUTs:                 3009  out of   2400   125% (*) 
+    Number used as Logic:              3009  out of   2400   125% (*) 
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   3009
+   Number with an unused Flip Flop:    3009  out of   3009   100%  
+   Number with an unused LUT:             0  out of   3009     0%  
+   Number of fully used LUT-FF pairs:     0  out of   3009     0%  
+   Number of unique control sets:         0
+
+IO Utilization: 
+ Number of IOs:                         192
+ Number of bonded IOBs:                 192  out of    132   145% (*) 
+
+Specific Feature Utilization:
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 13.845ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 62213077466 / 64
+-------------------------------------------------------------------------
+Delay:               13.845ns (Levels of Logic = 64)
+  Source:            a<0> (PAD)
+  Destination:       out<63> (PAD)
+
+  Data Path: a<0> to out<63>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            95   1.222   2.092  a_0_IBUF (a_0_IBUF)
+     LUT4:I0->O            1   0.203   0.000  Mmult_n0003_Madd26_lut<3> (Mmult_n0003_Madd26_lut<3>)
+     MUXCY:S->O            1   0.172   0.000  Mmult_n0003_Madd26_cy<3> (Mmult_n0003_Madd26_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<4> (Mmult_n0003_Madd26_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<5> (Mmult_n0003_Madd26_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<6> (Mmult_n0003_Madd26_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<7> (Mmult_n0003_Madd26_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<8> (Mmult_n0003_Madd26_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<9> (Mmult_n0003_Madd26_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<10> (Mmult_n0003_Madd26_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<11> (Mmult_n0003_Madd26_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<12> (Mmult_n0003_Madd26_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<13> (Mmult_n0003_Madd26_cy<13>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<14> (Mmult_n0003_Madd26_cy<14>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<15> (Mmult_n0003_Madd26_cy<15>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<16> (Mmult_n0003_Madd26_cy<16>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<17> (Mmult_n0003_Madd26_cy<17>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<18> (Mmult_n0003_Madd26_cy<18>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<19> (Mmult_n0003_Madd26_cy<19>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<20> (Mmult_n0003_Madd26_cy<20>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<21> (Mmult_n0003_Madd26_cy<21>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<22> (Mmult_n0003_Madd26_cy<22>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<23> (Mmult_n0003_Madd26_cy<23>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<24> (Mmult_n0003_Madd26_cy<24>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<25> (Mmult_n0003_Madd26_cy<25>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<26> (Mmult_n0003_Madd26_cy<26>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<27> (Mmult_n0003_Madd26_cy<27>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<28> (Mmult_n0003_Madd26_cy<28>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<29> (Mmult_n0003_Madd26_cy<29>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<30> (Mmult_n0003_Madd26_cy<30>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<31> (Mmult_n0003_Madd26_cy<31>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<32> (Mmult_n0003_Madd26_cy<32>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<33> (Mmult_n0003_Madd26_cy<33>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<34> (Mmult_n0003_Madd26_cy<34>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<35> (Mmult_n0003_Madd26_cy<35>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<36> (Mmult_n0003_Madd26_cy<36>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<37> (Mmult_n0003_Madd26_cy<37>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<38> (Mmult_n0003_Madd26_cy<38>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<39> (Mmult_n0003_Madd26_cy<39>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<40> (Mmult_n0003_Madd26_cy<40>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<41> (Mmult_n0003_Madd26_cy<41>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<42> (Mmult_n0003_Madd26_cy<42>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<43> (Mmult_n0003_Madd26_cy<43>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<44> (Mmult_n0003_Madd26_cy<44>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<45> (Mmult_n0003_Madd26_cy<45>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<46> (Mmult_n0003_Madd26_cy<46>)
+     MUXCY:CI->O           1   0.019   0.000  Mmult_n0003_Madd26_cy<47> (Mmult_n0003_Madd26_cy<47>)
+     XORCY:CI->O           1   0.180   0.684  Mmult_n0003_Madd26_xor<48> (Mmult_n0003_Madd_5826)
+     LUT2:I0->O            1   0.203   0.000  Mmult_n0003_Madd44_lut<50> (Mmult_n0003_Madd44_lut<50>)
+     MUXCY:S->O            1   0.172   0.000  Mmult_n0003_Madd44_cy<50> (Mmult_n0003_Madd44_cy<50>)
+     XORCY:CI->O           1   0.180   0.684  Mmult_n0003_Madd44_xor<51> (Mmult_n0003_Madd_5944)
+     LUT2:I0->O            1   0.203   0.000  Mmult_n0003_Madd54_lut<55> (Mmult_n0003_Madd54_lut<55>)
+     MUXCY:S->O            1   0.172   0.000  Mmult_n0003_Madd54_cy<55> (Mmult_n0003_Madd54_cy<55>)
+     XORCY:CI->O           1   0.180   0.684  Mmult_n0003_Madd54_xor<56> (Mmult_n0003_Madd_6054)
+     LUT2:I0->O            1   0.203   0.000  Mmult_n0003_Madd59_lut<60> (Mmult_n0003_Madd59_lut<60>)
+     MUXCY:S->O            1   0.172   0.000  Mmult_n0003_Madd59_cy<60> (Mmult_n0003_Madd59_cy<60>)
+     XORCY:CI->O           1   0.180   0.580  Mmult_n0003_Madd59_xor<61> (Mmult_n0003_Madd_6197)
+     LUT2:I1->O            1   0.205   0.000  Mmult_n0003_Madd61_lut<61> (Mmult_n0003_Madd61_lut<61>)
+     MUXCY:S->O            1   0.172   0.000  Mmult_n0003_Madd61_cy<61> (Mmult_n0003_Madd61_cy<61>)
+     XORCY:CI->O           1   0.180   0.580  Mmult_n0003_Madd61_xor<62> (Mmult_n0003_Madd_6263)
+     LUT2:I1->O            1   0.205   0.000  Mmult_n0003_Madd62_lut<62> (Mmult_n0003_Madd62_lut<62>)
+     MUXCY:S->O            0   0.172   0.000  Mmult_n0003_Madd62_cy<62> (Mmult_n0003_Madd62_cy<62>)
+     XORCY:CI->O           1   0.180   0.579  Mmult_n0003_Madd62_xor<63> (out_63_OBUF)
+     OBUF:I->O                 2.571          out_63_OBUF (out<63>)
+    ----------------------------------------
+    Total                     13.845ns (7.963ns logic, 5.882ns route)
+                                       (57.5% logic, 42.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.41 secs
+ 
+--> 
+
+Total memory usage is 4559856 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

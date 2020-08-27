@@ -1,0 +1,135 @@
+Release 14.4 - xst P.49d (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.62 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.62 secs
+ 
+--> Reading design: alu_tb_file_io.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "alu_tb_file_io.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "alu_tb_file_io"
+Output Format                      : NGC
+Target Device                      : xc6slx4-3-csg225
+
+---- Source Options
+Top Module Name                    : alu_tb_file_io
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : No
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\CE3001_lab1_part2\alu.v" into library work
+Parsing verilog file "define.v" included at line 1.
+Parsing module <alu>.
+WARNING:HDLCompiler:370 - "C:\Users\jgoh070\Desktop\CE3001_lab1_part2\alu.v" Line 9: Empty port in module declaration
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\CE3001_lab1_part2\alutest.v" into library work
+Parsing verilog file "define.v" included at line 3.
+Parsing module <alu_tb_file_io>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <alu_tb_file_io>.
+WARNING:HDLCompiler:816 - "C:\Users\jgoh070\Desktop\CE3001_lab1_part2\alutest.v" Line 30: System function call feof not supported
+WARNING:HDLCompiler:817 - "C:\Users\jgoh070\Desktop\CE3001_lab1_part2\alutest.v" Line 46: System task fclose ignored for synthesis
+WARNING:HDLCompiler:817 - "C:\Users\jgoh070\Desktop\CE3001_lab1_part2\alutest.v" Line 47: System task fclose ignored for synthesis
+ERROR:HDLCompiler:1689 - "C:\Users\jgoh070\Desktop\CE3001_lab1_part2\alutest.v" Line 48: System task finish is always executed
+WARNING:HDLCompiler:872 - "C:\Users\jgoh070\Desktop\CE3001_lab1_part2\alutest.v" Line 22: Using initial value of a since it is never assigned
+Module alu_tb_file_io remains a blackbox, due to errors in its contents
+WARNING:HDLCompiler:1499 - "C:\Users\jgoh070\Desktop\CE3001_lab1_part2\alutest.v" Line 4: Empty module <alu_tb_file_io> remains a black box.
+--> 
+
+Total memory usage is 4470144 kilobytes
+
+Number of errors   :    1 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

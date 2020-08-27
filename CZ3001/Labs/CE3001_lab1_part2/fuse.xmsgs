@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="370" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab1_part2/alu.v" Line 9: Empty port in module declaration
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="835" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab1_part2/alutest.v" Line 20: Too many parameters for module instance <arg fmt="%s" index="1">A0</arg>
+</msg>
+
+</messages>
+

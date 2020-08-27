@@ -1,0 +1,21 @@
+ALU
+
+DSIZE: 4
+LUT slices: 8
+delay: 6.597ns
+
+DSIZE: 8
+LUT slices: 16
+delay: 6.856ns
+
+DSIZE: 16
+LUT slices: 32
+delay: 7.286ns
+
+DSIZE: 32
+LUT slices: 64
+delay: 7.931ns
+
+DSIZE: 64
+LUT slices: 128
+delay: 8.845ns

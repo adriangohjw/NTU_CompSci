@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/jgoh070/Desktop/CE3001_lab1_part2/alu_tb_file_io.xst" -ofn "C:/Users/jgoh070/Desktop/CE3001_lab1_part2/alu_tb_file_io.syr" 

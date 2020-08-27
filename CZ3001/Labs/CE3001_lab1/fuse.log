@@ -1,0 +1,16 @@
+Running: C:\Xilinx\14.4\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/jgoh070/Desktop/CE3001_lab1/adder_isim_beh.exe -prj C:/Users/jgoh070/Desktop/CE3001_lab1/adder_beh.prj work.adder work.glbl 
+ISim P.49d (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab1/../adder.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.4/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module adder
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 2 Verilog Units
+Built simulation executable C:/Users/jgoh070/Desktop/CE3001_lab1/adder_isim_beh.exe
+Fuse Memory Usage: 28136 KB
+Fuse CPU Usage: 515 ms

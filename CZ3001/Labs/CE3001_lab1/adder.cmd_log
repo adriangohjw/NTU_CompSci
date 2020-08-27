@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "Y:/cz3001/CE3001_lab1/adder.xst" -ofn "Y:/cz3001/CE3001_lab1/adder.syr" 
+xst -intstyle ise -ifn "C:/Users/jgoh070/Desktop/CE3001_lab1/adder.xst" -ofn "C:/Users/jgoh070/Desktop/CE3001_lab1/adder.syr" 
+xst -intstyle ise -ifn "C:/Users/jgoh070/Desktop/CE3001_lab1/adder.xst" -ofn "C:/Users/jgoh070/Desktop/CE3001_lab1/adder.syr" 
+xst -intstyle ise -ifn "C:/Users/jgoh070/Desktop/CE3001_lab1/adder.xst" -ofn "C:/Users/jgoh070/Desktop/CE3001_lab1/adder.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx4-csg225-3 adder.ngc adder.ngd  
+map -intstyle ise -p xc6slx4-csg225-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o adder_map.ncd adder.ngd adder.pcf 

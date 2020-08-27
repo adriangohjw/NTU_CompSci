@@ -1,0 +1,11 @@
+//input file for alu_tb.v
+// a b op 
+5 0 0 
+5 b 1 
+5 4 2 
+5 f 3 
+5 1 4 
+5 1 5 
+5 1 6 
+ 
+	

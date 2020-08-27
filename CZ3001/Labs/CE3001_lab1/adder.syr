@@ -1,0 +1,361 @@
+Release 14.4 - xst P.49d (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.61 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.61 secs
+ 
+--> Reading design: adder.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "adder.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "adder"
+Output Format                      : NGC
+Target Device                      : xc6slx4-3-csg225
+
+---- Source Options
+Top Module Name                    : adder
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\adder.v" into library work
+Parsing module <adder>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <adder>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <adder>.
+    Related source file is "C:\Users\jgoh070\Desktop\adder.v".
+        DSIZE = 64
+    Found 64-bit adder for signal <out> created at line 13.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <adder> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 64-bit adder                                          : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 64-bit adder                                          : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <adder> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block adder, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : adder.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 192
+#      GND                         : 1
+#      LUT2                        : 64
+#      MUXCY                       : 63
+#      XORCY                       : 64
+# IO Buffers                       : 192
+#      IBUF                        : 128
+#      OBUF                        : 64
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx4csg225-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice LUTs:                   64  out of   2400     2%  
+    Number used as Logic:                64  out of   2400     2%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     64
+   Number with an unused Flip Flop:      64  out of     64   100%  
+   Number with an unused LUT:             0  out of     64     0%  
+   Number of fully used LUT-FF pairs:     0  out of     64     0%  
+   Number of unique control sets:         0
+
+IO Utilization: 
+ Number of IOs:                         192
+ Number of bonded IOBs:                 192  out of    132   145% (*) 
+
+Specific Feature Utilization:
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 6.789ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 6176 / 64
+-------------------------------------------------------------------------
+Delay:               6.789ns (Levels of Logic = 67)
+  Source:            a<0> (PAD)
+  Destination:       out<63> (PAD)
+
+  Data Path: a<0> to out<63>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.684  a_0_IBUF (a_0_IBUF)
+     LUT2:I0->O            1   0.203   0.000  Madd_out_lut<0> (Madd_out_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  Madd_out_cy<0> (Madd_out_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<1> (Madd_out_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<2> (Madd_out_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<3> (Madd_out_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<4> (Madd_out_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<5> (Madd_out_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<6> (Madd_out_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<7> (Madd_out_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<8> (Madd_out_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<9> (Madd_out_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<10> (Madd_out_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<11> (Madd_out_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<12> (Madd_out_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<13> (Madd_out_cy<13>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<14> (Madd_out_cy<14>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<15> (Madd_out_cy<15>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<16> (Madd_out_cy<16>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<17> (Madd_out_cy<17>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<18> (Madd_out_cy<18>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<19> (Madd_out_cy<19>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<20> (Madd_out_cy<20>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<21> (Madd_out_cy<21>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<22> (Madd_out_cy<22>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<23> (Madd_out_cy<23>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<24> (Madd_out_cy<24>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<25> (Madd_out_cy<25>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<26> (Madd_out_cy<26>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<27> (Madd_out_cy<27>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<28> (Madd_out_cy<28>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<29> (Madd_out_cy<29>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<30> (Madd_out_cy<30>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<31> (Madd_out_cy<31>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<32> (Madd_out_cy<32>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<33> (Madd_out_cy<33>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<34> (Madd_out_cy<34>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<35> (Madd_out_cy<35>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<36> (Madd_out_cy<36>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<37> (Madd_out_cy<37>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<38> (Madd_out_cy<38>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<39> (Madd_out_cy<39>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<40> (Madd_out_cy<40>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<41> (Madd_out_cy<41>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<42> (Madd_out_cy<42>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<43> (Madd_out_cy<43>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<44> (Madd_out_cy<44>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<45> (Madd_out_cy<45>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<46> (Madd_out_cy<46>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<47> (Madd_out_cy<47>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<48> (Madd_out_cy<48>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<49> (Madd_out_cy<49>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<50> (Madd_out_cy<50>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<51> (Madd_out_cy<51>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<52> (Madd_out_cy<52>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<53> (Madd_out_cy<53>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<54> (Madd_out_cy<54>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<55> (Madd_out_cy<55>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<56> (Madd_out_cy<56>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<57> (Madd_out_cy<57>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<58> (Madd_out_cy<58>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<59> (Madd_out_cy<59>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<60> (Madd_out_cy<60>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_out_cy<61> (Madd_out_cy<61>)
+     MUXCY:CI->O           0   0.019   0.000  Madd_out_cy<62> (Madd_out_cy<62>)
+     XORCY:CI->O           1   0.180   0.579  Madd_out_xor<63> (out_63_OBUF)
+     OBUF:I->O                 2.571          out_63_OBUF (out<63>)
+    ----------------------------------------
+    Total                      6.789ns (5.526ns logic, 1.263ns route)
+                                       (81.4% logic, 18.6% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.46 secs
+ 
+--> 
+
+Total memory usage is 4506628 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

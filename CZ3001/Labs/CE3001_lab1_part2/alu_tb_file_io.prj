@@ -1,0 +1,2 @@
+verilog work "alu.v"
+verilog work "alutest.v"

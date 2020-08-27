@@ -1,0 +1,16 @@
+ISim log file
+Running: C:\Users\jgoh070\Desktop\CE3001_lab1\adder_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/jgoh070/Desktop/CE3001_lab1/adder_isim_beh.wdb 
+ISim P.49d (signature 0x7708f090)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# cd ..
+# cd xs
+# cd xst
+# step
+# step
+# step
