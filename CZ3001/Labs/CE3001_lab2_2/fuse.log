@@ -1,0 +1,24 @@
+Running: C:\Xilinx\14.4\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o L:/CE3001_lab2_2/regfiletest_isim_beh.exe -prj L:/CE3001_lab2_2/regfiletest_beh.prj work.regfiletest work.glbl 
+ISim P.49d (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "L:/CE3001_lab2_2/regfile.v" into library work
+Analyzing Verilog file "L:/CE3001_lab2_2/regfiletest.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.4/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:189 - "L:/CE3001_lab2_2/regfiletest.v" Line 31: Size mismatch in connection of port <raddr1>. Formal port size is 5-bit while actual signal size is 2-bit.
+WARNING:HDLCompiler:189 - "L:/CE3001_lab2_2/regfiletest.v" Line 32: Size mismatch in connection of port <raddr2>. Formal port size is 5-bit while actual signal size is 2-bit.
+WARNING:HDLCompiler:189 - "L:/CE3001_lab2_2/regfiletest.v" Line 33: Size mismatch in connection of port <waddr>. Formal port size is 5-bit while actual signal size is 2-bit.
+WARNING:HDLCompiler:189 - "L:/CE3001_lab2_2/regfiletest.v" Line 34: Size mismatch in connection of port <wdata>. Formal port size is 64-bit while actual signal size is 4-bit.
+WARNING:HDLCompiler:189 - "L:/CE3001_lab2_2/regfiletest.v" Line 35: Size mismatch in connection of port <rdata1>. Formal port size is 64-bit while actual signal size is 4-bit.
+WARNING:HDLCompiler:189 - "L:/CE3001_lab2_2/regfiletest.v" Line 36: Size mismatch in connection of port <rdata2>. Formal port size is 64-bit while actual signal size is 4-bit.
+Completed static elaboration
+Compiling module regfile
+Compiling module regfiletest
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 3 Verilog Units
+Built simulation executable L:/CE3001_lab2_2/regfiletest_isim_beh.exe
+Fuse Memory Usage: 28632 KB
+Fuse CPU Usage: 765 ms
