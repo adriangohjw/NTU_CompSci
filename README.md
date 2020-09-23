@@ -23,3 +23,12 @@
 <b>Year 3</b>
 - CZ3001 Advanced Computer Architecture
 - CZ3005 Artificial Intelligence (AI)
+=======
+
+## On a side note...
+
+[![NodeFlair - Explore](nodeflair_explore.jpg)](http://app.nodeflair.com/explore)
+
+At [NodeFlair](https://www.nodeflair.com/), I've been working on a new product aimed to disrupt the job search experience as a software developer in Singapore.
+
+If you are looking for software development internships or jobs, feel free to [check it out](http://app.nodeflair.com/explore)! Drop me a message if you have any feedback, I'd love to hear from you!
