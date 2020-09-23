@@ -22,4 +22,4 @@
 
 <b>Year 3</b>
 - CZ3001 Advanced Computer Architecture
-
+- CZ3005 Artificial Intelligence (AI)
