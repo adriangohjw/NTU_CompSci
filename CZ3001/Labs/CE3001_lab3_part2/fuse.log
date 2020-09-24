@@ -1,0 +1,54 @@
+Running: C:\Xilinx\14.4\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline_isim_beh.exe -prj C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline_beh.prj work.test_bench_5_stage_pipeline work.glbl 
+ISim P.49d (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/../Lab3_5stage pipeline with LDUR and STUR/regfile.v" into library work
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/../Lab3_5stage pipeline with LDUR and STUR/PC.v" into library work
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/../Lab3_5stage pipeline with LDUR and STUR/MEM_WBstage.v" into library work
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/../Lab3_5stage pipeline with LDUR and STUR/imemory.v" into library work
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/../Lab3_5stage pipeline with LDUR and STUR/ID_EXEstage.v" into library work
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/../Lab3_5stage pipeline with LDUR and STUR/EXE_MEMstage.v" into library work
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/../Lab3_5stage pipeline with LDUR and STUR/dmemory.v" into library work
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/../Lab3_5stage pipeline with LDUR and STUR/control.v" into library work
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/../Lab3_5stage pipeline with LDUR and STUR/alu.v" into library work
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/../Lab3_5stage pipeline with LDUR and STUR/pipelined_regfile_5stage.v" into library work
+Analyzing Verilog file "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.4/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 56: Size mismatch in connection of port <PCOUT>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 57: Size mismatch in connection of port <INST>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 58: Size mismatch in connection of port <rdata1>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 59: Size mismatch in connection of port <rdata2>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 60: Size mismatch in connection of port <rdata1_ID_EXE>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 61: Size mismatch in connection of port <rdata2_ID_EXE>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 62: Size mismatch in connection of port <imm_ID_EXE>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 63: Size mismatch in connection of port <rdata2_imm_ID_EXE>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 66: Size mismatch in connection of port <waddr_ID_EXE>. Formal port size is 5-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 67: Size mismatch in connection of port <aluout>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 68: Size mismatch in connection of port <waddr_EXE_MEM>. Formal port size is 5-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 69: Size mismatch in connection of port <aluout_EXE_MEM>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 70: Size mismatch in connection of port <rdata2_EXE_MEM>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 71: Size mismatch in connection of port <dmemdata>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 72: Size mismatch in connection of port <waddr_MEM_WB>. Formal port size is 5-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 73: Size mismatch in connection of port <aluout_MEM_WB>. Formal port size is 64-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 74: Size mismatch in connection of port <wdata_WB>. Formal port size is 64-bit while actual signal size is 1-bit.
+Completed static elaboration
+Compiling module PC1
+Compiling module imemory
+Compiling module control
+Compiling module regfile
+Compiling module ID_EXE_stage
+Compiling module alu
+Compiling module EXE_MEM_stage
+Compiling module dmemory
+Compiling module MEM_WB_stage
+Compiling module pipelined_regfile_5stage
+Compiling module test_bench_5_stage_pipeline
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 12 Verilog Units
+Built simulation executable C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline_isim_beh.exe
+Fuse Memory Usage: 29112 KB
+Fuse CPU Usage: 733 ms

@@ -1,0 +1,29 @@
+ISim log file
+Running: C:\Users\jgoh070\Desktop\CE3001_lab3_part2\test_bench_5_stage_pipeline_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline_isim_beh.wdb 
+ISim P.49d (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 32.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port PCOUT is not equal to width 1 of actual signal PCOUT.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 33.  For instance test_bench_5_stage_pipeline/uut/, width 32 of formal port INST is not equal to width 1 of actual signal INST.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 34.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port rdata1 is not equal to width 1 of actual signal rdata1.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 35.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port rdata2 is not equal to width 1 of actual signal rdata2.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 36.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port rdata1_ID_EXE is not equal to width 1 of actual signal rdata1_ID_EXE.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 37.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port rdata2_ID_EXE is not equal to width 1 of actual signal rdata2_ID_EXE.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 38.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port imm_ID_EXE is not equal to width 1 of actual signal imm_ID_EXE.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 39.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port rdata2_imm_ID_EXE is not equal to width 1 of actual signal rdata2_imm_ID_EXE.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 42.  For instance test_bench_5_stage_pipeline/uut/, width 5 of formal port waddr_ID_EXE is not equal to width 1 of actual signal waddr_ID_EXE.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 43.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port aluout is not equal to width 1 of actual signal aluout.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 44.  For instance test_bench_5_stage_pipeline/uut/, width 5 of formal port waddr_EXE_MEM is not equal to width 1 of actual signal waddr_EXE_MEM.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 45.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port aluout_EXE_MEM is not equal to width 1 of actual signal aluout_EXE_MEM.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 46.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port rdata2_EXE_MEM is not equal to width 1 of actual signal rdata2_EXE_MEM.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 47.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port dmemdata is not equal to width 1 of actual signal dmemdata.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 48.  For instance test_bench_5_stage_pipeline/uut/, width 5 of formal port waddr_MEM_WB is not equal to width 1 of actual signal waddr_MEM_WB.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 49.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port aluout_MEM_WB is not equal to width 1 of actual signal aluout_MEM_WB.
+WARNING: File "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 50.  For instance test_bench_5_stage_pipeline/uut/, width 64 of formal port wdata_WB is not equal to width 1 of actual signal wdata_WB.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Opening Fileid 0
+Opening Fileid 1

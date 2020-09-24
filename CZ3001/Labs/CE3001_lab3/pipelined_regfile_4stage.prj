@@ -1,0 +1,8 @@
+verilog work "../Lab3_4_stage_pipeline_codes/regfile.v"
+verilog work "../Lab3_4_stage_pipeline_codes/PC.v"
+verilog work "../Lab3_4_stage_pipeline_codes/imemory.v"
+verilog work "../Lab3_4_stage_pipeline_codes/ID_EXEstage.v"
+verilog work "../Lab3_4_stage_pipeline_codes/EXE_WBstage.v"
+verilog work "../Lab3_4_stage_pipeline_codes/control.v"
+verilog work "../Lab3_4_stage_pipeline_codes/alu.v"
+verilog work "../Lab3_4_stage_pipeline_codes/pipelined_regfile_4stage.v"

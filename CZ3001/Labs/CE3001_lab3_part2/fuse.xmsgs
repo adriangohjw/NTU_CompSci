@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 56: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">PCOUT</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 57: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">INST</arg>&gt;. Formal port size is <arg fmt="%d" index="2">32</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 58: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">rdata1</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 59: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">rdata2</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 60: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">rdata1_ID_EXE</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 61: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">rdata2_ID_EXE</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 62: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">imm_ID_EXE</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 63: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">rdata2_imm_ID_EXE</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 66: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">waddr_ID_EXE</arg>&gt;. Formal port size is <arg fmt="%d" index="2">5</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 67: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">aluout</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 68: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">waddr_EXE_MEM</arg>&gt;. Formal port size is <arg fmt="%d" index="2">5</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 69: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">aluout_EXE_MEM</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 70: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">rdata2_EXE_MEM</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 71: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">dmemdata</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 72: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">waddr_MEM_WB</arg>&gt;. Formal port size is <arg fmt="%d" index="2">5</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 73: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">aluout_MEM_WB</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/jgoh070/Desktop/CE3001_lab3_part2/test_bench_5_stage_pipeline.v" Line 74: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">wdata_WB</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+</messages>
+

@@ -1,0 +1,5 @@
+xst -intstyle ise -ifn "Y:/cz3001/CE3001_lab3/pipelined_regfile_4stage.xst" -ofn "Y:/cz3001/CE3001_lab3/pipelined_regfile_4stage.syr" 
+xst -intstyle ise -ifn "Y:/cz3001/CE3001_lab3/pipelined_regfile_4stage.xst" -ofn "Y:/cz3001/CE3001_lab3/pipelined_regfile_4stage.syr" 
+xst -intstyle ise -ifn "Y:/cz3001/CE3001_lab3/pipelined_regfile_4stage.xst" -ofn "Y:/cz3001/CE3001_lab3/pipelined_regfile_4stage.syr" 
+xst -intstyle ise -ifn "C:/Users/jgoh070/Desktop/CE3001_lab3/pipelined_regfile_4stage.xst" -ofn "C:/Users/jgoh070/Desktop/CE3001_lab3/pipelined_regfile_4stage.syr" 
+xst -intstyle ise -ifn "C:/Users/jgoh070/Desktop/CE3001_lab3/pipelined_regfile_4stage.xst" -ofn "C:/Users/jgoh070/Desktop/CE3001_lab3/pipelined_regfile_4stage.syr" 

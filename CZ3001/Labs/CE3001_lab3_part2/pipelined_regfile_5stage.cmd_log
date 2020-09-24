@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/pipelined_regfile_5stage.xst" -ofn "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/pipelined_regfile_5stage.syr" 
+xst -intstyle ise -ifn "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/pipelined_regfile_5stage.xst" -ofn "C:/Users/jgoh070/Desktop/CE3001_lab3_part2/pipelined_regfile_5stage.syr" 

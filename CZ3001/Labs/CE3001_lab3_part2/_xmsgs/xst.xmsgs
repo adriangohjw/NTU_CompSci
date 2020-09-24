@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="816" delta="old" >"C:\Users\jgoh070\Desktop\Lab3_5stage pipeline with LDUR and STUR\imemory.v" Line 36: System function call <arg fmt="%s" index="1">feof</arg> not supported
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="817" delta="old" >"C:\Users\jgoh070\Desktop\Lab3_5stage pipeline with LDUR and STUR\imemory.v" Line 49: System task <arg fmt="%s" index="1">fclose</arg> ignored for synthesis
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\jgoh070\Desktop\Lab3_5stage pipeline with LDUR and STUR\imemory.v" Line 56: Result of <arg fmt="%d" index="1">64</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">32</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="816" delta="old" >"C:\Users\jgoh070\Desktop\Lab3_5stage pipeline with LDUR and STUR\dmemory.v" Line 36: System function call <arg fmt="%s" index="1">feof</arg> not supported
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="817" delta="old" >"C:\Users\jgoh070\Desktop\Lab3_5stage pipeline with LDUR and STUR\dmemory.v" Line 49: System task <arg fmt="%s" index="1">fclose</arg> ignored for synthesis
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">data_in&lt;63:32&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">fileid</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">fileid</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="1767" delta="old" >HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">Mram_imemory</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">dm/Mram_dmemory</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">imm_out_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ID_EXE_stage</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">55 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;imm_out_9&gt; &lt;imm_out_10&gt; &lt;imm_out_11&gt; &lt;imm_out_12&gt; &lt;imm_out_13&gt; &lt;imm_out_14&gt; &lt;imm_out_15&gt; &lt;imm_out_16&gt; &lt;imm_out_17&gt; &lt;imm_out_18&gt; &lt;imm_out_19&gt; &lt;imm_out_20&gt; &lt;imm_out_21&gt; &lt;imm_out_22&gt; &lt;imm_out_23&gt; &lt;imm_out_24&gt; &lt;imm_out_25&gt; &lt;imm_out_26&gt; &lt;imm_out_27&gt; &lt;imm_out_28&gt; &lt;imm_out_29&gt; &lt;imm_out_30&gt; &lt;imm_out_31&gt; &lt;imm_out_32&gt; &lt;imm_out_33&gt; &lt;imm_out_34&gt; &lt;imm_out_35&gt; &lt;imm_out_36&gt; &lt;imm_out_37&gt; &lt;imm_out_38&gt; &lt;imm_out_39&gt; &lt;imm_out_40&gt; &lt;imm_out_41&gt; &lt;imm_out_42&gt; &lt;imm_out_43&gt; &lt;imm_out_44&gt; &lt;imm_out_45&gt; &lt;imm_out_46&gt; &lt;imm_out_47&gt; &lt;imm_out_48&gt; &lt;imm_out_49&gt; &lt;imm_out_50&gt; &lt;imm_out_51&gt; &lt;imm_out_52&gt; &lt;imm_out_53&gt; &lt;imm_out_54&gt; &lt;imm_out_55&gt; &lt;imm_out_56&gt; &lt;imm_out_57&gt; &lt;imm_out_58&gt; &lt;imm_out_59&gt; &lt;imm_out_60&gt; &lt;imm_out_61&gt; &lt;imm_out_62&gt; &lt;imm_out_63&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2254" delta="old" >Area constraint could not be met for block &lt;<arg fmt="%s" index="1">pipelined_regfile_5stage</arg>&gt;, final ratio is <arg fmt="%i" index="2">263</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1336" delta="old" > (*) More than 100% of Device resources are used
+</msg>
+
+</messages>
+

@@ -1,0 +1,542 @@
+Release 14.4 - xst P.49d (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.56 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.56 secs
+ 
+--> Reading design: pipelined_regfile_4stage.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "pipelined_regfile_4stage.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "pipelined_regfile_4stage"
+Output Format                      : NGC
+Target Device                      : xc6slx4-3-csg225
+
+---- Source Options
+Top Module Name                    : pipelined_regfile_4stage
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\regfile.v" into library work
+Parsing verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\/define.v" included at line 2.
+Parsing module <regfile>.
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\PC.v" into library work
+Parsing verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\/define.v" included at line 1.
+Parsing module <PC1>.
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\imemory.v" into library work
+Parsing verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\/define.v" included at line 1.
+Parsing module <imemory>.
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\ID_EXEstage.v" into library work
+Parsing verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\/define.v" included at line 1.
+Parsing module <ID_EXE_stage>.
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\EXE_WBstage.v" into library work
+Parsing verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\/define.v" included at line 1.
+Parsing module <EXE_WB_stage>.
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\control.v" into library work
+Parsing verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\/define.v" included at line 3.
+Parsing module <control>.
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\alu.v" into library work
+Parsing verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\/define.v" included at line 1.
+Parsing module <alu>.
+Analyzing Verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\pipelined_regfile_4stage.v" into library work
+Parsing verilog file "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\/define.v" included at line 2.
+Parsing module <pipelined_regfile_4stage>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <pipelined_regfile_4stage>.
+
+Elaborating module <PC1>.
+
+Elaborating module <imemory>.
+"C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\imemory.v" Line 34. $write Opening Fileid 0\n
+WARNING:HDLCompiler:816 - "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\imemory.v" Line 36: System function call feof not supported
+WARNING:HDLCompiler:817 - "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\imemory.v" Line 49: System task fclose ignored for synthesis
+WARNING:HDLCompiler:413 - "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\imemory.v" Line 56: Result of 64-bit expression is truncated to fit in 32-bit target.
+
+Elaborating module <control>.
+
+Elaborating module <regfile>.
+
+Elaborating module <ID_EXE_stage>.
+
+Elaborating module <alu>.
+
+Elaborating module <EXE_WB_stage>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <pipelined_regfile_4stage>.
+    Related source file is "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\pipelined_regfile_4stage.v".
+    Found 64-bit adder for signal <PCIN> created at line 31.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <pipelined_regfile_4stage> synthesized.
+
+Synthesizing Unit <PC1>.
+    Related source file is "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\PC.v".
+    Found 64-bit register for signal <currPC>.
+    Summary:
+	inferred  64 D-type flip-flop(s).
+Unit <PC1> synthesized.
+
+Synthesizing Unit <imemory>.
+    Related source file is "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\imemory.v".
+WARNING:Xst:647 - Input <data_in<63:32>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <fileid> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1024x32-bit dual-port RAM <Mram_imemory> for signal <imemory>.
+    Found 10-bit register for signal <addr_r<9:0>>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  10 D-type flip-flop(s).
+Unit <imemory> synthesized.
+
+Synthesizing Unit <control>.
+    Related source file is "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\control.v".
+WARNING:Xst:647 - Input <inst_cntrl<10:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <control> synthesized.
+
+Synthesizing Unit <regfile>.
+    Related source file is "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\regfile.v".
+    Found 2048-bit register for signal <n0052>.
+    Found 64-bit 32-to-1 multiplexer for signal <waddr[4]_regdata[31][63]_wide_mux_2_OUT> created at line 45.
+    Found 64-bit 32-to-1 multiplexer for signal <raddr1[4]_regdata[31][63]_wide_mux_40_OUT> created at line 48.
+    Found 64-bit 32-to-1 multiplexer for signal <raddr2[4]_regdata[31][63]_wide_mux_43_OUT> created at line 50.
+    Found 5-bit comparator equal for signal <waddr[4]_raddr1[4]_equal_40_o> created at line 48
+    Found 5-bit comparator equal for signal <waddr[4]_raddr2[4]_equal_43_o> created at line 50
+    Summary:
+	inferred 2048 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred  38 Multiplexer(s).
+Unit <regfile> synthesized.
+
+Synthesizing Unit <ID_EXE_stage>.
+    Related source file is "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\ID_EXEstage.v".
+    Found 64-bit register for signal <rdata1_out>.
+    Found 64-bit register for signal <rdata2_out>.
+    Found 3-bit register for signal <opcode_out>.
+    Found 5-bit register for signal <waddr_out>.
+    Summary:
+	inferred 136 D-type flip-flop(s).
+Unit <ID_EXE_stage> synthesized.
+
+Synthesizing Unit <alu>.
+    Related source file is "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\alu.v".
+    Found 64-bit subtractor for signal <a[63]_b[63]_sub_2_OUT> created at line 22.
+    Found 64-bit adder for signal <a[63]_b[63]_add_0_OUT> created at line 21.
+    Found 64-bit 7-to-1 multiplexer for signal <out> created at line 20.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   5 Multiplexer(s).
+Unit <alu> synthesized.
+
+Synthesizing Unit <EXE_WB_stage>.
+    Related source file is "C:\Users\jgoh070\Desktop\Lab3_4_stage_pipeline_codes\EXE_WBstage.v".
+    Found 64-bit register for signal <alu_out>.
+    Found 5-bit register for signal <waddr_out>.
+    Summary:
+	inferred  69 D-type flip-flop(s).
+Unit <EXE_WB_stage> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 1024x32-bit dual-port RAM                             : 1
+# Adders/Subtractors                                   : 2
+ 64-bit adder                                          : 1
+ 64-bit addsub                                         : 1
+# Registers                                            : 9
+ 10-bit register                                       : 1
+ 2048-bit register                                     : 1
+ 3-bit register                                        : 1
+ 5-bit register                                        : 2
+ 64-bit register                                       : 4
+# Comparators                                          : 2
+ 5-bit comparator equal                                : 2
+# Multiplexers                                         : 43
+ 64-bit 2-to-1 multiplexer                             : 40
+ 64-bit 32-to-1 multiplexer                            : 3
+# Xors                                                 : 1
+ 64-bit xor2                                           : 1
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <imemory>.
+INFO:Xst:3226 - The RAM <Mram_imemory> will be implemented as a BLOCK RAM, absorbing the following register(s): <addr_r>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 1024-word x 32-bit                  |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <addr>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <imemory> synthesized (advanced).
+
+Synthesizing (advanced) Unit <pipelined_regfile_4stage>.
+The following registers are absorbed into counter <pc/currPC>: 1 register on signal <pc/currPC>.
+Unit <pipelined_regfile_4stage> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 1024x32-bit single-port block RAM                     : 1
+# Adders/Subtractors                                   : 1
+ 64-bit addsub                                         : 1
+# Counters                                             : 1
+ 64-bit up counter                                     : 1
+# Registers                                            : 2253
+ Flip-Flops                                            : 2253
+# Comparators                                          : 2
+ 5-bit comparator equal                                : 2
+# Multiplexers                                         : 43
+ 64-bit 2-to-1 multiplexer                             : 40
+ 64-bit 32-to-1 multiplexer                            : 3
+# Xors                                                 : 1
+ 64-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <pipelined_regfile_4stage> ...
+
+Optimizing unit <ID_EXE_stage> ...
+
+Optimizing unit <EXE_WB_stage> ...
+
+Optimizing unit <regfile> ...
+
+Optimizing unit <alu> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block pipelined_regfile_4stage, actual ratio is 217.
+Optimizing block <pipelined_regfile_4stage> to meet ratio 100 (+ 5) of 600 slices :
+WARNING:Xst:2254 - Area constraint could not be met for block <pipelined_regfile_4stage>, final ratio is 217.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 2317
+ Flip-Flops                                            : 2317
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : pipelined_regfile_4stage.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 3946
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 63
+#      LUT3                        : 2112
+#      LUT5                        : 168
+#      LUT6                        : 1346
+#      MUXCY                       : 126
+#      VCC                         : 1
+#      XORCY                       : 128
+# FlipFlops/Latches                : 2317
+#      FDR                         : 2314
+#      FDS                         : 3
+# RAMS                             : 2
+#      RAMB16BWER                  : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 494
+#      IBUF                        : 1
+#      OBUF                        : 493
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx4csg225-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:            2317  out of   4800    48%  
+ Number of Slice LUTs:                 3690  out of   2400   153% (*) 
+    Number used as Logic:              3690  out of   2400   153% (*) 
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   3703
+   Number with an unused Flip Flop:    1386  out of   3703    37%  
+   Number with an unused LUT:            13  out of   3703     0%  
+   Number of fully used LUT-FF pairs:  2304  out of   3703    62%  
+   Number of unique control sets:         1
+
+IO Utilization: 
+ Number of IOs:                         495
+ Number of bonded IOBs:                 495  out of    132   375% (*) 
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:                2  out of     12    16%  
+    Number using Block RAM only:          2
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 2319  |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 6.471ns (Maximum Frequency: 154.525MHz)
+   Minimum input arrival time before clock: 4.175ns
+   Maximum output required time after clock: 9.557ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 6.471ns (frequency: 154.525MHz)
+  Total number of paths / destination ports: 33281 / 2337
+-------------------------------------------------------------------------
+Delay:               6.471ns (Levels of Logic = 3)
+  Source:            im/Mram_imemory1 (RAM)
+  Destination:       PIPE1/rdata1_out_55 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: im/Mram_imemory1 to PIPE1/rdata1_out_55
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16BWER:CLKA->DOA6  514   1.850   2.195  im/Mram_imemory1 (INST_6_OBUF)
+     LUT6:I4->O            4   0.203   0.684  RF0/waddr[4]_raddr1[4]_equal_40_o5_SW0 (N5)
+     LUT5:I4->O           17   0.205   1.028  RF0/waddr[4]_raddr1[4]_equal_40_o5 (RF0/waddr[4]_raddr1[4]_equal_40_o)
+     LUT5:I4->O            2   0.205   0.000  RF0/Mmux_rdata1110 (rdata1_0_OBUF)
+     FDR:D                     0.102          PIPE1/rdata1_out_0
+    ----------------------------------------
+    Total                      6.471ns (2.565ns logic, 3.906ns route)
+                                       (39.6% logic, 60.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 2317 / 2317
+-------------------------------------------------------------------------
+Offset:              4.175ns (Levels of Logic = 1)
+  Source:            rst (PAD)
+  Destination:       pc/currPC_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to pc/currPC_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O          2317   1.222   2.523  rst_IBUF (rst_IBUF)
+     FDR:R                     0.430          pc/currPC_0
+    ----------------------------------------
+    Total                      4.175ns (1.652ns logic, 2.523ns route)
+                                       (39.6% logic, 60.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 17133 / 493
+-------------------------------------------------------------------------
+Offset:              9.557ns (Levels of Logic = 4)
+  Source:            im/Mram_imemory1 (RAM)
+  Destination:       rdata1<55> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: im/Mram_imemory1 to rdata1<55>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16BWER:CLKA->DOA6  514   1.850   2.195  im/Mram_imemory1 (INST_6_OBUF)
+     LUT6:I4->O            4   0.203   0.684  RF0/waddr[4]_raddr1[4]_equal_40_o5_SW0 (N5)
+     LUT5:I4->O           17   0.205   1.028  RF0/waddr[4]_raddr1[4]_equal_40_o5 (RF0/waddr[4]_raddr1[4]_equal_40_o)
+     LUT5:I4->O            2   0.205   0.616  RF0/Mmux_rdata1110 (rdata1_0_OBUF)
+     OBUF:I->O                 2.571          rdata1_0_OBUF (rdata1<0>)
+    ----------------------------------------
+    Total                      9.557ns (5.034ns logic, 4.523ns route)
+                                       (52.7% logic, 47.3% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    6.471|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 14.00 secs
+Total CPU time to Xst completion: 14.08 secs
+ 
+--> 
+
+Total memory usage is 4559908 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    8 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+
