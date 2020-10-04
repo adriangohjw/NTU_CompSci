@@ -22,7 +22,11 @@
 
 <b>Year 3</b>
 - CZ3001 Advanced Computer Architecture
+- CZ3002 Advanced Software Engineering
 - CZ3005 Artificial Intelligence (AI)
+- CZ4031 Database System Principles
+- CX4153 Blockchain Technology
+
 =======
 
 ## On a side note...
