@@ -1,0 +1,84 @@
+Release 14.4 Map P.49d (nt64)
+Xilinx Map Application Log File for Design 'alu'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6slx4-csg225-3 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off
+-pr off -lc off -power off -o alu_map.ncd alu.ngd alu.pcf 
+Target Device  : xc6slx4
+Target Package : csg225
+Target Speed   : -3
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Thu Oct 15 15:10:22 2020
+
+Mapping design into LUTs...
+Running directed packing...
+Running delay-based LUT packing...
+Updating timing models...
+ERROR:Pack:2309 - Too many bonded comps of type "IOB" found to fit this device.
+ERROR:Map:237 - The design is too large to fit the device.  Please check the Design Summary section to see which resource requirement for
+   your design exceeds the resources available in the device. Note that the number of slices reported may not be reflected accurately as
+   their packing might not have been completed.
+
+Interim Summary
+---------------
+Slice Logic Utilization:
+  Number of Slice Registers:                     0 out of   4,800    0%
+  Number of Slice LUTs:                        139 out of   2,400    5%
+    Number used as logic:                      139 out of   2,400    5%
+      Number using O6 output only:             138
+      Number using O5 output only:               0
+      Number using O5 and O6:                    1
+      Number used as ROM:                        0
+    Number used as Memory:                       0 out of   1,200    0%
+
+Slice Logic Distribution:
+  Number of MUXCYs used:                        76 out of   1,200    6%
+  Number of LUT Flip Flop pairs used:          139
+    Number with an unused Flip Flop:           139 out of     139  100%
+    Number with an unused LUT:                   0 out of     139    0%
+    Number of fully used LUT-FF pairs:           0 out of     139    0%
+    Number of slice register sites lost
+      to control set restrictions:               0 out of   4,800    0%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                       196 out of     132  148% (OVERMAPPED)
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         0 out of      12    0%
+  Number of RAMB8BWERs:                          0 out of      24    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       0 out of      16    0%
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            0 out of       8    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+
+Mapping completed.
+See MAP report file "alu_map.mrp" for details.
+Problem encountered during the packing phase.
+
+Design Summary
+--------------
+Number of errors   :   2
+Number of warnings :   0

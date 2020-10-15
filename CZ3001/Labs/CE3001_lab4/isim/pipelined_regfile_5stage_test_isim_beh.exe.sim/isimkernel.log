@@ -1,0 +1,28 @@
+Command line:
+   pipelined_regfile_5stage_test_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  64536
+
+Thu Oct 15 16:06:13 2020
+
+
+ Elaboration Time: 0.125 sec
+
+ Current Memory Usage: 5649.73 Meg
+
+ Total Signals          : 148
+ Total Nets             : 1600
+ Total Signal Drivers   : 60
+ Total Blocks           : 13
+ Total Primitive Blocks : 11
+ Total Processes        : 73
+ Total Traceable Variables  : 75
+ Total Scalar Nets and Variables : 119388
+
+ Total Simulation Time: 0.265625 sec
+
+ Current Memory Usage: 4863.3 Meg
+
+Thu Oct 15 16:10:05 2020
+
