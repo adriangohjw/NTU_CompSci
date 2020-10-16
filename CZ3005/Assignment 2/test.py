@@ -15,14 +15,24 @@ class RandomAgent(object):
         self.learning_rate = 0.5
         self.exploration_rate = 0.01
 
+    # added exploration or exploitation
     def take_action(self, state):
-        action = random.choice(self.action_space)
-        return action
+        if random.random() > self.exploration_rate:
+            return self.__exploit(state)
+        else:
+            return self.__explore()
+    
+    def __exploit(self, state):
+        action_index_with_largest_q_value = np.argmax(self.Q[state])
+        return self.action_space[action_index_with_largest_q_value]
+
+    def __explore(self):
+        return random.choice(self.action_space)
+
 
     # implement your train/update function to update self.V or self.Q
     # you should pass arguments to the train function
     def train(self, state, action, next_state, reward):
-        # Q(state, action) = Reward(state, action) + Discount * Max[Q(next state, all actions)]
         action_index = self.__get_action_index(action)
         old_value = self.Q[state][action_index]
         learned_value = reward + (self.discount * self.__get_max_Q_values(next_state))
