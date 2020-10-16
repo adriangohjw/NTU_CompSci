@@ -24,7 +24,9 @@ class RandomAgent(object):
     def train(self, state, action, next_state, reward):
         # Q(state, action) = Reward(state, action) + Discount * Max[Q(next state, all actions)]
         action_index = self.__get_action_index(action)
-        self.Q[state][action_index] = reward + (self.discount * self.__get_max_Q_values(next_state))
+        old_value = self.Q[state][action_index]
+        learned_value = reward + (self.discount * self.__get_max_Q_values(next_state))
+        self.Q[state][action_index] = ((1 - self.learning_rate) * old_value) + (self.learning_rate * learned_value)
 
     def __get_action_index(self, action):
         if action not in self.action_space:
