@@ -25,7 +25,7 @@ class TreasureCube(AbstractEnvironment):
         super(TreasureCube, self).__init__()
         self.dim = 4
         self.max_step = max_step
-        self.curr_pos = [0, 0, 0]  # (z, x, y)
+        self.curr_pos = [0, 0, 0]
         self.time_step = 0
         self.end_pos = [self.dim - 1, self.dim - 1, self.dim - 1]
         self.visual_state = []
