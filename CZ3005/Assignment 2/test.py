@@ -72,22 +72,7 @@ class RandomAgent(object):
     def __get_max_Q_value(self, state): 
         state = str(state)
 
-        available_action_index = [i for i in range(len(self.action_space))]
-        if state[0] == "0":
-            available_action_index.remove(self.action_space.index("backward"))
-        if state[0] == "3":
-            available_action_index.remove(self.action_space.index("forward"))
-        if state[1] == "0":
-            available_action_index.remove(self.action_space.index("left"))
-        if state[1] == "3":
-            available_action_index.remove(self.action_space.index("right"))
-        if state[2] == "0":
-            available_action_index.remove(self.action_space.index("down"))
-        if state[2] == "3":
-            available_action_index.remove(self.action_space.index("up"))
-
-        available_q_values = [self.Q[state][index] for index in available_action_index]
-
+        available_q_values = [self.Q[state][index] for index in range(len(self.Q[state])) if self.Q[state][index] != -99]
         return max(available_q_values)
         
     def round_up_Q_values(self, num_of_dp):
