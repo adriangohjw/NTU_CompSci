@@ -64,11 +64,15 @@ class RandomAgent(object):
         :param goal_state: coordinate of the goal state in the format of 'xyz'
         """
         current_state = str(current_state) if current_state != 0 else '000'
+        initial_state = current_state
         next_state = current_state
-        print(f"Starting state: {current_state}")
 
         actions_counter = 0
         solution_found = False
+
+        if initial_state == goal_state:
+            solution_found = True
+
         while current_state != str(goal_state) and actions_counter < max_steps:
 
             # determine best action to take
@@ -115,18 +119,21 @@ class RandomAgent(object):
             else:
                 break
 
-            print(f"Moving from {current_state} to {next_state} with action '{action_to_take}'")
+            print(f'--- moving from {current_state} to {next_state}: {action_to_take}')
+
             current_state = next_state
             actions_counter += 1
 
             if next_state == '333':
                 solution_found = True
 
-        print(f'Number of steps taken: {actions_counter}')
         if solution_found:
-            print("Solution found")
+            print(f'State {initial_state} test ✔️')
         else:
-            print("Solution not found")
+            print(f'State {initial_state} test ❌')        
+        print()
+
+        return solution_found
 
 
 def test_cube(max_episode, max_step):
@@ -156,13 +163,27 @@ def test_cube(max_episode, max_step):
     pprint(dict(agent.Q))
 
     print()
-    agent.find_optimal_path(current_state='000', max_steps=(3*(env.dim-1)))
+    run_test(agent, env)
 
     print()
     export_Q_table_to_csv(agent)
 
     print()
     plot_learning_progress(max_step=max_step, episode_rewards_list=episode_rewards_list)
+
+
+def run_test(agent, env):
+    total_tests = pow(env.dim, 3)
+    total_test_passed = 0
+    for x in range(env.dim):
+        for y in range(env.dim):
+            for z in range(env.dim):
+                current_state = str(x) + str(y) + str(z)
+                is_path_optimal = agent.find_optimal_path(current_state=current_state)
+                if is_path_optimal:
+                    total_test_passed += 1 
+    print(f'Total tests passed: {total_test_passed} out of {total_tests}')
+    
 
 def export_Q_table_to_csv(agent, csv_file_name="Q_table.csv"):
     q_table_dict = agent.Q
