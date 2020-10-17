@@ -32,7 +32,6 @@ class RandomAgent(object):
         state = str(state)
 
         available_actions = self.action_space.copy()
-        
         if state[0] == "0":
             available_actions.remove("backward")
         if state[0] == "3":
@@ -162,13 +161,15 @@ class RandomAgent(object):
             if next_state == '333':
                 solution_found = True
 
-        if solution_found:
+        optimal_path_action_count = (int(goal_state[0]) - int(initial_state[0])) + (int(goal_state[1]) - int(initial_state[1])) + (int(goal_state[2]) - int(initial_state[2]))
+        if solution_found and (optimal_path_action_count == actions_counter):
             print(f'State {initial_state} test ✔️')
+            print()
+            return True
         else:
-            print(f'State {initial_state} test ❌')        
-        print()
-
-        return solution_found
+            print(f'State {initial_state} test ❌')
+            print()
+            return False    
 
 
 def test_cube(max_episode, max_step):
