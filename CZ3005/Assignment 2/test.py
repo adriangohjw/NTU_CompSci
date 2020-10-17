@@ -45,28 +45,14 @@ class RandomAgent(object):
     
     def __exploit(self, state):
         state = str(state)
-        
+
         action_index_with_largest_q_value = np.argmax(self.Q[state])
         return self.action_space[action_index_with_largest_q_value]
 
     def __explore(self, state):
         state = str(state)
-        x, y, z = state[0], state[1], state[2]
-
-        available_actions = self.action_space.copy()
-        if x == "0":
-            available_actions.remove("backward")
-        elif x == "3":
-            available_actions.remove("forward")
-        if y == "0":
-            available_actions.remove("left")
-        elif y == "3":
-            available_actions.remove("right")
-        if z == "0":
-            available_actions.remove("down")
-        elif z == "3":
-            available_actions.remove("up")
-
+        
+        available_actions = [self.action_space[index] for index in range(len(self.Q[state])) if self.Q[state][index] != -99]
         return random.choice(available_actions)
 
 
