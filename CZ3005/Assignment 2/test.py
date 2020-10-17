@@ -10,12 +10,30 @@ import matplotlib.pyplot as plt
 
 # you need to implement your agent based on one RL algorithm
 class RandomAgent(object):
-    def __init__(self):
+    def __init__(self, dimension):
         self.action_space = ['left','right','forward','backward','up','down'] # in TreasureCube
         self.Q = defaultdict(lambda: np.zeros(len(self.action_space)))
         self.discount = 0.99
         self.learning_rate = 0.5
         self.exploration_rate = 0.01
+        self.dimension = dimension
+
+        for x in range(self.dimension):
+            for y in range(self.dimension):
+                for z in range(self.dimension):
+                    state = str(x) + str(y) + str(z)
+                    if str(x) == '0':
+                        self.Q[state][self.action_space.index("backward")] = -99
+                    if str(x) == '3':
+                        self.Q[state][self.action_space.index("forward")] = -99
+                    if str(y) == '0':
+                        self.Q[state][self.action_space.index("left")] = -99
+                    if str(y) == '3':
+                        self.Q[state][self.action_space.index("right")] = -99
+                    if str(z) == '0':
+                        self.Q[state][self.action_space.index("down")] = -99
+                    if str(z) == '3':
+                        self.Q[state][self.action_space.index("up")] = -99
 
     # added exploration or exploitation
     def take_action(self, state):
@@ -25,7 +43,24 @@ class RandomAgent(object):
             return self.__explore(state)
     
     def __exploit(self, state):
-        action_index_with_largest_q_value = np.argmax(self.Q[state])
+        state = str(state)
+
+        q_values = self.Q[state]
+        q_values = np.ma.array(q_values, mask=False)
+        if state[0] == "0":
+            q_values.mask[self.action_space.index("backward")] = True 
+        if state[0] == "3":
+            q_values.mask[self.action_space.index("forward")] = True 
+        if state[1] == "0":
+            q_values.mask[self.action_space.index("left")] = True 
+        if state[1] == "3":
+            q_values.mask[self.action_space.index("right")] = True 
+        if state[2] == "0":
+            q_values.mask[self.action_space.index("down")] = True 
+        if state[2] == "3":
+            q_values.mask[self.action_space.index("up")] = True
+
+        action_index_with_largest_q_value = np.argmax(q_values)
         return self.action_space[action_index_with_largest_q_value]
 
     def __explore(self, state):
@@ -174,7 +209,7 @@ class RandomAgent(object):
 
 def test_cube(max_episode, max_step):
     env = TreasureCube(max_step=max_step)
-    agent = RandomAgent()
+    agent = RandomAgent(dimension=env.dim)
     episode_rewards_list = []
 
     for epsisode_num in range(0, max_episode):
@@ -192,7 +227,7 @@ def test_cube(max_episode, max_step):
             t += 1
             agent.train(state, action, next_state, reward)
             state = next_state
-        print(f'epsisode: {epsisode_num}, total_steps: {t} episode reward: {episode_reward}')
+        #print(f'epsisode: {epsisode_num}, total_steps: {t} episode reward: {episode_reward}')
         episode_rewards_list.append(episode_reward)
 
     agent.round_up_Q_values(num_of_dp=3)
