@@ -22,14 +22,31 @@ class RandomAgent(object):
         if random.random() > self.exploration_rate:
             return self.__exploit(state)
         else:
-            return self.__explore()
+            return self.__explore(state)
     
     def __exploit(self, state):
         action_index_with_largest_q_value = np.argmax(self.Q[state])
         return self.action_space[action_index_with_largest_q_value]
 
-    def __explore(self):
-        return random.choice(self.action_space)
+    def __explore(self, state):
+        state = str(state)
+
+        available_actions = self.action_space.copy()
+        
+        if state[0] == "0":
+            available_actions.remove("backward")
+        if state[0] == "3":
+            available_actions.remove("forward")
+        if state[1] == "0":
+            available_actions.remove("left")
+        if state[1] == "3":
+            available_actions.remove("right")
+        if state[2] == "0":
+            available_actions.remove("down")
+        if state[2] == "3":
+            available_actions.remove("up")
+
+        return random.choice(available_actions)
 
 
     # implement your train/update function to update self.V or self.Q
@@ -45,8 +62,26 @@ class RandomAgent(object):
             pass
         return self.action_space.index(action)
 
-    def __get_max_Q_value(self, state):
-        return max(self.Q[state])
+    def __get_max_Q_value(self, state): 
+        state = str(state)
+
+        available_action_index = [i for i in range(len(self.action_space))]
+        if state[0] == "0":
+            available_action_index.remove(self.action_space.index("backward"))
+        if state[0] == "3":
+            available_action_index.remove(self.action_space.index("forward"))
+        if state[1] == "0":
+            available_action_index.remove(self.action_space.index("left"))
+        if state[1] == "3":
+            available_action_index.remove(self.action_space.index("right"))
+        if state[2] == "0":
+            available_action_index.remove(self.action_space.index("down"))
+        if state[2] == "3":
+            available_action_index.remove(self.action_space.index("up"))
+
+        available_q_values = [self.Q[state][index] for index in available_action_index]
+
+        return max(available_q_values)
         
     def round_up_Q_values(self, num_of_dp):
         for key, values in self.Q.items():
@@ -183,7 +218,7 @@ def run_test(agent, env):
                 if is_path_optimal:
                     total_test_passed += 1 
     print(f'Total tests passed: {total_test_passed} out of {total_tests}')
-    
+
 
 def export_Q_table_to_csv(agent, csv_file_name="Q_table.csv"):
     q_table_dict = agent.Q
