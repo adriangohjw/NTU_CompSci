@@ -45,24 +45,8 @@ class RandomAgent(object):
     
     def __exploit(self, state):
         state = str(state)
-        x, y, z = state[0], state[1], state[2]
-
-        q_values = self.Q[state]
-        q_values = np.ma.array(q_values, mask=False)
-        if x == "0":
-            q_values.mask[self.action_space.index("backward")] = True 
-        elif x == "3":
-            q_values.mask[self.action_space.index("forward")] = True 
-        if y == "0":
-            q_values.mask[self.action_space.index("left")] = True 
-        elif y == "3":
-            q_values.mask[self.action_space.index("right")] = True 
-        if z == "0":
-            q_values.mask[self.action_space.index("down")] = True 
-        elif z == "3":
-            q_values.mask[self.action_space.index("up")] = True
-
-        action_index_with_largest_q_value = np.argmax(q_values)
+        
+        action_index_with_largest_q_value = np.argmax(self.Q[state])
         return self.action_space[action_index_with_largest_q_value]
 
     def __explore(self, state):
