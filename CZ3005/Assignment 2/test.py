@@ -5,6 +5,7 @@ import numpy as np
 from environment import TreasureCube
 from pprint import pprint
 import csv
+import matplotlib.pyplot as plt
 
 
 # you need to implement your agent based on one RL algorithm
@@ -131,6 +132,7 @@ class RandomAgent(object):
 def test_cube(max_episode, max_step):
     env = TreasureCube(max_step=max_step)
     agent = RandomAgent()
+    episode_rewards_list = []
 
     for epsisode_num in range(0, max_episode):
         state = env.reset()
@@ -148,6 +150,7 @@ def test_cube(max_episode, max_step):
             agent.train(state, action, next_state, reward)
             state = next_state
         print(f'epsisode: {epsisode_num}, total_steps: {t} episode reward: {episode_reward}')
+        episode_rewards_list.append(episode_reward)
 
     agent.round_up_Q_values(num_of_dp=3)
     pprint(dict(agent.Q))
@@ -158,6 +161,8 @@ def test_cube(max_episode, max_step):
     print()
     export_Q_table_to_csv(agent)
 
+    print()
+    plot_learning_progress(max_step=max_step, episode_rewards_list=episode_rewards_list)
 
 def export_Q_table_to_csv(agent, csv_file_name="Q_table.csv"):
     q_table_dict = agent.Q
@@ -176,6 +181,17 @@ def export_Q_table_to_csv(agent, csv_file_name="Q_table.csv"):
             file_writer.writerow(row_data)
 
     print("File exported!")
+
+
+def plot_learning_progress(max_step, episode_rewards_list):
+    Range = [i for i in range(len(episode_rewards_list))]
+    plt.plot(Range, episode_rewards_list, label=f'max_step={max_step}')
+    plt.suptitle("Learning Progress")
+    plt.xlabel("Episodes")
+    plt.ylabel("Episode rewards")
+    ax = plt.gca()
+    plt.legend()
+    plt.savefig("learning_progress.png")
 
 
 if __name__ == '__main__':
