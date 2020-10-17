@@ -4,6 +4,7 @@ import random
 import numpy as np
 from environment import TreasureCube
 from pprint import pprint
+import csv
 
 
 # you need to implement your agent based on one RL algorithm
@@ -153,6 +154,28 @@ def test_cube(max_episode, max_step):
 
     print()
     agent.find_optimal_path(current_state='000', max_steps=(3*(env.dim-1)))
+
+    print()
+    export_Q_table_to_csv(agent)
+
+
+def export_Q_table_to_csv(agent, csv_file_name="Q_table.csv"):
+    q_table_dict = agent.Q
+    q_table_list = list(dict(agent.Q).keys())
+    q_table_list.sort()
+    
+    with open(csv_file_name, 'w', newline='') as file:
+        file_writer = csv.writer(file, delimiter=",")
+        file_writer.writerow(["state"] + agent.action_space)
+
+        for state in q_table_list:
+            row_data = [state]
+            values = agent.Q[state]
+            for index in range(len(values)):
+                row_data.append(str(values[index]))
+            file_writer.writerow(row_data)
+
+    print("File exported!")
 
 
 if __name__ == '__main__':
