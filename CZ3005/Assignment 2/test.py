@@ -45,20 +45,21 @@ class RandomAgent(object):
     
     def __exploit(self, state):
         state = str(state)
+        x, y, z = state[0], state[1], state[2]
 
         q_values = self.Q[state]
         q_values = np.ma.array(q_values, mask=False)
-        if state[0] == "0":
+        if x == "0":
             q_values.mask[self.action_space.index("backward")] = True 
-        if state[0] == "3":
+        elif x == "3":
             q_values.mask[self.action_space.index("forward")] = True 
-        if state[1] == "0":
+        if y == "0":
             q_values.mask[self.action_space.index("left")] = True 
-        if state[1] == "3":
+        elif y == "3":
             q_values.mask[self.action_space.index("right")] = True 
-        if state[2] == "0":
+        if z == "0":
             q_values.mask[self.action_space.index("down")] = True 
-        if state[2] == "3":
+        elif z == "3":
             q_values.mask[self.action_space.index("up")] = True
 
         action_index_with_largest_q_value = np.argmax(q_values)
@@ -66,19 +67,20 @@ class RandomAgent(object):
 
     def __explore(self, state):
         state = str(state)
+        x, y, z = state[0], state[1], state[2]
 
         available_actions = self.action_space.copy()
-        if state[0] == "0":
+        if x == "0":
             available_actions.remove("backward")
-        if state[0] == "3":
+        elif x == "3":
             available_actions.remove("forward")
-        if state[1] == "0":
+        if y == "0":
             available_actions.remove("left")
-        if state[1] == "3":
+        elif y == "3":
             available_actions.remove("right")
-        if state[2] == "0":
+        if z == "0":
             available_actions.remove("down")
-        if state[2] == "3":
+        elif z == "3":
             available_actions.remove("up")
 
         return random.choice(available_actions)
