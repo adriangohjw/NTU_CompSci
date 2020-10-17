@@ -6,6 +6,7 @@ from environment import TreasureCube
 from pprint import pprint
 import csv
 import matplotlib.pyplot as plt
+import time
 
 
 # you need to implement your agent based on one RL algorithm
@@ -292,4 +293,7 @@ if __name__ == '__main__':
     parser.add_argument('--max_step', type=int, default=500)
     args = parser.parse_args()
 
+    start_time = time.perf_counter()
     test_cube(args.max_episode, args.max_step)
+    end_time = time.perf_counter()
+    print(f"Program completed in {end_time - start_time:0.4f} seconds")
