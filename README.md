@@ -24,7 +24,7 @@
 - CZ3006 Net Centric Computing <b>(Java, Python)</b>
 
 <b>Year 3</b>
-- CZ3001 Advanced Computer Architecture
+- CZ3001 Advanced Computer Architecture <b>(CUDA)</b>
 - CZ3002 Advanced Software Engineering
 - CZ3005 Artificial Intelligence (AI)
 - CZ4031 Database System Principles
