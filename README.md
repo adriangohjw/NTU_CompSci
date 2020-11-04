@@ -29,6 +29,7 @@
 - CZ3005 Artificial Intelligence (AI)
 - CZ4031 Database System Principles
 - CX4153 Blockchain Technology
+  - Project: <b>Solidity, Truffle, JavaScript (Express.js), Bootstrap</b> - [Link to repo](https://github.com/adriangohjw/cx4153-blockchain-technology)
 
 ## On a side note...
 
