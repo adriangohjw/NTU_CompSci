@@ -26,7 +26,7 @@
 <b>Year 3</b>
 - CZ3001 Advanced Computer Architecture <b>(CUDA)</b>
 - CZ3002 Advanced Software Engineering
-- CZ3005 Artificial Intelligence (AI)
+- CZ3005 Artificial Intelligence (AI) <b>(Python, Prolog)</b>
 - CZ4031 Database System Principles
 - CX4153 Blockchain Technology
 
