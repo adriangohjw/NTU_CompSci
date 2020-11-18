@@ -26,14 +26,23 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         self.all_side_options = self.prolog.sides()
 
 
+    def __restart(self):
+      self.prolog = PrologConvertor()
+
+
     async def on_chat_message(self, msg):
         _, _, id = telepot.glance(msg)
-        if (msg['text'] == '/start'):
+        if (msg['text'] in ['/start', '/restart']):
+            self.__restart()
             meals = self.all_meal_options
+            
             await bot.sendMessage(
-              id, 
-              replies.getWelcome(meal_options=meals),
-              reply_markup=generateKB(meals)
+                id, 
+                replies.getWelcome(
+                    meal_options=meals, 
+                    restart=(msg['text']=='/restart')
+                ),
+                reply_markup=generateKB(meals)
             )
 
         else:
