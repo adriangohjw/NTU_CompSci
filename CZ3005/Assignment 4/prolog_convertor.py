@@ -1,4 +1,4 @@
-from pyswip import Prolog
+from pyswip import Prolog, prolog
 
 PROLOG_FILENAME = "ADRIAN_GOH_JUN_WEI_qn_3.pl"
 
@@ -142,43 +142,67 @@ class PrologConvertor():
 
 
   def show_meals(self):
-    res = list(self.prolog.query("show_meals(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    try: 
+      res = list(self.prolog.query("show_meals(X)"))[0]["X"]
+      return self.convert_res_to_list(res)
+    except prolog.PrologError:
+      return []
 
 
   def show_breads(self):
-    res = list(self.prolog.query("show_breads(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    try: 
+      res = list(self.prolog.query("show_breads(X)"))[0]["X"]
+      return self.convert_res_to_list(res)
+    except prolog.PrologError:
+      return []
 
 
   def show_mains(self):
-    res = list(self.prolog.query("show_mains(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    try: 
+      res = list(self.prolog.query("show_mains(X)"))[0]["X"]
+      return self.convert_res_to_list(res)
+    except prolog.PrologError:
+      return []
 
 
   def show_veggies(self):
-    res = list(self.prolog.query("show_veggies(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    try: 
+      res = list(self.prolog.query("show_veggies(X)"))[0]["X"]
+      return self.convert_res_to_list(res)
+    except prolog.PrologError:
+      return []
 
 
   def show_sauces(self):
-    res = list(self.prolog.query("show_sauces(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    try: 
+      res = list(self.prolog.query("show_sauces(X)"))[0]["X"]
+      return self.convert_res_to_list(res)
+    except prolog.PrologError:
+      return []
 
 
   def show_topups(self):
-    res = list(self.prolog.query("show_topups(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    try: 
+      res = list(self.prolog.query("show_topups(X)"))[0]["X"]
+      return self.convert_res_to_list(res)
+    except prolog.PrologError:
+      return []
 
 
   def show_sides(self):
-    res = list(self.prolog.query("show_sides(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    try: 
+      res = list(self.prolog.query("show_sides(X)"))[0]["X"]
+      return self.convert_res_to_list(res)
+    except prolog.PrologError:
+      return []
 
 
   def show_drinks(self):
-    res = list(self.prolog.query("show_drinks(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    try: 
+      res = list(self.prolog.query("show_drinks(X)"))[0]["X"]
+      return self.convert_res_to_list(res)
+    except prolog.PrologError:
+      return []
 
 
   def convert_res_to_list(self, res):
