@@ -85,14 +85,14 @@ def getOrderSummary(meals, breads, mains, veggies, sauces, topups, sides, drinks
         "{drinks}\n"
         "Bye!"
     ).format(
-        meals=__convertListToNumberedString(meals), 
-        breads=__convertListToNumberedString(breads), 
-        mains=__convertListToNumberedString(mains), 
-        veggies=__convertListToNumberedString(veggies), 
-        sauces=__convertListToNumberedString(sauces), 
-        topups=__convertListToNumberedString(topups), 
-        sides=__convertListToNumberedString(sides),
-        drinks=__convertListToNumberedString(drinks)
+        meals=__handleEmptyChoices(__convertListToNumberedString(meals)), 
+        breads=__handleEmptyChoices(__convertListToNumberedString(breads)), 
+        mains=__handleEmptyChoices(__convertListToNumberedString(mains)), 
+        veggies=__handleEmptyChoices(__convertListToNumberedString(veggies)), 
+        sauces=__handleEmptyChoices(__convertListToNumberedString(sauces)), 
+        topups=__handleEmptyChoices(__convertListToNumberedString(topups)), 
+        sides=__handleEmptyChoices(__convertListToNumberedString(sides)),
+        drinks=__handleEmptyChoices(__convertListToNumberedString(drinks))
     )
 
 
@@ -102,3 +102,6 @@ def __convertListToNumberedString(list_input):
         string += "• {item}\n".format(item=item.capitalize().replace("_", " "))
     return string
     
+
+def __handleEmptyChoices(string_input):
+    return "(Nothing selected)\n" if not string_input else string_input
