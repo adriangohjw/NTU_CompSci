@@ -39,6 +39,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         else:
           if (msg['text'] in self.all_meal_options):
             breads = self.all_bread_options
+            await bot.sendPhoto(id, photo=open('images/breads.png', 'rb'))
             await bot.sendMessage(
               id, 
               "placeholder - breads",
