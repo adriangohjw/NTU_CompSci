@@ -29,15 +29,19 @@ class PrologConvertor():
 
 
   def sauces(self):
-    res_1 = list(self.prolog.query("fatty_sauces(X)"))[0]["X"]
-    res_2 = list(self.prolog.query("non_fatty_sauces(X)"))[0]["X"]
-    return self.convert_res_to_list(res_1) + self.convert_res_to_list(res_2)
+    res = list(self.prolog.query("sauces(X)"))[0]["X"]
+    if not res:
+      return []
+    else:
+      return self.convert_res_to_list(res[0])
 
 
   def topups(self):
-    res_1 = list(self.prolog.query("cheese_topups(X)"))[0]["X"]
-    res_2 = list(self.prolog.query("non_cheese_topups(X)"))[0]["X"]
-    return self.convert_res_to_list(res_1) + self.convert_res_to_list(res_2)
+    res = list(self.prolog.query("topups(X)"))[0]["X"]
+    if not res:
+      return []
+    else:
+      return self.convert_res_to_list(res[0])
 
 
   def sides(self):
@@ -47,7 +51,10 @@ class PrologConvertor():
 
   def drinks(self):
     res = list(self.prolog.query("drinks(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    if not res:
+      return []
+    else:
+      return self.convert_res_to_list(res[0])
 
 
   def add_meal(self, X):
@@ -128,7 +135,10 @@ class PrologConvertor():
 
   def ask_drinks(self):
     res = list(self.prolog.query("ask_drinks(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    if not res:
+      return []
+    else:
+      return self.convert_res_to_list(res[0])
 
 
   def show_meals(self):
