@@ -175,6 +175,9 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             await bot.sendMessage(
               id, "Okay enjoy!"
             )
+            await bot.sendMessage(
+              id, "Want to start a new order? Click /restart"
+            )
 
 
     async def on_chat_message(self, msg):
