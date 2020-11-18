@@ -16,18 +16,19 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
     def __init__(self, *args, **kwargs):
         super(TelegramBot, self).__init__(*args, **kwargs)
         self.prolog = PrologConvertor()
+        self.question_lists = ['meals', 'breads', 'mains', 'veggies', 'sauces', 'topups', 'sides', 'drinks']
+        self.counter = 0
 
 
     def __restart(self):
       self.prolog = PrologConvertor()
+      self.counter = 0
 
 
-    async def on_chat_message(self, msg):
-        _, _, id = telepot.glance(msg)
-        if (msg['text'] == '/start'):
-            self.__restart()
-            meals = self.prolog.meals()
-            
+    async def __ask(self, id, bot, question):
+        if question == 'meals':
+            meals = self.prolog.ask_meals()
+
             await bot.sendDocument(id, document=open('images/hello.gif', 'rb'))
             await bot.sendMessage(
                 id, 
@@ -38,25 +39,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
                 reply_markup=generateKB(meals)
             )
 
-        elif (msg['text'] == '/restart'):
-            self.__restart()
-            meals = self.prolog.meals()
-            
-            await bot.sendDocument(id, document=open('images/restart.gif', 'rb'))
-            await bot.sendMessage(
-                id, 
-                replies.getWelcome(
-                    meal_options=meals, 
-                    restart=True
-                ),
-                reply_markup=generateKB(meals)
-            )
-
-        else:
-          user_input = msg['text'].lower().replace(" ", "_")
-
-          if (user_input in self.prolog.meals()):
-            self.prolog.add_meal(user_input)
+        elif question == 'breads':
             breads = self.prolog.ask_breads()
 
             await bot.sendPhoto(id, photo=open('images/breads.png', 'rb'))
@@ -66,8 +49,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(breads)
             )
 
-          elif (user_input in self.prolog.breads()):
-            self.prolog.add_bread(user_input)
+        elif question == 'mains':
             mains = self.prolog.ask_mains()
 
             await bot.sendPhoto(id, photo=open('images/mains.jpg', 'rb'))
@@ -77,8 +59,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(mains)
             )
 
-          elif (user_input in self.prolog.mains()):
-            self.prolog.add_main(user_input)
+        elif question == 'veggies':
             veggies = self.prolog.ask_veggies()
 
             await bot.sendPhoto(id, photo=open('images/veggies.jpg', 'rb'))
@@ -88,8 +69,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(veggies)
             )
 
-          elif (user_input in self.prolog.veggies()):
-            self.prolog.add_veggie(user_input)
+        elif question == 'sauces':
             sauces = self.prolog.ask_sauces()
             
             await bot.sendPhoto(id, photo=open('images/sauces.jpg', 'rb'))
@@ -99,8 +79,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(sauces)
             )
 
-          elif (user_input in self.prolog.sauces()):
-            self.prolog.add_sauce(user_input)
+        elif question == 'topups':
             topups = self.prolog.ask_topups()
 
             await bot.sendPhoto(id, photo=open('images/topups.jpg', 'rb'))
@@ -110,8 +89,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(topups)
             )
 
-          elif (user_input in self.prolog.topups()):
-            self.prolog.add_topup(user_input)
+        elif question == 'sides':
             sides = self.prolog.ask_sides()
 
             await bot.sendPhoto(id, photo=open('images/sides.png', 'rb'))
@@ -121,8 +99,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(sides)
             )
 
-          elif (user_input in self.prolog.sides()):
-            self.prolog.add_side(user_input)
+        elif question == 'drinks':
             drinks = self.prolog.ask_drinks()
 
             await bot.sendPhoto(id, photo=open('images/drinks.png', 'rb'))
@@ -131,10 +108,8 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               replies.getAskDrinks(drink_options=drinks),
               reply_markup=generateKB(drinks)
             )
-            
-          elif (user_input in self.prolog.drinks()):
-            self.prolog.add_drink(user_input)
 
+        else:
             await bot.sendMessage(
               id, 
               replies.getOrderSummary(
@@ -159,9 +134,76 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             await bot.sendMessage(
               id, "Okay enjoy!"
             )
+
+
+    async def on_chat_message(self, msg):
+        _, _, id = telepot.glance(msg)
+        
+        if msg['text'] == '/start':
+            self.__restart()
+            await self.__ask(id, bot, 'meals')
+            self.counter += 1
+
+        elif msg['text'] == '/restart':
+            self.__restart()
+            meals = self.prolog.ask_meals()
+            
+            await bot.sendDocument(id, document=open('images/restart.gif', 'rb'))
+            await bot.sendMessage(
+                id, 
+                replies.getWelcome(
+                    meal_options=meals, 
+                    restart=True
+                ),
+                reply_markup=generateKB(meals)
+            )
+            self.counter += 1
+
+        else:
+          user_input = msg['text'].lower().replace(" ", "_")
+
+          if user_input in self.prolog.meals():
+            self.prolog.add_meal(user_input)
+            await self.__ask(id, bot, self.question_lists[self.counter])
+            self.counter += 1
+
+          elif user_input in self.prolog.breads():
+            self.prolog.add_bread(user_input)
+            await self.__ask(id, bot, self.question_lists[self.counter])
+            self.counter += 1
+
+          elif user_input in self.prolog.mains():
+            self.prolog.add_main(user_input)
+            await self.__ask(id, bot, self.question_lists[self.counter])
+            self.counter += 1
+
+          elif user_input in self.prolog.veggies():
+            self.prolog.add_veggie(user_input)
+            await self.__ask(id, bot, self.question_lists[self.counter])
+            self.counter += 1
+            
+          elif user_input in self.prolog.sauces():
+            self.prolog.add_sauce(user_input)
+            await self.__ask(id, bot, self.question_lists[self.counter])
+            self.counter += 1
+
+          elif user_input in self.prolog.topups():
+            self.prolog.add_topup(user_input)
+            await self.__ask(id, bot, self.question_lists[self.counter])
+            self.counter += 1
+
+          elif user_input in self.prolog.sides():
+            self.prolog.add_side(user_input)
+            await self.__ask(id, bot, self.question_lists[self.counter])
+            self.counter += 1
+            
+          elif user_input in self.prolog.drinks():
+            self.prolog.add_drink(user_input)
+            await self.__ask(id, bot, None)
+            self.counter += 1
             
           else:
-            print(111)
+            print("Error processig input - Invalid input")
           
 
 bot = telepot.aio.DelegatorBot(TOKEN, [
