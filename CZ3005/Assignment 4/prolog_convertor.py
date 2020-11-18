@@ -43,6 +43,34 @@ class PrologConvertor():
     return self.convert_res_to_list(res)
 
 
+  def add_meal(self, X):
+    self.prolog.assertz("chosen_meals({})".format(X))
+
+
+  def add_bread(self, X):
+    self.prolog.assertz("chosen_breads({})".format(X))
+
+
+  def add_main(self, X):
+    self.prolog.assertz("chosen_mains({})".format(X))
+
+  
+  def add_veggie(self, X):
+    self.prolog.assertz("chosen_veggies({})".format(X))
+
+
+  def add_sauce(self, X):
+    self.prolog.assertz("chosen_sauces({})".format(X))
+
+
+  def add_topup(self, X):
+    self.prolog.assertz("chosen_topups({})".format(X))
+
+
+  def add_side(self, X):
+    self.prolog.assertz("chosen_sides({})".format(X))
+
+
   def ask_meals(self):
     res = list(self.prolog.query("ask_meals(X)"))[0]["X"]
     return self.convert_res_to_list(res)
@@ -55,7 +83,10 @@ class PrologConvertor():
 
   def ask_mains(self):
     res = list(self.prolog.query("ask_mains(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    if not res:
+      return []
+    else:
+      return self.convert_res_to_list(res[0])
 
 
   def ask_veggies(self):
@@ -65,12 +96,18 @@ class PrologConvertor():
 
   def ask_sauces(self):
     res = list(self.prolog.query("ask_sauces(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    if not res:
+      return []
+    else:
+      return self.convert_res_to_list(res[0])
 
   
   def ask_topups(self):
     res = list(self.prolog.query("ask_topups(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    if not res:
+      return []
+    else:
+      return self.convert_res_to_list(res[0])
 
 
   def ask_sides(self):

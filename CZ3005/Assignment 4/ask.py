@@ -47,7 +47,9 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
 
         else:
           if (msg['text'] in self.all_meal_options):
-            breads = self.all_bread_options
+            self.prolog.add_meal(msg['text'])
+            breads = self.prolog.ask_breads()
+
             await bot.sendPhoto(id, photo=open('images/breads.png', 'rb'))
             await bot.sendMessage(
               id, 
@@ -56,7 +58,9 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
 
           elif (msg['text'] in self.all_bread_options):
-            mains = self.all_main_options
+            self.prolog.add_bread(msg['text'])
+            mains = self.prolog.ask_mains()
+
             await bot.sendMessage(
               id, 
               "placeholder - mains",
@@ -64,7 +68,9 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
 
           elif (msg['text'] in self.all_main_options):
-            veggies = self.all_veggie_options
+            self.prolog.add_main(msg['text'])
+            veggies = self.prolog.ask_veggies()
+
             await bot.sendMessage(
               id, 
               "placeholder - veggies",
@@ -72,7 +78,9 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
 
           elif (msg['text'] in self.all_veggie_options):
-            sauces = self.all_sauce_options
+            self.prolog.add_veggie(msg['text'])
+            sauces = self.prolog.ask_sauces()
+            
             await bot.sendMessage(
               id, 
               "placeholder - sauces",
@@ -80,7 +88,9 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
 
           elif (msg['text'] in self.all_sauce_options):
-            topups = self.all_topup_options
+            self.prolog.add_sauce(msg['text'])
+            topups = self.prolog.ask_topups()
+
             await bot.sendMessage(
               id, 
               "placeholder - topups",
@@ -88,7 +98,9 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
 
           elif (msg['text'] in self.all_topup_options):
-            sides = self.all_side_options
+            self.prolog.add_topup(msg['text'])
+            sides = self.prolog.ask_sides()
+
             await bot.sendMessage(
               id, 
               "placeholder - sides",
@@ -96,6 +108,8 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
             
           elif (msg['text'] in self.all_side_options):
+            self.prolog.add_side(msg['text'])
+
             await bot.sendMessage(
               id, 
               "thank you!",
