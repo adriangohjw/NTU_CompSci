@@ -6,6 +6,18 @@ class PrologConvertor():
   def __init__(self):
     self.prolog = Prolog()
     self.prolog.consult(PROLOG_FILENAME)
+    self.__retractall()
+
+
+  def __retractall(self):
+    self.prolog.retractall("chosen_meals(X)")
+    self.prolog.retractall("chosen_breads(X)")
+    self.prolog.retractall("chosen_mains(X)")
+    self.prolog.retractall("chosen_veggies(X)")
+    self.prolog.retractall("chosen_sauces(X)")
+    self.prolog.retractall("chosen_topups(X)")
+    self.prolog.retractall("chosen_sides(X)")
+    self.prolog.retractall("chosen_drinks(X)")
 
 
   def meals(self):
