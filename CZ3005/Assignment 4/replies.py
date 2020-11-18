@@ -57,7 +57,14 @@ def getAskSides(side_options):
     )
 
 
-def getOrderSummary(meals, breads, mains, veggies, sauces, topups, sides):
+def getAskDrinks(drink_options):
+    return (
+        "🥤 Last question, want drink what?\n"
+        "{}".format(__convertListToNumberedString(drink_options))
+    )
+
+
+def getOrderSummary(meals, breads, mains, veggies, sauces, topups, sides, drinks):
     return (
         "Swee lah, come, I repeat your order\n\n"
         "<b>🍽️ Meal</b>\n"
@@ -74,6 +81,8 @@ def getOrderSummary(meals, breads, mains, veggies, sauces, topups, sides):
         "{topups}\n"
         "<b>🍪 Side</b>\n"
         "{sides}\n"
+        "<b>🥤 Drink</b>\n"
+        "{drinks}\n"
         "Bye!"
     ).format(
         meals=__convertListToNumberedString(meals), 
@@ -82,7 +91,8 @@ def getOrderSummary(meals, breads, mains, veggies, sauces, topups, sides):
         veggies=__convertListToNumberedString(veggies), 
         sauces=__convertListToNumberedString(sauces), 
         topups=__convertListToNumberedString(topups), 
-        sides=__convertListToNumberedString(sides)
+        sides=__convertListToNumberedString(sides),
+        drinks=__convertListToNumberedString(drinks)
     )
 
 

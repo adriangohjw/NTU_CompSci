@@ -43,6 +43,11 @@ class PrologConvertor():
     return self.convert_res_to_list(res)
 
 
+  def drinks(self):
+    res = list(self.prolog.query("drinks(X)"))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
   def add_meal(self, X):
     self.prolog.assertz("chosen_meals({})".format(X))
 
@@ -69,6 +74,10 @@ class PrologConvertor():
 
   def add_side(self, X):
     self.prolog.assertz("chosen_sides({})".format(X))
+
+
+  def add_drink(self, X):
+    self.prolog.assertz("chosen_drinks({})".format(X))
 
 
   def ask_meals(self):
@@ -115,6 +124,11 @@ class PrologConvertor():
     return self.convert_res_to_list(res)
 
 
+  def ask_drinks(self):
+    res = list(self.prolog.query("ask_drinks(X)"))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
   def show_meals(self):
     res = list(self.prolog.query("show_meals(X)"))[0]["X"]
     return self.convert_res_to_list(res)
@@ -147,6 +161,11 @@ class PrologConvertor():
 
   def show_sides(self):
     res = list(self.prolog.query("show_sides(X)"))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
+  def show_drinks(self):
+    res = list(self.prolog.query("show_drinks(X)"))[0]["X"]
     return self.convert_res_to_list(res)
 
 

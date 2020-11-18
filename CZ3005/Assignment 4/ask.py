@@ -24,15 +24,30 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
 
     async def on_chat_message(self, msg):
         _, _, id = telepot.glance(msg)
-        if (msg['text'] in ['/start', '/restart']):
+        if (msg['text'] == '/start'):
             self.__restart()
             meals = self.prolog.meals()
             
+            await bot.sendDocument(id, document=open('images/hello.gif', 'rb'))
             await bot.sendMessage(
                 id, 
                 replies.getWelcome(
                     meal_options=meals, 
-                    restart=(msg['text']=='/restart')
+                    restart=False
+                ),
+                reply_markup=generateKB(meals)
+            )
+
+        elif (msg['text'] == '/restart'):
+            self.__restart()
+            meals = self.prolog.meals()
+            
+            await bot.sendDocument(id, document=open('images/restart.gif', 'rb'))
+            await bot.sendMessage(
+                id, 
+                replies.getWelcome(
+                    meal_options=meals, 
+                    restart=True
                 ),
                 reply_markup=generateKB(meals)
             )
@@ -55,6 +70,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             self.prolog.add_bread(user_input)
             mains = self.prolog.ask_mains()
 
+            await bot.sendPhoto(id, photo=open('images/mains.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskMains(main_options=mains),
@@ -65,6 +81,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             self.prolog.add_main(user_input)
             veggies = self.prolog.ask_veggies()
 
+            await bot.sendPhoto(id, photo=open('images/veggies.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskVeggies(veggie_options=veggies),
@@ -75,6 +92,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             self.prolog.add_veggie(user_input)
             sauces = self.prolog.ask_sauces()
             
+            await bot.sendPhoto(id, photo=open('images/sauces.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskSauces(sauce_options=sauces),
@@ -85,6 +103,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             self.prolog.add_sauce(user_input)
             topups = self.prolog.ask_topups()
 
+            await bot.sendPhoto(id, photo=open('images/topups.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskTopups(topup_options=topups),
@@ -95,14 +114,26 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             self.prolog.add_topup(user_input)
             sides = self.prolog.ask_sides()
 
+            await bot.sendPhoto(id, photo=open('images/sides.png', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskSides(side_options=sides),
               reply_markup=generateKB(sides)
             )
-            
+
           elif (user_input in self.prolog.sides()):
             self.prolog.add_side(user_input)
+            drinks = self.prolog.ask_drinks()
+
+            await bot.sendPhoto(id, photo=open('images/drinks.png', 'rb'))
+            await bot.sendMessage(
+              id, 
+              replies.getAskDrinks(drink_options=drinks),
+              reply_markup=generateKB(drinks)
+            )
+            
+          elif (user_input in self.prolog.drinks()):
+            self.prolog.add_drink(user_input)
 
             await bot.sendMessage(
               id, 
@@ -113,10 +144,20 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
                 veggies=self.prolog.show_veggies(), 
                 sauces=self.prolog.show_sauces(), 
                 topups=self.prolog.show_topups(), 
-                sides=self.prolog.show_sides()
+                sides=self.prolog.show_sides(),
+                drinks=self.prolog.show_drinks()
               ),
               reply_markup=ReplyKeyboardRemove(),
               parse_mode='HTML'
+            )
+            await bot.sendMessage(
+              id, "Wait ah, lemme prepare your order, very fast"
+            )
+            await bot.sendDocument(
+              id, document=open('images/order_completed.gif', 'rb')
+            )
+            await bot.sendMessage(
+              id, "Okay enjoy!"
             )
             
           else:
