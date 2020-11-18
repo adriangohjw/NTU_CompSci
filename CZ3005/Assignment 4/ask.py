@@ -47,7 +47,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             await bot.sendPhoto(id, photo=open('images/breads.png', 'rb'))
             await bot.sendMessage(
               id, 
-              "placeholder - breads",
+              replies.getAskBreads(bread_options=breads),
               reply_markup=generateKB(breads)
             )
 
@@ -57,7 +57,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
 
             await bot.sendMessage(
               id, 
-              "placeholder - mains",
+              replies.getAskMains(main_options=mains),
               reply_markup=generateKB(mains)
             )
 
@@ -67,7 +67,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
 
             await bot.sendMessage(
               id, 
-              "placeholder - veggies",
+              replies.getAskVeggies(veggie_options=veggies),
               reply_markup=generateKB(veggies)
             )
 
@@ -77,7 +77,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             
             await bot.sendMessage(
               id, 
-              "placeholder - sauces",
+              replies.getAskSauces(sauce_options=sauces),
               reply_markup=generateKB(sauces)
             )
 
@@ -87,7 +87,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
 
             await bot.sendMessage(
               id, 
-              "placeholder - topups",
+              replies.getAskTopups(topup_options=topups),
               reply_markup=generateKB(topups)
             )
 
@@ -97,7 +97,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
 
             await bot.sendMessage(
               id, 
-              "placeholder - sides",
+              replies.getAskSides(side_options=sides),
               reply_markup=generateKB(sides)
             )
             
