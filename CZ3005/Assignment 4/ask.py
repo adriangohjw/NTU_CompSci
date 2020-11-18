@@ -17,14 +17,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         super(TelegramBot, self).__init__(*args, **kwargs)
         self.prolog = PrologConvertor()
 
-        self.all_meal_options = self.prolog.meals()
-        self.all_bread_options = self.prolog.breads()
-        self.all_main_options = self.prolog.mains()
-        self.all_veggie_options = self.prolog.veggies()
-        self.all_sauce_options = self.prolog.sauces()
-        self.all_topup_options = self.prolog.topups()
-        self.all_side_options = self.prolog.sides()
-
 
     def __restart(self):
       self.prolog = PrologConvertor()
@@ -34,7 +26,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         _, _, id = telepot.glance(msg)
         if (msg['text'] in ['/start', '/restart']):
             self.__restart()
-            meals = self.all_meal_options
+            meals = self.prolog.meals()
             
             await bot.sendMessage(
                 id, 
@@ -46,7 +38,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
 
         else:
-          if (msg['text'] in self.all_meal_options):
+          if (msg['text'] in self.prolog.meals()):
             self.prolog.add_meal(msg['text'])
             breads = self.prolog.ask_breads()
 
@@ -57,7 +49,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(breads)
             )
 
-          elif (msg['text'] in self.all_bread_options):
+          elif (msg['text'] in self.prolog.breads()):
             self.prolog.add_bread(msg['text'])
             mains = self.prolog.ask_mains()
 
@@ -67,7 +59,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(mains)
             )
 
-          elif (msg['text'] in self.all_main_options):
+          elif (msg['text'] in self.prolog.mains()):
             self.prolog.add_main(msg['text'])
             veggies = self.prolog.ask_veggies()
 
@@ -77,7 +69,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(veggies)
             )
 
-          elif (msg['text'] in self.all_veggie_options):
+          elif (msg['text'] in self.prolog.veggies()):
             self.prolog.add_veggie(msg['text'])
             sauces = self.prolog.ask_sauces()
             
@@ -87,7 +79,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(sauces)
             )
 
-          elif (msg['text'] in self.all_sauce_options):
+          elif (msg['text'] in self.prolog.sauces()):
             self.prolog.add_sauce(msg['text'])
             topups = self.prolog.ask_topups()
 
@@ -97,7 +89,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(topups)
             )
 
-          elif (msg['text'] in self.all_topup_options):
+          elif (msg['text'] in self.prolog.topups()):
             self.prolog.add_topup(msg['text'])
             sides = self.prolog.ask_sides()
 
@@ -107,7 +99,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
               reply_markup=generateKB(sides)
             )
             
-          elif (msg['text'] in self.all_side_options):
+          elif (msg['text'] in self.prolog.sides()):
             self.prolog.add_side(msg['text'])
 
             await bot.sendMessage(
