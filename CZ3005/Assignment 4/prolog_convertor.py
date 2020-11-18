@@ -29,13 +29,15 @@ class PrologConvertor():
 
 
   def sauces(self):
-    res = list(self.prolog.query("fatty_sauces(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    res_1 = list(self.prolog.query("fatty_sauces(X)"))[0]["X"]
+    res_2 = list(self.prolog.query("non_fatty_sauces(X)"))[0]["X"]
+    return self.convert_res_to_list(res_1) + self.convert_res_to_list(res_2)
 
 
   def topups(self):
-    res = list(self.prolog.query("cheese_topups(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
+    res_1 = list(self.prolog.query("cheese_topups(X)"))[0]["X"]
+    res_2 = list(self.prolog.query("non_cheese_topups(X)"))[0]["X"]
+    return self.convert_res_to_list(res_1) + self.convert_res_to_list(res_2)
 
 
   def sides(self):
