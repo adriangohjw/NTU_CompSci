@@ -115,6 +115,41 @@ class PrologConvertor():
     return self.convert_res_to_list(res)
 
 
+  def show_meals(self):
+    res = list(self.prolog.query("show_meals(X)"))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
+  def show_breads(self):
+    res = list(self.prolog.query("show_breads(X)"))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
+  def show_mains(self):
+    res = list(self.prolog.query("show_mains(X)"))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
+  def show_veggies(self):
+    res = list(self.prolog.query("show_veggies(X)"))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
+  def show_sauces(self):
+    res = list(self.prolog.query("show_sauces(X)"))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
+  def show_topups(self):
+    res = list(self.prolog.query("show_topups(X)"))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
+  def show_sides(self):
+    res = list(self.prolog.query("show_sides(X)"))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
   def convert_res_to_list(self, res):
     counter = 0
     list_result = []

@@ -104,8 +104,17 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
 
             await bot.sendMessage(
               id, 
-              "thank you!",
-              reply_markup=ReplyKeyboardRemove()
+              replies.getOrderSummary(
+                meals=self.prolog.show_meals(),
+                breads=self.prolog.show_breads(), 
+                mains=self.prolog.show_mains(), 
+                veggies=self.prolog.show_veggies(), 
+                sauces=self.prolog.show_sauces(), 
+                topups=self.prolog.show_topups(), 
+                sides=self.prolog.show_sides()
+              ),
+              reply_markup=ReplyKeyboardRemove(),
+              parse_mode='HTML'
             )
           else:
             print(111)
