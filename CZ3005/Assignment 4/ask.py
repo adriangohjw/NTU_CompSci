@@ -202,37 +202,35 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         else:
             user_input = msg['text'].lower().replace(" ", "_")
 
-            if user_input in self.prolog.meals():
-                self.prolog.add_meal(user_input)
+            if user_input not in self.prolog.drinks():
+                if user_input in self.prolog.meals():
+                    self.prolog.add_meal(user_input)
 
-            elif user_input in self.prolog.breads():
-                self.prolog.add_bread(user_input)
+                elif user_input in self.prolog.breads():
+                    self.prolog.add_bread(user_input)
 
-            elif user_input in self.prolog.mains():
-                self.prolog.add_main(user_input)
+                elif user_input in self.prolog.mains():
+                    self.prolog.add_main(user_input)
 
-            elif user_input in self.prolog.veggies():
-                self.prolog.add_veggie(user_input)
-                
-            elif user_input in self.prolog.sauces():
-                self.prolog.add_sauce(user_input)
+                elif user_input in self.prolog.veggies():
+                    self.prolog.add_veggie(user_input)
+                    
+                elif user_input in self.prolog.sauces():
+                    self.prolog.add_sauce(user_input)
 
-            elif user_input in self.prolog.topups():
-                self.prolog.add_topup(user_input)
+                elif user_input in self.prolog.topups():
+                    self.prolog.add_topup(user_input)
 
-            elif user_input in self.prolog.sides():
-                self.prolog.add_side(user_input)
-                
-            elif user_input in self.prolog.drinks():
+                elif user_input in self.prolog.sides():
+                    self.prolog.add_side(user_input)
+
+                await self.__updateCounter()
+                await self.__ask(id, bot, self.question_lists[self.counter])
+
+            else:
                 self.prolog.add_drink(user_input)
                 await self.__updateCounter()
                 await self.__ask(id, bot, None)
-                
-            else:
-                print("Error processig input - Invalid input")
-
-            await self.__updateCounter()
-            await self.__ask(id, bot, self.question_lists[self.counter])
           
 
 bot = telepot.aio.DelegatorBot(TOKEN, [
