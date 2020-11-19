@@ -36,6 +36,18 @@ healthy_drinks([mineral_water, orange_juice, green_tea, coffee]).
 unhealthy_drinks([fountain_drinks]).
 
 
+% simplified aggregator
+all_options(A, X):-
+    A == meals -> meals(X);
+    A == breads -> breads(X);
+    A == mains -> mains(X);
+    A == veggies -> veggies(X);
+    A == sauces -> sauces(X);
+    A == topups -> topups(X);
+    A == sides -> sides(X);
+    A == drinks -> drinks(X).
+
+
 % Return a list of all the breads available
 breads(X):-
     vegan_breads(B1), non_vegan_breads(B2), append(B1, B2, X).
@@ -182,13 +194,3 @@ show_sides(X):-
     findall(X, selected_sides(X), X).
 show_drinks(X):-
     findall(X, selected_drinks(X), X).
-
-all_options(X, Y):-
-    X == meals -> meals(Y);
-    X == breads -> breads(Y);
-    X == mains -> mains(Y);
-    X == veggies -> veggies(Y);
-    X == sauces -> sauces(Y);
-    X == topups -> topups(Y);
-    X == sides -> sides(Y);
-    X == drinks -> drinks(Y).

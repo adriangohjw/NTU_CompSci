@@ -20,43 +20,8 @@ class PrologConvertor():
     self.prolog.retractall("selected_drinks(X)")
 
 
-  def meals(self):
-    res = list(self.prolog.query("meals(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
-
-
-  def breads(self):
-    res = list(self.prolog.query("breads(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
-
-
-  def mains(self):
-    res = list(self.prolog.query("mains(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
-
-
-  def veggies(self):
-    res = list(self.prolog.query("veggies(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
-
-
-  def sauces(self):
-    res = list(self.prolog.query("sauces(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
-
-
-  def topups(self):
-    res = list(self.prolog.query("topups(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
-
-
-  def sides(self):
-    res = list(self.prolog.query("sides(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
-
-
-  def drinks(self):
-    res = list(self.prolog.query("drinks(X)"))[0]["X"]
+  def all_options(self, category):
+    res = list(self.prolog.query("all_options({}, X)".format(category)))[0]["X"]
     return self.convert_res_to_list(res)
 
 

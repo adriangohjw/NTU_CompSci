@@ -205,26 +205,26 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         else:
             user_input = msg['text'].lower().replace(" ", "_")
 
-            if user_input not in self.prolog.drinks():
-                if user_input in self.prolog.meals():
+            if user_input not in self.prolog.all_options("drinks"):
+                if user_input in self.prolog.all_options("meals"):
                     self.prolog.add_meal(user_input)
 
-                elif user_input in self.prolog.breads():
+                elif user_input in self.prolog.all_options("breads"):
                     self.prolog.add_bread(user_input)
 
-                elif user_input in self.prolog.mains():
+                elif user_input in self.prolog.all_options("mains"):
                     self.prolog.add_main(user_input)
 
-                elif user_input in self.prolog.veggies():
+                elif user_input in self.prolog.all_options("veggies"):
                     self.prolog.add_veggie(user_input)
                     
-                elif user_input in self.prolog.sauces():
+                elif user_input in self.prolog.all_options("sauces"):
                     self.prolog.add_sauce(user_input)
 
-                elif user_input in self.prolog.topups():
+                elif user_input in self.prolog.all_options("topups"):
                     self.prolog.add_topup(user_input)
 
-                elif user_input in self.prolog.sides():
+                elif user_input in self.prolog.all_options("sides"):
                     self.prolog.add_side(user_input)
 
                 await self.__updateCounter()
