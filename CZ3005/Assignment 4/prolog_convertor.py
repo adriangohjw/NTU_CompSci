@@ -25,6 +25,11 @@ class PrologConvertor():
     return self.convert_res_to_list(res)
 
 
+  def available_options(self, category):
+    res = list(self.prolog.query("available_options({}, X)".format(category)))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
   def add_meal(self, X):
     self.prolog.assertz("selected_meals({})".format(X))
 
@@ -55,79 +60,6 @@ class PrologConvertor():
 
   def add_drink(self, X):
     self.prolog.assertz("selected_drinks({})".format(X))
-
-
-  def ask_meals(self):
-    res = list(self.prolog.query("ask_meals(X)"))[0]["X"]
-    return self.convert_res_to_list(res)
-
-
-  def ask_breads(self):
-    res = list(self.prolog.query("ask_breads(X)"))[0]["X"]
-    if not res:
-      return []
-    elif type(res[0][0]).__name__ == "Atom":
-      return self.convert_res_to_list(res[0])
-    else:
-      return self.convert_res_to_list(res[0][0])
-
-
-  def ask_mains(self):
-    res = list(self.prolog.query("ask_mains(X)"))[0]["X"]
-    if not res:
-      return []
-    elif type(res[0][0]).__name__ == "Atom":
-      return self.convert_res_to_list(res[0])
-    else:
-      return self.convert_res_to_list(res[0][0])
-
-
-  def ask_veggies(self):
-    res = list(self.prolog.query("ask_veggies(X)"))[0]["X"]
-    if not res:
-      return []
-    else:
-      return self.convert_res_to_list(res[0])
-
-
-  def ask_sauces(self):
-    res = list(self.prolog.query("ask_sauces(X)"))[0]["X"]
-    if not res:
-      return []
-    elif type(res[0][0]).__name__ == "Atom":
-      return self.convert_res_to_list(res[0])
-    else:
-      return self.convert_res_to_list(res[0][0])
-
-  
-  def ask_topups(self):
-    res = list(self.prolog.query("ask_topups(X)"))[0]["X"]
-    if not res:
-      return []
-    elif type(res[0][0]).__name__ == "Atom":
-      return self.convert_res_to_list(res[0])
-    else:
-      return self.convert_res_to_list(res[0][0])
-
-
-  def ask_sides(self):
-    res = list(self.prolog.query("ask_sides(X)"))[0]["X"]
-    if not res:
-      return []
-    elif type(res[0][0]).__name__ == "Atom":
-      return self.convert_res_to_list(res[0])
-    else:
-      return self.convert_res_to_list(res[0][0])
-
-
-  def ask_drinks(self):
-    res = list(self.prolog.query("ask_drinks(X)"))[0]["X"]
-    if not res:
-      return []
-    elif type(res[0][0]).__name__ == "Atom":
-      return self.convert_res_to_list(res[0])
-    else:
-      return self.convert_res_to_list(res[0][0])
 
 
   def show_meals(self):

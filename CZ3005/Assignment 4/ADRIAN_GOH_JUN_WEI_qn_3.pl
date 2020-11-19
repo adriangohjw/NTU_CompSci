@@ -4,6 +4,10 @@ append([H|X], Y, [H|Z]):-
     append(X, Y, Z).
 
 
+% creating an empty list variable
+empty_list([]).
+
+
 % Facts to check conditions
 healthy_meal(healthy).
 value_meal(value).
@@ -47,6 +51,17 @@ all_options(A, X):-
     A == sides -> sides(X);
     A == drinks -> drinks(X).
 
+% simplified aggregator for available options for each category based on inputs
+available_options(A, X):-
+    A == meals -> ask_meals(X);
+    A == breads -> ask_breads(X);
+    A == mains -> ask_mains(X);
+    A == veggies -> ask_veggies(X);
+    A == sauces -> ask_sauces(X);
+    A == topups -> ask_topups(X);
+    A == sides -> ask_sides(X);
+    A == drinks -> ask_drinks(X).
+
 
 % Return a list of all the breads available
 breads(X):-
@@ -86,95 +101,54 @@ ask_meals(X):-
 % Return a list of possible breads based on previous choices
 % Vegan meals do not have honey oat as an option, return vegan_breads
 ask_breads(X):-
-    findall(
-        X,
-        (
-            selected_meals(Y), vegan_meal(Y) -> vegan_breads(X);   
-            breads(X)
-        ),
-        X
-    ).
+    selected_meals(Y), vegan_meal(Y) -> vegan_breads(X);   
+    breads(X).
 
 
 % Return a list of possible mains based on previous choices
 % Value meals do not have expensive mains as an option, return value_mains
 % Vegan and Veggie meals do not have main options, return empty list [].
 ask_mains(X):-
-    findall(
-        X,
-        (
-            selected_meals(Y), \+ vegan_meal(Y), \+ veggie_meal(Y) -> (
-                value_meal(Y) -> value_mains(X); 
-                mains(X)
-            )
-        ),
-        X
-    ).
+    selected_meals(Y), vegan_meal(Y) -> empty_list(X);
+    selected_meals(Y), veggie_meal(Y) -> empty_list(X);
+    selected_meals(Y), value_meal(Y) -> value_mains(X); 
+    mains(X).
 
 
 % Return a list of possible veggies based on previous choices
 % Meaty delight meals do not have veggie options, return empty list [].
 ask_veggies(X):-
-    findall(
-        X,
-        (selected_meals(Y), \+ meaty_delight_meal(Y), veggies(X)),
-        X
-    ).
+    selected_meals(Y), \+ meaty_delight_meal(Y), veggies(X).
 
 
 % Return a list of possible sauces based on previous choices
 % Healthy meals do not have unhealthy sauces, return a list containing only healthy_sauces
 ask_sauces(X):-
-    findall(
-        X,
-        (
-            selected_meals(Y), healthy_meal(Y) -> healthy_sauces(X);   
-            sauces(X)
-        ),
-        X
-    ).
+    selected_meals(Y), healthy_meal(Y) -> healthy_sauces(X);   
+    sauces(X).
 
 
 % Return a list of possible top-ups based on previous choices
 % Value meal does not have topup, returns an empty list
 % Vegan meal does not have non vegan topups, return a list containing vegan_topups
 ask_topups(X):-
-    findall(
-        X,
-        (
-            selected_meals(Y), \+ value_meal(Y) -> (
-                vegan_meal(Y) -> vegan_topups(X); 
-                topups(X)
-            )
-        ),
-        X
-    ).
+    selected_meals(Y), value_meal(Y) -> empty_list(X);
+    selected_meals(Y), vegan_meal(Y) -> vegan_topups(X); 
+    topups(X).
 
 
 % Return a list of possible sides based on previous choices
 % Healthy meals does not have unhealthy sides, return a list containing healthy_sides
 ask_sides(X):-
-    findall(
-        X,
-        (
-            selected_meals(Y), healthy_meal(Y) -> healthy_sides(X);   
-            sides(X)
-        ),
-        X
-    ).
+    selected_meals(Y), healthy_meal(Y) -> healthy_sides(X);   
+    sides(X).
 
 
 % Return a list of possible drinks based on previous choices
 % Healthy meals does not have unhealthy drinks, return a list containing healthy_drinks
 ask_drinks(X):-
-    findall(
-        X,
-        (
-            selected_meals(Y), healthy_meal(Y) -> healthy_drinks(X);   
-            drinks(X)
-        ),
-        X
-    ).
+    selected_meals(Y), healthy_meal(Y) -> healthy_drinks(X);   
+    drinks(X).
 
 
 % Return a list containing corresponding user choice
