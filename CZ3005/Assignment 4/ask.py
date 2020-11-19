@@ -37,7 +37,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         if question == 'meals':
             meals = self.prolog.selectable_input_options(question)
 
-            #await bot.sendDocument(id, document=open('images/hello.gif', 'rb'))
             await bot.sendMessage(
                 id, 
                 replies.getWelcome(
@@ -50,7 +49,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         elif question == 'breads':
             breads = self.prolog.selectable_input_options(question)
 
-            #await bot.sendPhoto(id, photo=open('images/breads.png', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskBreads(bread_options=breads),
@@ -60,7 +58,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         elif question == 'mains':
             mains = self.prolog.selectable_input_options(question)
 
-            #await bot.sendPhoto(id, photo=open('images/mains.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskMains(main_options=mains),
@@ -70,7 +67,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         elif question == 'veggies':
             veggies = self.prolog.selectable_input_options(question)
 
-            #await bot.sendPhoto(id, photo=open('images/veggies.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskVeggies(veggie_options=veggies),
@@ -80,7 +76,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         elif question == 'sauces':
             sauces = self.prolog.selectable_input_options(question)
             
-            #await bot.sendPhoto(id, photo=open('images/sauces.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskSauces(sauce_options=sauces),
@@ -90,7 +85,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         elif question == 'topups':
             topups = self.prolog.selectable_input_options(question)
 
-            #await bot.sendPhoto(id, photo=open('images/topups.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskTopups(topup_options=topups),
@@ -100,7 +94,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         elif question == 'sides':
             sides = self.prolog.selectable_input_options(question)
 
-            #await bot.sendPhoto(id, photo=open('images/sides.png', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskSides(side_options=sides),
@@ -110,7 +103,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
         elif question == 'drinks':
             drinks = self.prolog.selectable_input_options(question)
 
-            #await bot.sendPhoto(id, photo=open('images/drinks.png', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskDrinks(drink_options=drinks),
@@ -158,7 +150,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             self.__restart()
             meals = self.prolog.available_options("meals")
             
-            #await bot.sendDocument(id, document=open('images/restart.gif', 'rb'))
             await bot.sendMessage(
                 id, 
                 replies.getWelcome(
