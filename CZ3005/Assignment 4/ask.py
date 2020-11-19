@@ -26,48 +26,16 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
 
 
     async def __updateCounter(self):
-        try:
-            question = self.question_lists[self.counter]
-
-            if question == 'meals':
-                options = self.prolog.available_options(question)
-
-            elif question == 'breads':
-                options = self.prolog.available_options(question)
-                
-            elif question == 'mains':
-                options = self.prolog.available_options(question)
-
-            elif question == 'veggies':
-                options = self.prolog.available_options(question)
-
-            elif question == 'sauces':
-                options = self.prolog.available_options(question)
-
-            elif question == 'topups':
-                options = self.prolog.available_options(question)
-
-            elif question == 'sides':
-                options = self.prolog.available_options(question)
-
-            elif question == 'drinks':
-                options = self.prolog.available_options(question)
-
-            else:
-                print("Error")
-
-            if not options: # if empty
-                self.counter += 1
-
-        except:
-            pass
+        next_question = self.question_lists[self.counter + 1]
+        if self.prolog.available_options(next_question):
+            self.counter += 1
+        else:
+            self.counter += 2
 
 
     async def __ask(self, id, bot, question):
-        self.counter += 1
-
         if question == 'meals':
-            meals = self.prolog.available_options(question)
+            meals = self.prolog.selectable_input_options(question)
 
             #await bot.sendDocument(id, document=open('images/hello.gif', 'rb'))
             await bot.sendMessage(
@@ -80,7 +48,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
 
         elif question == 'breads':
-            breads = self.prolog.available_options(question)
+            breads = self.prolog.selectable_input_options(question)
 
             #await bot.sendPhoto(id, photo=open('images/breads.png', 'rb'))
             await bot.sendMessage(
@@ -90,7 +58,7 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
 
         elif question == 'mains':
-            mains = self.prolog.available_options(question)
+            mains = self.prolog.selectable_input_options(question)
 
             #await bot.sendPhoto(id, photo=open('images/mains.jpg', 'rb'))
             await bot.sendMessage(
@@ -100,47 +68,47 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
 
         elif question == 'veggies':
-            veggies = self.prolog.available_options(question)
+            veggies = self.prolog.selectable_input_options(question)
 
             #await bot.sendPhoto(id, photo=open('images/veggies.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskVeggies(veggie_options=veggies),
-              reply_markup=generateKB(veggies)
+              reply_markup=generateKB(veggies, add_skip=True)
             )
 
         elif question == 'sauces':
-            sauces = self.prolog.available_options(question)
+            sauces = self.prolog.selectable_input_options(question)
             
             #await bot.sendPhoto(id, photo=open('images/sauces.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskSauces(sauce_options=sauces),
-              reply_markup=generateKB(sauces)
+              reply_markup=generateKB(sauces, add_skip=True)
             )
 
         elif question == 'topups':
-            topups = self.prolog.available_options(question)
+            topups = self.prolog.selectable_input_options(question)
 
             #await bot.sendPhoto(id, photo=open('images/topups.jpg', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskTopups(topup_options=topups),
-              reply_markup=generateKB(topups)
+              reply_markup=generateKB(topups, add_skip=True)
             )
 
         elif question == 'sides':
-            sides = self.prolog.available_options(question)
+            sides = self.prolog.selectable_input_options(question)
 
             #await bot.sendPhoto(id, photo=open('images/sides.png', 'rb'))
             await bot.sendMessage(
               id, 
               replies.getAskSides(side_options=sides),
-              reply_markup=generateKB(sides)
+              reply_markup=generateKB(sides, add_skip=True)
             )
 
         elif question == 'drinks':
-            drinks = self.prolog.available_options(question)
+            drinks = self.prolog.selectable_input_options(question)
 
             #await bot.sendPhoto(id, photo=open('images/drinks.png', 'rb'))
             await bot.sendMessage(
@@ -150,7 +118,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             )
 
         else:
-            self.counter += 0
             await bot.sendMessage(
               id, 
               replies.getOrderSummary(
@@ -206,33 +173,52 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             user_input = msg['text'].lower().replace(" ", "_")
 
             if user_input not in self.prolog.all_options("drinks"):
-                if user_input in self.prolog.all_options("meals"):
+                if "skip" in user_input:
+                    await self.__updateCounter()
+                
+                elif user_input in self.prolog.all_options("meals"):
                     self.prolog.add_meal(user_input)
+
+                    await self.__updateCounter()
 
                 elif user_input in self.prolog.all_options("breads"):
                     self.prolog.add_bread(user_input)
 
+                    await self.__updateCounter()
+
                 elif user_input in self.prolog.all_options("mains"):
                     self.prolog.add_main(user_input)
+
+                    await self.__updateCounter()
 
                 elif user_input in self.prolog.all_options("veggies"):
                     self.prolog.add_veggie(user_input)
                     
+                    if not self.prolog.selectable_input_options("veggies"):
+                        await self.__updateCounter()
+                    
                 elif user_input in self.prolog.all_options("sauces"):
                     self.prolog.add_sauce(user_input)
 
+                    if not self.prolog.selectable_input_options("sauces"):
+                        await self.__updateCounter()
+                        
                 elif user_input in self.prolog.all_options("topups"):
                     self.prolog.add_topup(user_input)
 
+                    if not self.prolog.selectable_input_options("topups"):
+                        await self.__updateCounter()
+                        
                 elif user_input in self.prolog.all_options("sides"):
                     self.prolog.add_side(user_input)
 
-                await self.__updateCounter()
+                    if not self.prolog.selectable_input_options("sides"):
+                        await self.__updateCounter()
+                        
                 await self.__ask(id, bot, self.question_lists[self.counter])
 
             else:
                 self.prolog.add_drink(user_input)
-                await self.__updateCounter()
                 await self.__ask(id, bot, None)
           
 

@@ -26,13 +26,17 @@ class PrologConvertor():
 
 
   def available_options(self, category):
-    res = list(self.prolog.query("available_options({}, X)".format(category)))[0]["X"]
-    return self.convert_res_to_list(res)
+    res = list(self.prolog.query("available_options({}, X)".format(category)))
+    return res if res == [] else self.convert_res_to_list(res[0]["X"])
 
 
   def selected_options(self, category):
-    res = list(self.prolog.query("selected_options({}, X)".format(category)))[0]["X"]
-    return self.convert_res_to_list(res)
+    res = list(self.prolog.query("selected_options({}, X)".format(category)))
+    return res if res == [] else self.convert_res_to_list(res[0]["X"])
+
+
+  def selectable_input_options(self, category):
+    return list(set(self.available_options(category)) - set(self.selected_options(category)))
 
 
   def add_meal(self, X):
