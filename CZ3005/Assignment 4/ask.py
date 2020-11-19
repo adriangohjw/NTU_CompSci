@@ -158,7 +158,6 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
                 ),
                 reply_markup=generateKB(meals)
             )
-            self.counter += 1
 
         else:
             user_input = msg['text'].lower().replace(" ", "_")
