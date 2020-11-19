@@ -154,14 +154,14 @@ class TelegramBot(telepot.aio.helper.ChatHandler):
             await bot.sendMessage(
               id, 
               replies.getOrderSummary(
-                meals=self.prolog.show_meals(),
-                breads=self.prolog.show_breads(), 
-                mains=self.prolog.show_mains(), 
-                veggies=self.prolog.show_veggies(), 
-                sauces=self.prolog.show_sauces(), 
-                topups=self.prolog.show_topups(), 
-                sides=self.prolog.show_sides(),
-                drinks=self.prolog.show_drinks()
+                meals=self.prolog.selected_options("meals"),
+                breads=self.prolog.selected_options("breads"), 
+                mains=self.prolog.selected_options("mains"), 
+                veggies=self.prolog.selected_options("veggies"), 
+                sauces=self.prolog.selected_options("sauces"), 
+                topups=self.prolog.selected_options("topups"), 
+                sides=self.prolog.selected_options("sides"),
+                drinks=self.prolog.selected_options("drinks")
               ),
               reply_markup=ReplyKeyboardRemove(),
               parse_mode='HTML'

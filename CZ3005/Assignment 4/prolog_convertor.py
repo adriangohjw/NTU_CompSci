@@ -30,6 +30,11 @@ class PrologConvertor():
     return self.convert_res_to_list(res)
 
 
+  def selected_options(self, category):
+    res = list(self.prolog.query("selected_options({}, X)".format(category)))[0]["X"]
+    return self.convert_res_to_list(res)
+
+
   def add_meal(self, X):
     self.prolog.assertz("selected_meals({})".format(X))
 
@@ -60,70 +65,6 @@ class PrologConvertor():
 
   def add_drink(self, X):
     self.prolog.assertz("selected_drinks({})".format(X))
-
-
-  def show_meals(self):
-    try: 
-      res = list(self.prolog.query("show_meals(X)"))[0]["X"]
-      return self.convert_res_to_list(res)
-    except prolog.PrologError:
-      return []
-
-
-  def show_breads(self):
-    try: 
-      res = list(self.prolog.query("show_breads(X)"))[0]["X"]
-      return self.convert_res_to_list(res)
-    except prolog.PrologError:
-      return []
-
-
-  def show_mains(self):
-    try: 
-      res = list(self.prolog.query("show_mains(X)"))[0]["X"]
-      return self.convert_res_to_list(res)
-    except prolog.PrologError:
-      return []
-
-
-  def show_veggies(self):
-    try: 
-      res = list(self.prolog.query("show_veggies(X)"))[0]["X"]
-      return self.convert_res_to_list(res)
-    except prolog.PrologError:
-      return []
-
-
-  def show_sauces(self):
-    try: 
-      res = list(self.prolog.query("show_sauces(X)"))[0]["X"]
-      return self.convert_res_to_list(res)
-    except prolog.PrologError:
-      return []
-
-
-  def show_topups(self):
-    try: 
-      res = list(self.prolog.query("show_topups(X)"))[0]["X"]
-      return self.convert_res_to_list(res)
-    except prolog.PrologError:
-      return []
-
-
-  def show_sides(self):
-    try: 
-      res = list(self.prolog.query("show_sides(X)"))[0]["X"]
-      return self.convert_res_to_list(res)
-    except prolog.PrologError:
-      return []
-
-
-  def show_drinks(self):
-    try: 
-      res = list(self.prolog.query("show_drinks(X)"))[0]["X"]
-      return self.convert_res_to_list(res)
-    except prolog.PrologError:
-      return []
 
 
   def convert_res_to_list(self, res):

@@ -62,6 +62,17 @@ available_options(A, X):-
     A == sides -> ask_sides(X);
     A == drinks -> ask_drinks(X).
 
+% simplified aggregator for selected options for each category
+selected_options(A, X):-
+    A == meals -> findall(X, selected_meals(X), X);
+    A == breads -> findall(X, selected_breads(X), X);
+    A == mains -> findall(X, selected_mains(X), X);
+    A == veggies -> findall(X, selected_veggies(X), X);
+    A == sauces -> findall(X, selected_sauces(X), X);
+    A == topups -> findall(X, selected_topups(X), X);
+    A == sides -> findall(X, selected_sides(X), X);
+    A == drinks -> findall(X, selected_drinks(X), X).
+
 
 % Return a list of all the breads available
 breads(X):-
@@ -149,22 +160,3 @@ ask_sides(X):-
 ask_drinks(X):-
     selected_meals(Y), healthy_meal(Y) -> healthy_drinks(X);   
     drinks(X).
-
-
-% Return a list containing corresponding user choice
-show_meals(X):-
-    findall(X, selected_meals(X), X).
-show_breads(X):-
-    findall(X, selected_breads(X), X).
-show_mains(X):-
-    findall(X, selected_mains(X), X).
-show_veggies(X):-
-    findall(X, selected_veggies(X), X).
-show_sauces(X):-
-    findall(X, selected_sauces(X), X).
-show_topups(X):-
-    findall(X, selected_topups(X), X).
-show_sides(X):-
-    findall(X, selected_sides(X), X).
-show_drinks(X):-
-    findall(X, selected_drinks(X), X).
