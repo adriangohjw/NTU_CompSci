@@ -10,14 +10,14 @@ class PrologConvertor():
 
 
   def __retractall(self):
-    self.prolog.retractall("chosen_meals(X)")
-    self.prolog.retractall("chosen_breads(X)")
-    self.prolog.retractall("chosen_mains(X)")
-    self.prolog.retractall("chosen_veggies(X)")
-    self.prolog.retractall("chosen_sauces(X)")
-    self.prolog.retractall("chosen_topups(X)")
-    self.prolog.retractall("chosen_sides(X)")
-    self.prolog.retractall("chosen_drinks(X)")
+    self.prolog.retractall("selected_meals(X)")
+    self.prolog.retractall("selected_breads(X)")
+    self.prolog.retractall("selected_mains(X)")
+    self.prolog.retractall("selected_veggies(X)")
+    self.prolog.retractall("selected_sauces(X)")
+    self.prolog.retractall("selected_topups(X)")
+    self.prolog.retractall("selected_sides(X)")
+    self.prolog.retractall("selected_drinks(X)")
 
 
   def meals(self):
@@ -27,18 +27,12 @@ class PrologConvertor():
 
   def breads(self):
     res = list(self.prolog.query("breads(X)"))[0]["X"]
-    if not res:
-      return []
-    else:
-      return self.convert_res_to_list(res[0])
+    return self.convert_res_to_list(res)
 
 
   def mains(self):
     res = list(self.prolog.query("mains(X)"))[0]["X"]
-    if not res:
-      return []
-    else:
-      return self.convert_res_to_list(res[0])
+    return self.convert_res_to_list(res)
 
 
   def veggies(self):
@@ -48,66 +42,54 @@ class PrologConvertor():
 
   def sauces(self):
     res = list(self.prolog.query("sauces(X)"))[0]["X"]
-    if not res:
-      return []
-    else:
-      return self.convert_res_to_list(res[0])
+    return self.convert_res_to_list(res)
 
 
   def topups(self):
     res = list(self.prolog.query("topups(X)"))[0]["X"]
-    if not res:
-      return []
-    else:
-      return self.convert_res_to_list(res[0])
+    return self.convert_res_to_list(res)
 
 
   def sides(self):
     res = list(self.prolog.query("sides(X)"))[0]["X"]
-    if not res:
-      return []
-    else:
-      return self.convert_res_to_list(res[0])
+    return self.convert_res_to_list(res)
 
 
   def drinks(self):
     res = list(self.prolog.query("drinks(X)"))[0]["X"]
-    if not res:
-      return []
-    else:
-      return self.convert_res_to_list(res[0])
+    return self.convert_res_to_list(res)
 
 
   def add_meal(self, X):
-    self.prolog.assertz("chosen_meals({})".format(X))
+    self.prolog.assertz("selected_meals({})".format(X))
 
 
   def add_bread(self, X):
-    self.prolog.assertz("chosen_breads({})".format(X))
+    self.prolog.assertz("selected_breads({})".format(X))
 
 
   def add_main(self, X):
-    self.prolog.assertz("chosen_mains({})".format(X))
+    self.prolog.assertz("selected_mains({})".format(X))
 
   
   def add_veggie(self, X):
-    self.prolog.assertz("chosen_veggies({})".format(X))
+    self.prolog.assertz("selected_veggies({})".format(X))
 
 
   def add_sauce(self, X):
-    self.prolog.assertz("chosen_sauces({})".format(X))
+    self.prolog.assertz("selected_sauces({})".format(X))
 
 
   def add_topup(self, X):
-    self.prolog.assertz("chosen_topups({})".format(X))
+    self.prolog.assertz("selected_topups({})".format(X))
 
 
   def add_side(self, X):
-    self.prolog.assertz("chosen_sides({})".format(X))
+    self.prolog.assertz("selected_sides({})".format(X))
 
 
   def add_drink(self, X):
-    self.prolog.assertz("chosen_drinks({})".format(X))
+    self.prolog.assertz("selected_drinks({})".format(X))
 
 
   def ask_meals(self):

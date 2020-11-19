@@ -38,56 +38,32 @@ unhealthy_drinks([fountain_drinks]).
 
 % Return a list of all the breads available
 breads(X):-
-    findall(
-        X,
-        (vegan_breads(B1), non_vegan_breads(B2), append(B1, B2, X)),
-        X
-    ).
+    vegan_breads(B1), non_vegan_breads(B2), append(B1, B2, X).
 
 
 % Return a list of all the mains available
 mains(X):-
-    findall(
-        X,
-        (value_mains(M1), expensive_mains(M2), append(M1, M2, X)),
-        X
-    ).
+    value_mains(M1), expensive_mains(M2), append(M1, M2, X).
 
 
 % Return a list of all the sauces available
 sauces(X):-
-    findall(
-        X,
-        (healthy_sauces(S1), unhealthy_sauces(S2), append(S1, S2, X)),
-        X
-    ).
+    healthy_sauces(S1), unhealthy_sauces(S2), append(S1, S2, X).
 
 
 % Return a list of all the topups available
 topups(X):-
-    findall(
-        X,
-        (non_vegan_topups(T1), vegan_topups(T2), append(T1, T2, X)),
-        X
-    ).
+    non_vegan_topups(T1), vegan_topups(T2), append(T1, T2, X).
 
 
 % Return a list of all the sides available
 sides(X):-
-    findall(
-        X,
-        (healthy_sides(S1), unhealthy_sides(S2), append(S1, S2, X)),
-        X
-    ).
+    healthy_sides(S1), unhealthy_sides(S2), append(S1, S2, X).
 
 
 % Return a list of all the drinks available
 drinks(X):-
-    findall(
-        X,
-        (healthy_drinks(D1), unhealthy_drinks(D2), append(D1, D2, X)),
-        X
-    ).
+    healthy_drinks(D1), unhealthy_drinks(D2), append(D1, D2, X).
 
     
 % Return a list of possible meals based on previous choices
@@ -101,7 +77,7 @@ ask_breads(X):-
     findall(
         X,
         (
-            chosen_meals(Y), vegan_meal(Y) -> vegan_breads(X);   
+            selected_meals(Y), vegan_meal(Y) -> vegan_breads(X);   
             breads(X)
         ),
         X
@@ -115,7 +91,7 @@ ask_mains(X):-
     findall(
         X,
         (
-            chosen_meals(Y), \+ vegan_meal(Y), \+ veggie_meal(Y) -> (
+            selected_meals(Y), \+ vegan_meal(Y), \+ veggie_meal(Y) -> (
                 value_meal(Y) -> value_mains(X); 
                 mains(X)
             )
@@ -129,7 +105,7 @@ ask_mains(X):-
 ask_veggies(X):-
     findall(
         X,
-        (chosen_meals(Y), \+ meaty_delight_meal(Y), veggies(X)),
+        (selected_meals(Y), \+ meaty_delight_meal(Y), veggies(X)),
         X
     ).
 
@@ -140,7 +116,7 @@ ask_sauces(X):-
     findall(
         X,
         (
-            chosen_meals(Y), healthy_meal(Y) -> healthy_sauces(X);   
+            selected_meals(Y), healthy_meal(Y) -> healthy_sauces(X);   
             sauces(X)
         ),
         X
@@ -154,7 +130,7 @@ ask_topups(X):-
     findall(
         X,
         (
-            chosen_meals(Y), \+ value_meal(Y) -> (
+            selected_meals(Y), \+ value_meal(Y) -> (
                 vegan_meal(Y) -> vegan_topups(X); 
                 topups(X)
             )
@@ -169,7 +145,7 @@ ask_sides(X):-
     findall(
         X,
         (
-            chosen_meals(Y), healthy_meal(Y) -> healthy_sides(X);   
+            selected_meals(Y), healthy_meal(Y) -> healthy_sides(X);   
             sides(X)
         ),
         X
@@ -182,7 +158,7 @@ ask_drinks(X):-
     findall(
         X,
         (
-            chosen_meals(Y), healthy_meal(Y) -> healthy_drinks(X);   
+            selected_meals(Y), healthy_meal(Y) -> healthy_drinks(X);   
             drinks(X)
         ),
         X
@@ -191,18 +167,28 @@ ask_drinks(X):-
 
 % Return a list containing corresponding user choice
 show_meals(X):-
-    findall(X, chosen_meals(X), X).
+    findall(X, selected_meals(X), X).
 show_breads(X):-
-    findall(X, chosen_breads(X), X).
+    findall(X, selected_breads(X), X).
 show_mains(X):-
-    findall(X, chosen_mains(X), X).
+    findall(X, selected_mains(X), X).
 show_veggies(X):-
-    findall(X, chosen_veggies(X), X).
+    findall(X, selected_veggies(X), X).
 show_sauces(X):-
-    findall(X, chosen_sauces(X), X).
+    findall(X, selected_sauces(X), X).
 show_topups(X):-
-    findall(X, chosen_topups(X), X).
+    findall(X, selected_topups(X), X).
 show_sides(X):-
-    findall(X, chosen_sides(X), X).
+    findall(X, selected_sides(X), X).
 show_drinks(X):-
-    findall(X, chosen_drinks(X), X).
+    findall(X, selected_drinks(X), X).
+
+all_options(X, Y):-
+    X == meals -> meals(Y);
+    X == breads -> breads(Y);
+    X == mains -> mains(Y);
+    X == veggies -> veggies(Y);
+    X == sauces -> sauces(Y);
+    X == topups -> topups(Y);
+    X == sides -> sides(Y);
+    X == drinks -> drinks(Y).
