@@ -30,6 +30,7 @@
 | CZ3001 | Advanced Computer Architecture                                                                            | CUDA                                                  |
 | CZ3002 | Advanced Software Engineering                                                                             |                                                       |
 |        | [ScanSmart](https://github.com/adriangohjw/cz3002-advanced-software-engineering)                          | Ruby (Ruby on Rails), Android GitHub Actions          |
+|        | [MVC Assignment 2](https://github.com/adriangohjw/cz3002-assignment2)                                     | Java (Struts2), Maven, MySQL                          |
 | CZ3005 | Artificial Intelligence (AI)                                                                              | Python, Prolog                                        |
 | CX4031 | Database System Principles                                                                                |                                                       |
 | CX4153 | Blockchain Technology                                                                                     | C++                                                   |
