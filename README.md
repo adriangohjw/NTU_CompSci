@@ -28,6 +28,7 @@
 | Year 3 |                                                                                                           |                                                       |
 |--------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
 | CZ3001 | Advanced Computer Architecture                                                                            | CUDA                                                  |
+|        | [Project](https://github.com/adriangohjw/cz3001-ACOA)                                                     | Assembly                                              |
 | CZ3002 | Advanced Software Engineering                                                                             |                                                       |
 |        | [ScanSmart](https://github.com/adriangohjw/cz3002-advanced-software-engineering)                          | Ruby (Ruby on Rails), Android GitHub Actions          |
 |        | [MVC Assignment 2](https://github.com/adriangohjw/cz3002-assignment2)                                     | Java (Struts2), Maven, MySQL                          |
