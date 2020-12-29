@@ -34,6 +34,7 @@
 |        | [MVC Assignment 2](https://github.com/adriangohjw/cz3002-assignment2)                                     | Java (Struts2), Maven, MySQL                          |
 | CZ3005 | Artificial Intelligence (AI)                                                                              | Python, Prolog                                        |
 | CX4031 | Database System Principles                                                                                |                                                       |
+|        | [Project: PICASSO Query Optimizer](https://github.com/adriangohjw/cz4031-DSP-query-optimizer/settings)    | Python                                                |
 | CX4153 | Blockchain Technology                                                                                     | C++                                                   |
 |        | [aDEX (adriangohjw Decentralized EXchanege)](https://github.com/adriangohjw/cx4153-blockchain-technology) | Solidity, Truffle, JavaScript (Express.js), Bootstrap |
 
