@@ -40,7 +40,7 @@
 
 ## On a side note...
 
-[![NodeFlair - Explore](nodeflair_explore.jpg)](http://app.nodeflair.com/explore)
+[![NodeFlair - Explore](nodeflair_explore.jpg)](http://app.nodeflair.com/jobs)
 
 At [NodeFlair](https://www.nodeflair.com/), I've been working on a new product aimed to disrupt the job search experience as a software developer in Singapore.
 
