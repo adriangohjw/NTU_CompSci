@@ -27,6 +27,8 @@
 
 | Year 3 |                                                                                                           |                                                       |
 |--------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| EG0001 | Engineers & Society                                                                                       |                                                       |
+| HW0288 | Engineering Communication II                                                                              |                                                       |
 | CZ3001 | Advanced Computer Architecture                                                                            | CUDA                                                  |
 |        | [Project](https://github.com/adriangohjw/cz3001-ACOA)                                                     | Assembly                                              |
 | CZ3002 | Advanced Software Engineering                                                                             |                                                       |
@@ -41,6 +43,7 @@
 | CX4034 | Information Retrieval                                                                                     |                                                       |
 | CX4153 | Blockchain Technology                                                                                     |                                                       |
 |        | [aDEX (adriangohjw Decentralized EXchanege)](https://github.com/adriangohjw/cx4153-blockchain-technology) | Solidity, Truffle, JavaScript (Express.js), Bootstrap |
+
 
 ## On a side note...
 
