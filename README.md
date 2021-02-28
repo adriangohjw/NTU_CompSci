@@ -27,18 +27,27 @@
 
 | Year 3 |                                                                                                           |                                                       |
 |--------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| EG0001 | Engineers & Society                                                                                       |                                                       |
+| HW0288 | Engineering Communication II                                                                              |                                                       |
 | CZ3001 | Advanced Computer Architecture                                                                            | CUDA                                                  |
+|        | [Project](https://github.com/adriangohjw/cz3001-ACOA)                                                     | Assembly                                              |
 | CZ3002 | Advanced Software Engineering                                                                             |                                                       |
 |        | [ScanSmart](https://github.com/adriangohjw/cz3002-advanced-software-engineering)                          | Ruby (Ruby on Rails), Android GitHub Actions          |
 |        | [MVC Assignment 2](https://github.com/adriangohjw/cz3002-assignment2)                                     | Java (Struts2), Maven, MySQL                          |
+| CZ3004 | Multi-Disciplinary Project                                                                                |                                                       |
 | CZ3005 | Artificial Intelligence (AI)                                                                              | Python, Prolog                                        |
+| CX4013 | Distributed Systems                                                                                       |                                                       |
 | CX4031 | Database System Principles                                                                                |                                                       |
-| CX4153 | Blockchain Technology                                                                                     | C++                                                   |
+|        | [Project: Designing Database](https://github.com/adriangohjw/cz4031-database-system-principles)           | C++                                                   |
+|        | [Project: PICASSO Query Optimizer](https://github.com/adriangohjw/cz4031-DSP-query-optimizer)             | Python                                                |
+| CX4034 | Information Retrieval                                                                                     |                                                       |
+| CX4153 | Blockchain Technology                                                                                     |                                                       |
 |        | [aDEX (adriangohjw Decentralized EXchanege)](https://github.com/adriangohjw/cx4153-blockchain-technology) | Solidity, Truffle, JavaScript (Express.js), Bootstrap |
+
 
 ## On a side note...
 
-[![NodeFlair - Explore](nodeflair_explore.jpg)](http://app.nodeflair.com/explore)
+[![NodeFlair - Explore](nodeflair_explore.jpg)](http://app.nodeflair.com/jobs)
 
 At [NodeFlair](https://www.nodeflair.com/), I've been working on a new product aimed to disrupt the job search experience as a software developer in Singapore.
 
