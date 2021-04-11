@@ -37,13 +37,13 @@
 | CZ3004 | Multi-Disciplinary Project                                                                                |                                                       |
 | CZ3005 | Artificial Intelligence (AI)                                                                              | Python, Prolog                                        |
 | CX4013 | Distributed Systems                                                                                       |                                                       |
+|        | [Project: Distributed Facility Booking System](https://github.com/adriangohjw/cz4013-distributed-systems) | Java                                                  |
 | CX4031 | Database System Principles                                                                                |                                                       |
 |        | [Project: Designing Database](https://github.com/adriangohjw/cz4031-database-system-principles)           | C++                                                   |
 |        | [Project: PICASSO Query Optimizer](https://github.com/adriangohjw/cz4031-DSP-query-optimizer)             | Python                                                |
 | CX4034 | Information Retrieval                                                                                     |                                                       |
 | CX4153 | Blockchain Technology                                                                                     |                                                       |
 |        | [aDEX (adriangohjw Decentralized EXchanege)](https://github.com/adriangohjw/cx4153-blockchain-technology) | Solidity, Truffle, JavaScript (Express.js), Bootstrap |
-
 
 ## On a side note...
 
