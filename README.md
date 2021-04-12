@@ -42,6 +42,7 @@
 |        | [Project: Designing Database](https://github.com/adriangohjw/cz4031-database-system-principles)           | C++                                                   |
 |        | [Project: PICASSO Query Optimizer](https://github.com/adriangohjw/cz4031-DSP-query-optimizer)             | Python                                                |
 | CX4034 | Information Retrieval                                                                                     |                                                       |
+|        | [Search.io - Parler Search Engine](https://github.com/adriangohjw/cz4034-information-retrieval)           | Ruby on Rails, Node.js, ElasticSearch, Streamlit      |
 | CX4153 | Blockchain Technology                                                                                     |                                                       |
 |        | [aDEX (adriangohjw Decentralized EXchanege)](https://github.com/adriangohjw/cx4153-blockchain-technology) | Solidity, Truffle, JavaScript (Express.js), Bootstrap |
 
