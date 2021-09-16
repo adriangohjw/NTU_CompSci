@@ -46,6 +46,10 @@
 | CX4153 | Blockchain Technology                                                                                     |                                                       |
 |        | [aDEX (adriangohjw Decentralized EXchanege)](https://github.com/adriangohjw/cx4153-blockchain-technology) | Solidity, Truffle, JavaScript (Express.js), Bootstrap |
 
+| Year 4 |                                                                      |                                                  |
+|--------|----------------------------------------------------------------------|--------------------------------------------------|
+| BC2402 | Designing & Developing Databases                                     | MySQL                                            |
+
 ## On a side note...
 
 [![NodeFlair - Explore](nodeflair_explore.jpg)](http://app.nodeflair.com/jobs)
