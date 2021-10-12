@@ -50,6 +50,7 @@
 |--------|----------------------------------------------------------------------|--------------------------------------------------|
 | CE2004 | Circuits & Signal Analysis                                           |                                                  |
 | BC2402 | Designing & Developing Databases                                     | MySQL                                            |
+| CZ4032 | Data Analytics and Mining                                            |                                                  |
 
 ## On a side note...
 
