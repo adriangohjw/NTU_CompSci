@@ -1,8 +1,28 @@
-# NTU_CompSci
-<b>NTU Computer Science Tutorials, Labs and Assignments</b>
+# NTU Computer Science
 
+## Introduction
+
+- This repository contains answers and references to tutorials, labs and assignments for the various courses
 - If there are mistakes / better ways of doing things, do submit a pull request or reach out to me!
 - Give me a star if this is useful to you in any way? :)
+
+## Help needed! Here's how to contribute
+
+### Why
+- I have been contirbuting/maintaning this for a few years, and now I am graduating
+- NTU has new refreshed courses - I started in AY2017 (and even took a gap year in between)
+- Give back and help your fellow students (and future juniors) - just like how you have benefited from this! 
+
+### What kind of help is needed?
+- Adding references for new modules that's not in this repository
+- Help fix errors 
+- Update outdated references
+
+### How to help
+- Fork this repository and make a pull request!
+- If your project is a in another repository, you can add it's URL
+
+## NTU Computer Science Tutorials, Labs and Assignments
 
 | Year 1 |                                        |        |
 |--------|----------------------------------------|--------|
