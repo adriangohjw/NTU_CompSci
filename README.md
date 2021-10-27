@@ -1,5 +1,9 @@
 # NTU Computer Science
 
+<img alt="GitHub forks" src="https://img.shields.io/github/forks/adriangohjw/ntu_compsci?style=social"> <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/adriangohjw/ntu_compsci?style=social">
+
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/adriangohjw/ntu_compsci"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/adriangohjw/ntu_compsci">
+
 ## Introduction
 
 - This repository contains answers and references to tutorials, labs and assignments for the various courses
