@@ -73,7 +73,8 @@
 | Year 4 |                                                                                                                |                                                  |
 |--------|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
 | CE2004 | Circuits & Signal Analysis                                                                                     |                                                  |
-| BC2402 | Designing & Developing Databases                                                                               | MySQL                                            |
+| BC2402 | Designing & Developing Databases                                                                               | MySQL, MongoDB                                   |
+|        | [COVID-19 / WHO](https://github.com/adriangohjw/bc2402-designing-developing-databases)                         | MySQL, MongoDB                                   |
 | CZ4032 | Data Analytics and Mining                                                                                      |                                                  |
 |        | [Part 1: CBA and other classifiers](https://github.com/adriangohjw/CZ4032-Data-Mining-and-Analytics)           | Python                                           |
 |        | [Part 2: Technical Review Paper](https://github.com/adriangohjw/cz4032-data-analytics-mining-technical-review) | Python                                           |
