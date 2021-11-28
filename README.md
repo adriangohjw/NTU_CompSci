@@ -70,11 +70,13 @@
 | CX4153 | Blockchain Technology                                                                                     |                                                       |
 |        | [aDEX (adriangohjw Decentralized EXchanege)](https://github.com/adriangohjw/cx4153-blockchain-technology) | Solidity, Truffle, JavaScript (Express.js), Bootstrap |
 
-| Year 4 |                                                                      |                                                  |
-|--------|----------------------------------------------------------------------|--------------------------------------------------|
-| CE2004 | Circuits & Signal Analysis                                           |                                                  |
-| BC2402 | Designing & Developing Databases                                     | MySQL                                            |
-| CZ4032 | Data Analytics and Mining                                            |                                                  |
+| Year 4 |                                                                                                                |                                                  |
+|--------|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| CE2004 | Circuits & Signal Analysis                                                                                     |                                                  |
+| BC2402 | Designing & Developing Databases                                                                               | MySQL                                            |
+| CZ4032 | Data Analytics and Mining                                                                                      |                                                  |
+|        | [Part 1: CBA and other classifiers](https://github.com/adriangohjw/CZ4032-Data-Mining-and-Analytics)           | Python                                           |
+|        | [Part 2: Technical Review Paper](https://github.com/adriangohjw/cz4032-data-analytics-mining-technical-review) | Python                                           |
 
 ## On a side note...
 
