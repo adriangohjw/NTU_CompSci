@@ -26,6 +26,14 @@
 - Fork this repository and make a pull request!
 - If your project is a in another repository, you can add it's URL
 
+## On a side note...
+
+[![NodeFlair - Explore](nodeflair_explore.jpg)](https://nodeflair.com)
+
+At [NodeFlair](https://www.nodeflair.com/), I've been working on a new product aimed to disrupt the job search experience as a software developer in Singapore.
+
+If you are looking for software development internships or jobs, feel free to [check it out](https://nodeflair.com)! Drop me a message if you have any feedback, I'd love to hear from you!
+
 ## NTU Computer Science Tutorials, Labs and Assignments
 
 | Year 1 |                                        |        |
@@ -78,11 +86,3 @@
 | CZ4032 | Data Analytics and Mining                                                                                      |                                                  |
 |        | [Part 1: CBA and other classifiers](https://github.com/adriangohjw/CZ4032-Data-Mining-and-Analytics)           | Python                                           |
 |        | [Part 2: Technical Review Paper](https://github.com/adriangohjw/cz4032-data-analytics-mining-technical-review) | Python                                           |
-
-## On a side note...
-
-[![NodeFlair - Explore](nodeflair_explore.jpg)](https://nodeflair.com)
-
-At [NodeFlair](https://www.nodeflair.com/), I've been working on a new product aimed to disrupt the job search experience as a software developer in Singapore.
-
-If you are looking for software development internships or jobs, feel free to [check it out](https://nodeflair.com)! Drop me a message if you have any feedback, I'd love to hear from you!
