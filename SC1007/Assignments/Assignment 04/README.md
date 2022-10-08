@@ -27,6 +27,9 @@ Unable to check test case. Hopefully someone can share the problem they faced.
 ## Correction of Binary Search Tree  
 Inputs #01 - Should be testing if a grandchild node is smaller than root node on the right side, bigger than root node on the left side. testcase: `3 1 4 -1 -1 2 -1 a`  
 
+![image](https://user-images.githubusercontent.com/32679064/194700885-3015e046-a3a0-4f5f-abf2-94283f8c7745.png)  
+For those having trouble with Assignment 4 BSTCorrection test case 1, I believe its because there isn't a check which checks whether the grandchild node is smaller than the root node on the right subtree, and grandchild node is greater than the root on the left subtree. If anyone has figured it out please share how you approach this check
+
 Guide - Unable to use recursive. If you used recursive and all test case work, please contact me as I want to know how.  
 1) Through a while loop, we store the nodes in a queue (inorder traversal)  
 2) Create another while loop, through that while loop, we will store and dequeue the first item [NODE1]. This will be our node used for comparison  
