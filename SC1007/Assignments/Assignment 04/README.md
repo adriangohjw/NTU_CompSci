@@ -36,3 +36,7 @@ Guide - Unable to use recursive. If you used recursive and all test case work, p
 3) Inside the while loop, use a for loop to loop queue.size times. Inside the for loop, we will store and dequeue the next item in the queue [NODE2]. Using [NOED2], we compare against [NODE1].   
 4) After comparison, we enqueue [NODE2] back into the queue.  
 5) By right, the logic should go like: If there are 3 nodes in the queue, then in (STEP 2), the 1st node will be taken out. The queue will be left with 2 nodes, then loop queue.size times (2 times), each time dequeue the first node in the queue, then compare, then put back the node again. The first iteration will be left with 2 nodes in queue. Then 2nd iteration, we will take out the first node from the queue. Queue is left with 1 node. Do it until queue is empty.  
+
+Illustration on what I explained above:  
+
+https://user-images.githubusercontent.com/32679064/194700955-8967c14c-2c5a-4374-a020-69a5a2e34d8c.mp4
