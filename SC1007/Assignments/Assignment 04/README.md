@@ -40,3 +40,5 @@ Guide - Unable to use recursive. If you used recursive and all test case work, p
 Illustration on what I explained above:  
 
 https://user-images.githubusercontent.com/32679064/194700955-8967c14c-2c5a-4374-a020-69a5a2e34d8c.mp4
+
+I realised the video showed swap the whole node. You need to swap the VALUE of the node instead, leave the node untouched
