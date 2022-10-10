@@ -38,8 +38,8 @@ If you are looking for software development internships or jobs, feel free to [c
 
 | Year 1 |                                        |        |
 |--------|----------------------------------------|--------|
-| CZ1003 | Introduction to Computational Thinking | Python |
-| CZ1007 | Data Structure                         | C      |
+| CZ1003 / SC1003 | Introduction to Computational Thinking | Python |
+| CZ1007 / SC1007 | Data Structure                         | C      |
 | CZ1012 | Engineering Mathematics 2              | Python |
 
 | Year 2 |                                                                      |                                                  |
