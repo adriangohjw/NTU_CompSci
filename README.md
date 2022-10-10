@@ -10,10 +10,14 @@
 - If there are mistakes / better ways of doing things, do submit a pull request or reach out to me!
 - Give me a star if this is useful to you in any way? :)
 
+### Disclaimer:
+
+- Some of the changes are contributed by the community, in which I have zero ways to validate if the solutions are correct
+
 ## Help needed! Here's how to contribute
 
 ### Why
-- I have been contirbuting/maintaning this for a few years, and now I am graduating
+- I have been maintaning this for a few years, and now I have graduated
 - NTU has new refreshed courses - I started in AY2017 (and even took a gap year in between)
 - Give back and help your fellow students (and future juniors) - just like how you have benefited from this! 
 
