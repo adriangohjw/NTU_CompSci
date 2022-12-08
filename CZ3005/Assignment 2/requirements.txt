@@ -1,4 +1,4 @@
-certifi==2020.6.20
+certifi==2022.12.7
 cycler==0.10.0
 importlib-metadata==2.0.0
 kiwisolver==1.2.0
