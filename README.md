@@ -10,6 +10,10 @@
 - If there are mistakes / better ways of doing things, do submit a pull request or reach out to me!
 - Give me a star if this is useful to you in any way? :)
 
+[![Star History Chart](https://api.star-history.com/svg?repos=adriangohjw/NTU_CompSci&type=Date)](https://www.star-history.com/#adriangohjw/NTU_CompSci&Date)
+
+_(I have no idea what happened in 2025)_
+
 ### Disclaimer:
 
 - Some of the changes are contributed by the community, in which I have zero ways to validate if the solutions are correct
@@ -86,3 +90,4 @@ I also write about other engineering challenges I faced at work and how I solved
 | CZ4032 | Data Analytics and Mining                                                                                      |                                                  |
 |        | [Part 1: CBA and other classifiers](https://github.com/adriangohjw/CZ4032-Data-Mining-and-Analytics)           | Python                                           |
 |        | [Part 2: Technical Review Paper](https://github.com/adriangohjw/cz4032-data-analytics-mining-technical-review) | Python                                           |
+
